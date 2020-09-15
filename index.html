@@ -1,0 +1,303 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>PDBe API webinar series &mdash; PDBe API webinar series 1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/jupyter-sphinx.css" type="text/css" />
+  <link rel="stylesheet" href="_static/thebelab.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/styles.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script src="_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Introduction to PDBe programmatic access" href="webinars/web1/webinar.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="#" class="icon icon-home" alt="Documentation Home"> PDBe API webinar series
+          
+
+          
+            
+            <img src="_static/pdbelogo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="webinars/web1/webinar.html">Introduction to PDBe programmatic access</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webinars/web2/webinar.html">Searching with the PDBe API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webinars/web3/webinar.html">Creating complex PDBe API queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webinars/web4/webinar.html">Using the PDBe graph API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webinars/web5/webinar.html">PDBe tools in github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webinars/web6/webinar.html">Data visualisation at PDBe</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">PDBe API webinar series</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>PDBe API webinar series</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/index.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="pdbe-api-webinar-series">
+<h1>PDBe API webinar series<a class="headerlink" href="#pdbe-api-webinar-series" title="Permalink to this headline">¶</a></h1>
+<hr class="docutils" />
+<div class="section" id="event-details">
+<h2>Event details<a class="headerlink" href="#event-details" title="Permalink to this headline">¶</a></h2>
+<p><strong>Event Date</strong>: Tuesday, September 15, 2020 to Tuesday, October 20, 2020</p>
+<p><strong>People</strong>: David Armstrong, John Berrisford, Nurul Nadzirin, Sreenath Nair, Lukas Pravda, Mandar Deshpande</p>
+<p><strong>Location</strong>: Virtual</p>
+<hr class="docutils" />
+<p><img alt="placeholder" src="https://www.ebi.ac.uk/pdbe/sites/ebi.ac.uk.pdbe/files/documents/events/api_webinars_promo.png" /></p>
+<p>We are excited to be offering a 6-part PDBe API webinar series, introducing different levels of programmatic access at PDBe.</p>
+<p>This webinar series will range from basic data retrieval and search using the PDBe API to more advanced features, including access and reuse of PDBe data visualisation components.</p>
+<p>The webinars are free to attend but the number of registrations are limited, therefore it is recommended that you sign up in advance to avoid disappointment. Each webinar has its own individual registration so please sign up for all those that you wish to attend.</p>
+<p>Please find details of the individual webinars and their registration links below:</p>
+</div>
+<div class="section" id="introduction-to-pdbe-programmatic-access-15th-september-2020-15-30-bst">
+<h2>Introduction to PDBe programmatic access - 15th September 2020 15:30 (BST)<a class="headerlink" href="#introduction-to-pdbe-programmatic-access-15th-september-2020-15-30-bst" title="Permalink to this headline">¶</a></h2>
+<p>This webinar will give an introduction to programmatic access at PDBe, highlighting the type of data that is available and how this can be utilised.</p>
+<p><a class="reference external" href="https://attendee.gototraining.com/r/2888436147110127361">Registration link</a></p>
+<p><a class="reference internal" href="webinars/web1/webinar.html"><span class="doc">Materials</span></a></p>
+</div>
+<div class="section" id="searching-with-the-pdbe-api-22nd-september-2020-15-30-bst">
+<h2>Searching with the PDBe API - 22nd September 2020 15:30 (BST)<a class="headerlink" href="#searching-with-the-pdbe-api-22nd-september-2020-15-30-bst" title="Permalink to this headline">¶</a></h2>
+<p>This webinar will introduce the PDBe search API, a powerful Solr-based query system that underlies the PDBe search pages. The breadth of search options will be highlighted, along with specific case studies that demonstrate what is possible through the search API.</p>
+<p><a class="reference external" href="https://attendee.gototraining.com/r/2888436147110127361">Registration link</a></p>
+<p><a class="reference internal" href="webinars/web2/webinar.html"><span class="doc">Materials</span></a></p>
+</div>
+<div class="section" id="creating-complex-pdbe-api-queries-29th-september-2020-15-30-bst">
+<h2>Creating complex PDBe API queries - 29th September 2020 15:30 (BST)<a class="headerlink" href="#creating-complex-pdbe-api-queries-29th-september-2020-15-30-bst" title="Permalink to this headline">¶</a></h2>
+<p>This webinar will demonstrate how to create more complex queries by combining the PDBe search API with numerous other calls. By introducing specific case studies, we will highlight the scope of PDBe programmatic access</p>
+<p><a class="reference external" href="https://attendee.gototraining.com/r/7897381214211130113">Registration link</a></p>
+<p><a class="reference internal" href="webinars/web3/webinar.html"><span class="doc">Materials</span></a></p>
+</div>
+<div class="section" id="using-the-pdbe-graph-api-6th-october-2020-15-30-bst">
+<h2>Using the PDBe graph API - 6th October 2020 15:30 (BST)<a class="headerlink" href="#using-the-pdbe-graph-api-6th-october-2020-15-30-bst" title="Permalink to this headline">¶</a></h2>
+<p>This webinar will introduce the PDBe graph API, which is generated from the PDBe graph database and contains an even richer level of data than our standard API. We will highlight how this API supports our PDBe-KB aggregated views, with specific case studies that demonstrate the possibilities through this API.</p>
+<p><a class="reference external" href="https://attendee.gototraining.com/r/1536781214317670145">Registration link</a></p>
+<p><a class="reference internal" href="webinars/web4/webinar.html"><span class="doc">Materials</span></a></p>
+</div>
+<div class="section" id="pdbe-tools-in-github-13th-october-2020-15-30-bst">
+<h2>PDBe tools in github - 13th October 2020 15:30 (BST)<a class="headerlink" href="#pdbe-tools-in-github-13th-october-2020-15-30-bst" title="Permalink to this headline">¶</a></h2>
+<p>This webinar will show you how to access some of the software packages created at PDBe, used to generate the data displayed on our website. This will include a walkthrough of our github repositories, highlighting the types of packages available, how to access them and some examples of how they can be used.</p>
+<p><a class="reference external" href="https://attendee.gototraining.com/r/8867967407049021185">Registration link</a></p>
+<p><a class="reference internal" href="webinars/web5/webinar.html"><span class="doc">Materials</span></a></p>
+</div>
+<div class="section" id="data-visualisation-at-pdbe-20th-october-2020-15-30-bst">
+<h2>Data visualisation at PDBe - 20th October 2020 15:30 (BST)<a class="headerlink" href="#data-visualisation-at-pdbe-20th-october-2020-15-30-bst" title="Permalink to this headline">¶</a></h2>
+<p>This webinar will introduce some of the data visualisations available from PDBe, how to add these to your own website and how to customise them for your own requirements. There will also be specific case studies that demonstrate how these visualisations can be used and implemented.</p>
+<p><a class="reference external" href="https://attendee.gototraining.com/r/7769197949621776385">Registration link</a></p>
+<p><a class="reference internal" href="webinars/web6/webinar.html"><span class="doc">Materials</span></a></p>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="webinars/web1/webinar.html" class="btn btn-neutral float-right" title="Introduction to PDBe programmatic access" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Protein Data Bank in Europe
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
