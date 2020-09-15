@@ -1,0 +1,12 @@
+sphinx
+recommonmark
+sphinx_rtd_theme
+sphinx-autodoc-typehints
+sphinx-markdown-tables
+nbsphinx
+matplotlib
+ipykernel
+requests
+pandas
+cufflinks
+jupyter-sphinx

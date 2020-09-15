@@ -1,0 +1,38 @@
+name: Tutorials
+
+on:
+    push:
+      branches: 
+        - master
+  
+    pull_request:
+      branches: 
+        - master
+
+jobs:
+    documentation:
+        name: Generate documentation
+        runs-on: ubuntu-latest
+    
+        steps:
+        - uses: actions/checkout@v2
+          with:
+              persist-credentials: false    
+        
+        - uses: actions/setup-python@v2
+          with:
+              python-version: 3.7
+
+        - run: |
+            pip install cython numpy
+            pip install -r requirements.txt
+            wget https://github.com/jgm/pandoc/releases/download/2.10.1/pandoc-2.10.1-1-amd64.deb
+            sudo dpkg -i pandoc-2.10.1-1-amd64.deb
+                
+            cd web
+            make html
+        
+        - uses: peaceiris/actions-gh-pages@v3
+          with:
+            github_token: ${{ secrets.GITHUB_TOKEN }}
+            publish_dir: ./web/_build/html        
