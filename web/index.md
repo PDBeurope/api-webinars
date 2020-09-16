@@ -26,8 +26,6 @@ Please find details of the individual webinars and their registration links belo
 
 This webinar will give an introduction to programmatic access at PDBe, highlighting the type of data that is available and how this can be utilised.
 
-[Registration link](https://attendee.gototraining.com/r/2888436147110127361)
-
 [Materials](webinars/web1/webinar.md)
 
 ## Searching with the PDBe API - 22nd September 2020 15:30 (BST)
