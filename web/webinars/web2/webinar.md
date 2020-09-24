@@ -1,4 +1,4 @@
-# Introduction to PDBe programmatic access
+# Searching with the PDBe API
 
 Slides are available from <a href="../../_static/downloads/webinar2/2020_search_webinar.pdf">here</a>. 
 
