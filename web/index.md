@@ -32,8 +32,6 @@ This webinar will give an introduction to programmatic access at PDBe, highlight
 
 This webinar will introduce the PDBe search API, a powerful Solr-based query system that underlies the PDBe search pages. The breadth of search options will be highlighted, along with specific case studies that demonstrate what is possible through the search API.
 
-[Registration link](https://attendee.gototraining.com/r/2888436147110127361)
-
 [Materials](webinars/web2/webinar.md)
 
 ## Creating complex PDBe API queries - 29th September 2020 15:30 (BST)
