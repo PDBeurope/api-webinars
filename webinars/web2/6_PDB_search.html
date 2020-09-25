@@ -1,0 +1,3049 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>PDB search &mdash; PDBe API webinar series 1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/jupyter-sphinx.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/thebelab.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/styles.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="../../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="PDB sequence search" href="7_PDB_sequence_search.html" />
+    <link rel="prev" title="Searching with the PDBe API" href="webinar.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> PDBe API webinar series
+          
+
+          
+            
+            <img src="../../_static/pdbelogo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../web1/webinar.html">Introduction to PDBe programmatic access</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="webinar.html">Searching with the PDBe API</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">PDB search</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#1)-Making-imports-and-setting-variables">1) Making imports and setting variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#2)-a-function-to-get-data-from-the-search-API">2) a function to get data from the search API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#3)-formatting-the-search-terms">3) formatting the search terms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#4)-Getting-useful-data-out-of-the-search">4) Getting useful data out of the search</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#5)-running-a-search">5) running a search</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#6)-Analysing-and-plotting-the-results">6) Analysing and plotting the results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#7)-searching-for-two-terms-at-once">7) searching for two terms at once</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Questions-to-answer">Questions to answer</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="7_PDB_sequence_search.html">PDB sequence search</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="7_PDB_sequence_search.html#1)-Making-imports-and-setting-variables">1) Making imports and setting variables</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../web3/webinar.html">Creating complex PDBe API queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web4/webinar.html">Using the PDBe graph API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web5/webinar.html">PDBe tools in github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web6/webinar.html">Data visualisation at PDBe</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">PDBe API webinar series</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="webinar.html">Searching with the PDBe API</a> &raquo;</li>
+        
+      <li>PDB search</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/webinars/web2/6_PDB_search.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="PDB-search">
+<h1>PDB search<a class="headerlink" href="#PDB-search" title="Permalink to this headline">¶</a></h1>
+<p>This interactive Python notebook will guide you through various ways of programmatically accessing Protein Data Bank in Europe (PDBe) data using REST API</p>
+<p>The REST API is a programmatic way to obtain information from the PDB and EMDB. You can access details about:</p>
+<ul class="simple">
+<li><p>sample</p></li>
+<li><p>experiment</p></li>
+<li><p>models</p></li>
+<li><p>compounds</p></li>
+<li><p>cross-references</p></li>
+<li><p>publications</p></li>
+<li><p>quality</p></li>
+<li><p>assemblies and more… For more information, visit <a class="reference external" href="https://www.ebi.ac.uk/pdbe/pdbe-rest-api">https://www.ebi.ac.uk/pdbe/pdbe-rest-api</a></p></li>
+</ul>
+<p>This notebook is a part of the training material series, and focuses on getting information from the PDBe search API. Retrieve this material and many more from <a class="reference external" href="https://github.com/PDBeurope/pdbe-api-training">GitHub</a></p>
+<div class="section" id="1)-Making-imports-and-setting-variables">
+<h2>1) Making imports and setting variables<a class="headerlink" href="#1)-Making-imports-and-setting-variables" title="Permalink to this headline">¶</a></h2>
+<p>First, we import some packages that we will use, and set some variables.</p>
+<p>Note: Full list of valid URLs is available from <a class="reference external" href="https://www.ebi.ac.uk/pdbe/api/doc/">https://www.ebi.ac.uk/pdbe/api/doc/</a></p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">requests</span> <span class="c1"># used for getting data from a URL</span>
+<span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span> <span class="c1"># pretty print</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> <span class="c1"># used for turning results into mini databases</span>
+<span class="kn">from</span> <span class="nn">solrq</span> <span class="kn">import</span> <span class="n">Q</span> <span class="c1"># used to turn result queries into the right format</span>
+
+<span class="n">search_url</span> <span class="o">=</span> <span class="s2">&quot;https://www.ebi.ac.uk/pdbe/search/pdb/select?&quot;</span> <span class="c1"># the rest of the URL used for PDBe&#39;s search API.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="2)-a-function-to-get-data-from-the-search-API">
+<h2>2) a function to get data from the search API<a class="headerlink" href="#2)-a-function-to-get-data-from-the-search-API" title="Permalink to this headline">¶</a></h2>
+<p>Let’s start with defining a function that can be used to GET data from the PDBe search API.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">make_request</span><span class="p">(</span><span class="n">search_dict</span><span class="p">,</span> <span class="n">number_of_rows</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    makes a get request to the PDBe API</span>
+<span class="sd">    :param dict search_dict: the terms used to search</span>
+<span class="sd">    :param number_of_rows: number or rows to return - limited to 10</span>
+<span class="sd">    :return dict: response JSON</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="s1">&#39;rows&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">search_dict</span><span class="p">:</span>
+        <span class="n">search_dict</span><span class="p">[</span><span class="s1">&#39;rows&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">number_of_rows</span>
+    <span class="n">search_dict</span><span class="p">[</span><span class="s1">&#39;wt&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;json&#39;</span>
+    <span class="c1"># pprint(search_dict)</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">search_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">search_dict</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[No data retrieved - </span><span class="si">%s</span><span class="s2">] </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="p">{}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="3)-formatting-the-search-terms">
+<h2>3) formatting the search terms<a class="headerlink" href="#3)-formatting-the-search-terms" title="Permalink to this headline">¶</a></h2>
+<p>This will allow us to use human readable search terms and this function will make a URL that the search API can handle.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">format_search_terms</span><span class="p">(</span><span class="n">search_terms</span><span class="p">,</span> <span class="n">filter_terms</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;q&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">search_terms</span><span class="p">)}</span>
+    <span class="k">if</span> <span class="n">filter_terms</span><span class="p">:</span>
+        <span class="n">fl</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">filter_terms</span><span class="p">))</span>
+        <span class="n">ret</span><span class="p">[</span><span class="s1">&#39;fl&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fl</span>
+    <span class="k">return</span> <span class="n">ret</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="4)-Getting-useful-data-out-of-the-search">
+<h2>4) Getting useful data out of the search<a class="headerlink" href="#4)-Getting-useful-data-out-of-the-search" title="Permalink to this headline">¶</a></h2>
+<p>This function will run the search and will return a list of the results</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">run_search</span><span class="p">(</span><span class="n">search_terms</span><span class="p">,</span> <span class="n">filter_terms</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">number_of_rows</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+    <span class="n">search_term</span> <span class="o">=</span> <span class="n">format_search_terms</span><span class="p">(</span><span class="n">search_terms</span><span class="p">,</span> <span class="n">filter_terms</span><span class="p">)</span>
+
+    <span class="n">response</span> <span class="o">=</span> <span class="n">make_request</span><span class="p">(</span><span class="n">search_term</span><span class="p">,</span> <span class="n">number_of_rows</span><span class="p">)</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;response&#39;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;docs&#39;</span><span class="p">,</span> <span class="p">[])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Number of results: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">)))</span>
+    <span class="k">return</span> <span class="n">results</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="5)-running-a-search">
+<h2>5) running a search<a class="headerlink" href="#5)-running-a-search" title="Permalink to this headline">¶</a></h2>
+<p>Now we are ready to actually run a search against the PDB API for entries containing human Dihydrofolate reductase in the PDB. This will return a list of results - only 10 to start with.</p>
+<p>A list of search terms is available at: <a class="reference external" href="https://www.ebi.ac.uk/pdbe/api/doc/search.html">https://www.ebi.ac.uk/pdbe/api/doc/search.html</a></p>
+<p>This will return details of human Dihydrofolate reductase’s in the PDB</p>
+<p>We are going to use the Python package “solrq” to make sure we get the search in the right format.</p>
+<p>Q(molecule_name=“Dihydrofolate reductase”)</p>
+<p>Here we are searching for molecules named Dihydrofolate reductase. If we search for two terms i.e. molecule_name and organism_scientific_name then we will get molecules that match both search terms.</p>
+<p>We will return the number of results for two searches.</p>
+<p>The first one will hit the limit of 100. There are more than 100 Dihydrofolate reductase structures. We have to add the argument “number_of_rows” to a higher number, say 1000, to find all the examples.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;1st search&#39;</span><span class="p">)</span>
+<span class="n">search_terms</span> <span class="o">=</span> <span class="n">Q</span><span class="p">(</span><span class="n">molecule_name</span><span class="o">=</span><span class="s2">&quot;Dihydrofolate reductase&quot;</span><span class="p">)</span>
+
+<span class="n">first_results</span> <span class="o">=</span> <span class="n">run_search</span><span class="p">(</span><span class="n">search_terms</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1st search
+Number of results: 100
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;1st search - more rows&#39;</span><span class="p">)</span>
+<span class="n">search_terms</span> <span class="o">=</span> <span class="n">Q</span><span class="p">(</span><span class="n">molecule_name</span><span class="o">=</span><span class="s2">&quot;Dihydrofolate reductase&quot;</span><span class="p">)</span>
+
+<span class="n">first_results_more_rows</span> <span class="o">=</span> <span class="n">run_search</span><span class="p">(</span><span class="n">search_terms</span><span class="p">,</span> <span class="n">number_of_rows</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Number of results for molecule_name:Dihydrofolate\ reductase: 405
+Number of results: 405
+</pre></div></div>
+</div>
+<p>We will add organism_name of Human to the query to limit the results to only return those that are structures of Human Dihydrofolate reductase.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;2nd search&#39;</span><span class="p">)</span>
+<span class="n">search_terms</span> <span class="o">=</span> <span class="n">Q</span><span class="p">(</span><span class="n">molecule_name</span><span class="o">=</span><span class="s2">&quot;Dihydrofolate reductase&quot;</span><span class="p">,</span><span class="n">organism_name</span><span class="o">=</span><span class="s2">&quot;Human&quot;</span><span class="p">)</span>
+<span class="n">second_results</span> <span class="o">=</span> <span class="n">run_search</span><span class="p">(</span><span class="n">search_terms</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+2nd search
+Number of results: 79
+</pre></div></div>
+</div>
+<p>How did we know which search terms to use?</p>
+<p>We will then look at the last result. We will print the data we have for the first result.</p>
+<p>This will be the first item of the list “second_results” i.e. second_results[0]</p>
+<p>We are using “pprint” (pretty print) rather than “print” to make the result easier to read.</p>
+<p>All of the “keys” on the left side of the results can be used as a search term.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">pprint</span><span class="p">(</span><span class="n">second_results</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#39;_version_&#39;: 1675721334876798976,
+ &#39;abstracttext_unassigned&#39;: [&#39;The crystal structures of six human &#39;
+                             &#39;dihydrofolate reductase (hDHFR) ternary &#39;
+                             &#39;complexes with NADPH and a series of mixed E/Z &#39;
+                             &#39;isomers of 5-substituted &#39;
+                             &#39;5-[2-(2-methoxyphenyl)-prop-1-en-1-yl]furo[2,3-d]pyrimidine-2,4-diamines &#39;
+                             &#39;substituted at the C9 position with propyl, &#39;
+                             &#39;isopropyl, cyclopropyl, butyl, isobutyl and &#39;
+                             &#39;sec-butyl (E2-E7, Z3) were determined and the &#39;
+                             &#39;results were compared with the resolved E and Z &#39;
+                             &#39;isomers of the C9-methyl parent compound. The &#39;
+                             &#39;configuration of all of the inhibitors, save &#39;
+                             &#39;one, was observed as the E isomer, in which the &#39;
+                             &#39;binding of the furopyrimidine ring is flipped &#39;
+                             &#39;such that the 4-amino group binds in the 4-oxo &#39;
+                             &#39;site of folate. The Z3\xa0isomer of the &#39;
+                             &#39;C9-isopropyl analog has the normal &#39;
+                             &#39;2,4-diaminopyrimidine ring binding geometry, &#39;
+                             &#39;with the furo oxygen near Glu30 and the 4-amino &#39;
+                             &#39;group interacting near the cofactor nicotinamide &#39;
+                             &#39;ring. Electron-density maps for these structures &#39;
+                             &#39;revealed the binding of only one isomer to &#39;
+                             &#39;hDHFR, despite the fact that chiral mixtures &#39;
+                             &#39;(E:Z ratios of 2:1, 3:1 and 3:2) of the &#39;
+                             &#39;inhibitors were incubated with hDHFR prior to &#39;
+                             &#39;crystallization. Superposition of the hDHFR &#39;
+                             &#39;complexes with E2 and Z3 shows that the &#39;
+                             &#34;2&#39;-methoxyphenyl ring of E2 is perpendicular to &#34;
+                             &#39;that of Z3. The most potent inhibitor in this &#39;
+                             &#39;series is the isopropyl analog Z3 and the least &#39;
+                             &#39;potent is the isobutyl analog E6, consistent &#39;
+                             &#39;with data that show that the Z isomer makes the &#39;
+                             &#39;most favorable interactions with the active-site &#39;
+                             &#39;residues. The isobutyl moiety of E6 is observed &#39;
+                             &#39;in two orientations and the resultant steric &#39;
+                             &#39;crowding of the E6 analog is consistent with its &#39;
+                             &#39;weaker activity. The alternative binding modes &#39;
+                             &#39;observed for the furopyrimidine ring in these &#39;
+                             &#39;E/Z isomers suggest that new templates can be &#39;
+                             &#39;designed to probe these binding regions of the &#39;
+                             &#39;DHFR active site.&#39;],
+ &#39;all_assembly_composition&#39;: [&#39;protein structure&#39;],
+ &#39;all_assembly_form&#39;: [&#39;homo&#39;],
+ &#39;all_assembly_id&#39;: [&#39;1&#39;],
+ &#39;all_assembly_mol_wt&#39;: [22.547],
+ &#39;all_assembly_type&#39;: [&#39;monomer&#39;],
+ &#39;all_authors&#39;: [&#39;Cody V&#39;, &#39;Gangjee A&#39;, &#39;Li W&#39;, &#39;Pace J&#39;, &#39;Piraino J&#39;],
+ &#39;all_compound_names&#39;: [&#39;D2F : &#39;
+                        &#39;5-[(1E)-2-(2-methoxyphenyl)hex-1-en-1-yl]furo[2,3-d]pyrimidine-2,4-diamine&#39;,
+                        &#39;NDP : NADPH DIHYDRO-NICOTINAMIDE-ADENINE-DINUCLEOTIDE &#39;
+                        &#39;PHOSPHATE&#39;,
+                        &#39;SO4 : SULFATE ION&#39;,
+                        &#39;NDP : Dihydronicotinamide-adenine dinucleotide &#39;
+                        &#39;phosphate&#39;,
+                        &#39;NDP : Reduced nicotinamide adenine dinucleotide &#39;
+                        &#39;phosphate&#39;,
+                        &#39;NDP : TPNH&#39;,
+                        &#39;SO4 : Sulfate&#39;,
+                        &#39;SO4 : Sulfate dianion&#39;,
+                        &#39;SO4 : Sulfate(2-)&#39;,
+                        &#39;SO4 : Sulfuric acid ion(2-)&#39;,
+                        &#39;D2F : &#39;
+                        &#39;5-[(1E)-2-(2-methoxyphenyl)hex-1-en-1-yl]furo[2,3-d]pyrimidine-2,4-diamine&#39;,
+                        &#39;SO4 : sulfate&#39;,
+                        &#39;D2F : &#39;
+                        &#39;5-[(E)-2-(2-methoxyphenyl)hex-1-enyl]furo[2,3-d]pyrimidine-2,4-diamine&#39;,
+                        &#39;NDP : &#39;
+                        &#39;[[(2R,3S,4R,5R)-5-(3-aminocarbonyl-4H-pyridin-1-yl)-3,4-dihydroxy-oxolan-2-yl]methoxy-hydroxy-phosphoryl] &#39;
+                        &#39;[(2R,3R,4R,5R)-5-(6-aminopurin-9-yl)-3-hydroxy-4-phosphonooxy-oxolan-2-yl]methyl &#39;
+                        &#39;hydrogen phosphate&#39;],
+ &#39;all_enzyme_names&#39;: [&#39;Oxidoreductases&#39;,
+                      &#39;Acting on the CH-NH group of donors&#39;,
+                      &#39;With NAD(+) or NADP(+) as acceptor&#39;,
+                      &#39;Dihydrofolate reductase&#39;,
+                      &#39;1.5.1.3 : Dihydrofolate reductase&#39;,
+                      &#39;5,6,7,8-tetrahydrofolate:NADP(+) oxidoreductase&#39;],
+ &#39;all_go_terms&#39;: [&#39;cytoplasm&#39;,
+                  &#39;mitochondrion&#39;,
+                  &#39;cytosol&#39;,
+                  &#39;folic acid binding&#39;,
+                  &#39;oxidoreductase activity&#39;,
+                  &#39;NADPH binding&#39;,
+                  &#39;sequence-specific mRNA binding&#39;,
+                  &#39;RNA binding&#39;,
+                  &#39;mRNA binding&#39;,
+                  &#39;NADP binding&#39;,
+                  &#39;methotrexate binding&#39;,
+                  &#39;dihydrofolate reductase activity&#39;,
+                  &#39;translation repressor activity, mRNA regulatory element &#39;
+                  &#39;binding&#39;,
+                  &#39;drug binding&#39;,
+                  &#39;one-carbon metabolic process&#39;,
+                  &#39;negative regulation of translation&#39;,
+                  &#39;folic acid metabolic process&#39;,
+                  &#39;response to methotrexate&#39;,
+                  &#39;regulation of removal of superoxide radicals&#39;,
+                  &#39;tetrahydrobiopterin biosynthetic process&#39;,
+                  &#39;tetrahydrofolate metabolic process&#39;,
+                  &#39;tetrahydrofolate biosynthetic process&#39;,
+                  &#39;oxidation-reduction process&#39;,
+                  &#39;regulation of transcription involved in G1/S transition of &#39;
+                  &#39;mitotic cell cycle&#39;,
+                  &#39;positive regulation of nitric-oxide synthase activity&#39;,
+                  &#39;axon regeneration&#39;,
+                  &#39;dihydrofolate metabolic process&#39;],
+ &#39;all_molecule_names&#39;: [&#39;Dihydrofolate reductase&#39;, &#39;Dihydrofolate reductase&#39;],
+ &#39;all_num_interacting_entity_id&#39;: [0],
+ &#39;all_sequence_family&#39;: [&#39;IPR001796 : Dihydrofolate reductase domain&#39;,
+                         &#39;IPR024072 : Dihydrofolate reductase-like domain &#39;
+                         &#39;superfamily&#39;,
+                         &#39;PF00186 : DHFR_1&#39;,
+                         &#39;CL0387 : DHFred&#39;],
+ &#39;all_structure_family&#39;: [&#39;3-Layer(aba) Sandwich&#39;,
+                          &#39;Alpha Beta&#39;,
+                          &#39;3.40.430.10&#39;,
+                          &#39;Dihydrofolate Reductase, subunit A&#39;,
+                          &#39;Dihydrofolate Reductase, subunit A&#39;],
+ &#39;assembly_composition&#39;: [&#39;protein structure&#39;],
+ &#39;assembly_form&#39;: [&#39;homo&#39;],
+ &#39;assembly_id&#39;: [&#39;1&#39;],
+ &#39;assembly_mol_wt&#39;: 22.547,
+ &#39;assembly_num_component&#39;: [1],
+ &#39;assembly_type&#39;: [&#39;monomer&#39;],
+ &#39;beam_source_name&#39;: [&#39;Rotating anode&#39;],
+ &#39;biological_cell_component&#39;: [&#39;cytoplasm&#39;, &#39;mitochondrion&#39;, &#39;cytosol&#39;],
+ &#39;biological_function&#39;: [&#39;folic acid binding&#39;,
+                         &#39;oxidoreductase activity&#39;,
+                         &#39;NADPH binding&#39;,
+                         &#39;sequence-specific mRNA binding&#39;,
+                         &#39;RNA binding&#39;,
+                         &#39;mRNA binding&#39;,
+                         &#39;NADP binding&#39;,
+                         &#39;methotrexate binding&#39;,
+                         &#39;dihydrofolate reductase activity&#39;,
+                         &#39;translation repressor activity, mRNA regulatory &#39;
+                         &#39;element binding&#39;,
+                         &#39;drug binding&#39;],
+ &#39;biological_process&#39;: [&#39;one-carbon metabolic process&#39;,
+                        &#39;negative regulation of translation&#39;,
+                        &#39;folic acid metabolic process&#39;,
+                        &#39;response to methotrexate&#39;,
+                        &#39;regulation of removal of superoxide radicals&#39;,
+                        &#39;tetrahydrobiopterin biosynthetic process&#39;,
+                        &#39;tetrahydrofolate metabolic process&#39;,
+                        &#39;tetrahydrofolate biosynthetic process&#39;,
+                        &#39;oxidation-reduction process&#39;,
+                        &#39;regulation of transcription involved in G1/S &#39;
+                        &#39;transition of mitotic cell cycle&#39;,
+                        &#39;positive regulation of nitric-oxide synthase activity&#39;,
+                        &#39;axon regeneration&#39;,
+                        &#39;dihydrofolate metabolic process&#39;],
+ &#39;bound_compound_id&#39;: [&#39;D2F&#39;, &#39;NDP&#39;, &#39;SO4&#39;],
+ &#39;bound_compound_name&#39;: [&#39;D2F : &#39;
+                         &#39;5-[(1E)-2-(2-methoxyphenyl)hex-1-en-1-yl]furo[2,3-d]pyrimidine-2,4-diamine&#39;,
+                         &#39;NDP : NADPH &#39;
+                         &#39;DIHYDRO-NICOTINAMIDE-ADENINE-DINUCLEOTIDE PHOSPHATE&#39;,
+                         &#39;SO4 : SULFATE ION&#39;],
+ &#39;bound_compound_synonym&#39;: [&#39;NDP : Dihydronicotinamide-adenine dinucleotide &#39;
+                            &#39;phosphate&#39;,
+                            &#39;NDP : Reduced nicotinamide adenine dinucleotide &#39;
+                            &#39;phosphate&#39;,
+                            &#39;NDP : TPNH&#39;,
+                            &#39;SO4 : Sulfate&#39;,
+                            &#39;SO4 : Sulfate dianion&#39;,
+                            &#39;SO4 : Sulfate(2-)&#39;,
+                            &#39;SO4 : Sulfuric acid ion(2-)&#39;],
+ &#39;bound_compound_systematic_name&#39;: [&#39;D2F : &#39;
+                                    &#39;5-[(1E)-2-(2-methoxyphenyl)hex-1-en-1-yl]furo[2,3-d]pyrimidine-2,4-diamine&#39;,
+                                    &#39;SO4 : sulfate&#39;,
+                                    &#39;D2F : &#39;
+                                    &#39;5-[(E)-2-(2-methoxyphenyl)hex-1-enyl]furo[2,3-d]pyrimidine-2,4-diamine&#39;,
+                                    &#39;NDP : &#39;
+                                    &#39;[[(2R,3S,4R,5R)-5-(3-aminocarbonyl-4H-pyridin-1-yl)-3,4-dihydroxy-oxolan-2-yl]methoxy-hydroxy-phosphoryl] &#39;
+                                    &#39;[(2R,3R,4R,5R)-5-(6-aminopurin-9-yl)-3-hydroxy-4-phosphonooxy-oxolan-2-yl]methyl &#39;
+                                    &#39;hydrogen phosphate&#39;],
+ &#39;bound_compound_weight&#39;: [338.404, 745.421, 96.063],
+ &#39;cath_architecture&#39;: [&#39;3-Layer(aba) Sandwich&#39;],
+ &#39;cath_class&#39;: [&#39;Alpha Beta&#39;],
+ &#39;cath_code&#39;: [&#39;3.40.430.10&#39;],
+ &#39;cath_homologous_superfamily&#39;: [&#39;Dihydrofolate Reductase, subunit A&#39;],
+ &#39;cath_topology&#39;: [&#39;Dihydrofolate Reductase, subunit A&#39;],
+ &#39;cell_a&#39;: 83.998,
+ &#39;cell_alpha&#39;: 90.0,
+ &#39;cell_b&#39;: 83.998,
+ &#39;cell_beta&#39;: 90.0,
+ &#39;cell_c&#39;: 78.273,
+ &#39;cell_gamma&#39;: 120.0,
+ &#39;chain_id&#39;: &#39;A&#39;,
+ &#39;citation_authors&#39;: [&#39;Cody V&#39;, &#39;Piraino J&#39;, &#39;Pace J&#39;, &#39;Li W&#39;, &#39;Gangjee A&#39;],
+ &#39;citation_doi&#39;: &#39;10.1107/S0907444910035808&#39;,
+ &#39;citation_title&#39;: &#39;Preferential selection of isomer binding from chiral &#39;
+                   &#39;mixtures: alternate binding modes observed for the E and Z &#39;
+                   &#39;isomers of a series of 5-substituted &#39;
+                   &#39;2,4-diaminofuro[2,3-d]pyrimidines as ternary complexes &#39;
+                   &#39;with NADPH and human dihydrofolate reductase.&#39;,
+ &#39;citation_year&#39;: 2010,
+ &#39;cofactor_class&#39;: [&#39;Nicotinamide-adenine dinucleotide&#39;],
+ &#39;cofactor_id&#39;: [&#39;NDP&#39;],
+ &#39;compound_id&#39;: [&#39;D2F&#39;, &#39;NDP&#39;, &#39;SO4&#39;],
+ &#39;compound_name&#39;: [&#39;D2F : &#39;
+                   &#39;5-[(1E)-2-(2-methoxyphenyl)hex-1-en-1-yl]furo[2,3-d]pyrimidine-2,4-diamine&#39;,
+                   &#39;NDP : NADPH DIHYDRO-NICOTINAMIDE-ADENINE-DINUCLEOTIDE &#39;
+                   &#39;PHOSPHATE&#39;,
+                   &#39;SO4 : SULFATE ION&#39;],
+ &#39;compound_synonym&#39;: [&#39;NDP : Dihydronicotinamide-adenine dinucleotide &#39;
+                      &#39;phosphate&#39;,
+                      &#39;NDP : Reduced nicotinamide adenine dinucleotide &#39;
+                      &#39;phosphate&#39;,
+                      &#39;NDP : TPNH&#39;,
+                      &#39;SO4 : Sulfate&#39;,
+                      &#39;SO4 : Sulfate dianion&#39;,
+                      &#39;SO4 : Sulfate(2-)&#39;,
+                      &#39;SO4 : Sulfuric acid ion(2-)&#39;],
+ &#39;compound_systematic_name&#39;: [&#39;D2F : &#39;
+                              &#39;5-[(1E)-2-(2-methoxyphenyl)hex-1-en-1-yl]furo[2,3-d]pyrimidine-2,4-diamine&#39;,
+                              &#39;SO4 : sulfate&#39;,
+                              &#39;D2F : &#39;
+                              &#39;5-[(E)-2-(2-methoxyphenyl)hex-1-enyl]furo[2,3-d]pyrimidine-2,4-diamine&#39;,
+                              &#39;NDP : &#39;
+                              &#39;[[(2R,3S,4R,5R)-5-(3-aminocarbonyl-4H-pyridin-1-yl)-3,4-dihydroxy-oxolan-2-yl]methoxy-hydroxy-phosphoryl] &#39;
+                              &#39;[(2R,3R,4R,5R)-5-(6-aminopurin-9-yl)-3-hydroxy-4-phosphonooxy-oxolan-2-yl]methyl &#39;
+                              &#39;hydrogen phosphate&#39;],
+ &#39;compound_weight&#39;: [338.404, 745.421, 96.063],
+ &#39;crystallisation_cond&#39;: [&#39;100 mM K2PO4, 60% saturated ammonium sulfate, 3% &#39;
+                          &#39;v/v ethanol, pH 6.9, VAPOR DIFFUSION, HANGING DROP, &#39;
+                          &#39;temperature 298K&#39;],
+ &#39;crystallisation_method&#39;: &#39;VAPOR DIFFUSION, HANGING DROP&#39;,
+ &#39;crystallisation_ph&#39;: [6.9, 6.9],
+ &#39;crystallisation_reservoir&#39;: [&#39;POTASSIUM PHOSPHATE&#39;,
+                               &#39;AMMONIUM SULFATE&#39;,
+                               &#39;ETHANOL&#39;],
+ &#39;crystallisation_temperature&#39;: 298.0,
+ &#39;data_collection_date&#39;: [&#39;2008-12-06T00:00:00Z&#39;],
+ &#39;data_collection_year&#39;: [2008],
+ &#39;data_quality&#39;: 33.46,
+ &#39;data_reduction_software&#39;: [&#39;MOSFLM&#39;],
+ &#39;data_scaling_software&#39;: [&#39;SCALA&#39;],
+ &#39;deposition_date&#39;: &#39;2010-07-14T01:00:00Z&#39;,
+ &#39;deposition_site&#39;: &#39;RCSB&#39;,
+ &#39;deposition_year&#39;: 2010,
+ &#39;detector&#39;: [&#39;Image plate&#39;],
+ &#39;detector_type&#39;: [&#39;RIGAKU RAXIS IV&#39;],
+ &#39;diffraction_protocol&#39;: [&#39;Single wavelength&#39;],
+ &#39;diffraction_source_type&#39;: [&#39;RIGAKU RU300&#39;],
+ &#39;diffraction_wavelengths&#39;: [1.54198],
+ &#39;ec_hierarchy_name&#39;: [&#39;Oxidoreductases&#39;,
+                       &#39;Acting on the CH-NH group of donors&#39;,
+                       &#39;With NAD(+) or NADP(+) as acceptor&#39;,
+                       &#39;Dihydrofolate reductase&#39;],
+ &#39;ec_number&#39;: [&#39;1.5.1.3&#39;],
+ &#39;entity_id&#39;: 1,
+ &#39;entity_weight&#39;: 21349.525,
+ &#39;entry_author_list&#39;: [&#39;Cody V&#39;],
+ &#39;entry_authors&#39;: [&#39;Cody V&#39;],
+ &#39;entry_entity&#39;: &#39;3nxv_1&#39;,
+ &#39;entry_lig_entity&#39;: [&#39;3nxv_SO4_4&#39;, &#39;3nxv_NDP_3&#39;, &#39;3nxv_D2F_2&#39;],
+ &#39;entry_organism_scientific_name&#39;: [&#39;Homo sapiens|9606&#39;],
+ &#39;enzyme_name&#39;: [&#39;Dihydrofolate reductase&#39;],
+ &#39;enzyme_num_name&#39;: [&#39;1.5.1.3 : Dihydrofolate reductase&#39;],
+ &#39;enzyme_systematic_name&#39;: [&#39;5,6,7,8-tetrahydrofolate:NADP(+) oxidoreductase&#39;],
+ &#39;experiment_data_available&#39;: [&#39;y&#39;],
+ &#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;],
+ &#39;expression_host_sci_name&#39;: [&#39;Escherichia coli&#39;],
+ &#39;expression_host_synonyms&#39;: [&#39;Bacterium Coli&#39;,
+                              &#39;Enterococcus Coli&#39;,
+                              &#39;Bacterium 10a&#39;,
+                              &#39;Escherichia Coli&#39;,
+                              &#39;Escherichia Sp. 3_2_53faa&#39;,
+                              &#39;Escherichia/Shigella Coli&#39;,
+                              &#39;Ecolx&#39;,
+                              &#39;Bacterium E3&#39;,
+                              &#39;Bacterium Coli Commune&#39;,
+                              &#39;E. Coli&#39;,
+                              &#39;Bacillus Coli&#39;,
+                              &#39;Escherichia Sp. Mar&#39;,
+                              &#39;Escherichia coli&#39;,
+                              &#39;Escherichia&#39;,
+                              &#39;Enterobacteriaceae&#39;,
+                              &#39;Enterobacterales&#39;,
+                              &#39;Gammaproteobacteria&#39;,
+                              &#39;Proteobacteria&#39;,
+                              &#39;Bacteria&#39;],
+ &#39;expression_host_tax_id&#39;: [562],
+ &#39;expression_organism_name&#39;: [&#39;Escherichia coli&#39;,
+                              &#39;Bacterium Coli&#39;,
+                              &#39;Enterococcus Coli&#39;,
+                              &#39;Bacterium 10a&#39;,
+                              &#39;Escherichia Coli&#39;,
+                              &#39;Escherichia Sp. 3_2_53faa&#39;,
+                              &#39;Escherichia/Shigella Coli&#39;,
+                              &#39;Ecolx&#39;,
+                              &#39;Bacterium E3&#39;,
+                              &#39;Bacterium Coli Commune&#39;,
+                              &#39;E. Coli&#39;,
+                              &#39;Bacillus Coli&#39;,
+                              &#39;Escherichia Sp. Mar&#39;,
+                              &#39;Escherichia coli&#39;,
+                              &#39;Escherichia&#39;,
+                              &#39;Enterobacteriaceae&#39;,
+                              &#39;Enterobacterales&#39;,
+                              &#39;Gammaproteobacteria&#39;,
+                              &#39;Proteobacteria&#39;,
+                              &#39;Bacteria&#39;],
+ &#39;gene_name&#39;: [&#39;DHFR&#39;],
+ &#39;genus&#39;: [&#39;Homo&#39;],
+ &#39;go_id&#39;: [&#39;GO:0006730&#39;,
+           &#39;GO:0017148&#39;,
+           &#39;GO:0046655&#39;,
+           &#39;GO:0031427&#39;,
+           &#39;GO:2000121&#39;,
+           &#39;GO:0006729&#39;,
+           &#39;GO:0046653&#39;,
+           &#39;GO:0046654&#39;,
+           &#39;GO:0055114&#39;,
+           &#39;GO:0000083&#39;,
+           &#39;GO:0051000&#39;,
+           &#39;GO:0031103&#39;,
+           &#39;GO:0046452&#39;,
+           &#39;GO:0005542&#39;,
+           &#39;GO:0016491&#39;,
+           &#39;GO:0070402&#39;,
+           &#39;GO:1990825&#39;,
+           &#39;GO:0003723&#39;,
+           &#39;GO:0003729&#39;,
+           &#39;GO:0050661&#39;,
+           &#39;GO:0051870&#39;,
+           &#39;GO:0004146&#39;,
+           &#39;GO:0000900&#39;,
+           &#39;GO:0008144&#39;,
+           &#39;GO:0005737&#39;,
+           &#39;GO:0005739&#39;,
+           &#39;GO:0005829&#39;],
+ &#39;go_mapping&#39;: [&#39;GO:0006730 : one-carbon metabolic process&#39;,
+                &#39;GO:0017148 : negative regulation of translation&#39;,
+                &#39;GO:0046655 : folic acid metabolic process&#39;,
+                &#39;GO:0031427 : response to methotrexate&#39;,
+                &#39;GO:2000121 : regulation of removal of superoxide radicals&#39;,
+                &#39;GO:0006729 : tetrahydrobiopterin biosynthetic process&#39;,
+                &#39;GO:0046653 : tetrahydrofolate metabolic process&#39;,
+                &#39;GO:0046654 : tetrahydrofolate biosynthetic process&#39;,
+                &#39;GO:0055114 : oxidation-reduction process&#39;,
+                &#39;GO:0000083 : regulation of transcription involved in G1/S &#39;
+                &#39;transition of mitotic cell cycle&#39;,
+                &#39;GO:0051000 : positive regulation of nitric-oxide synthase &#39;
+                &#39;activity&#39;,
+                &#39;GO:0031103 : axon regeneration&#39;,
+                &#39;GO:0046452 : dihydrofolate metabolic process&#39;,
+                &#39;GO:0005542 : folic acid binding&#39;,
+                &#39;GO:0016491 : oxidoreductase activity&#39;,
+                &#39;GO:0070402 : NADPH binding&#39;,
+                &#39;GO:1990825 : sequence-specific mRNA binding&#39;,
+                &#39;GO:0003723 : RNA binding&#39;,
+                &#39;GO:0003729 : mRNA binding&#39;,
+                &#39;GO:0050661 : NADP binding&#39;,
+                &#39;GO:0051870 : methotrexate binding&#39;,
+                &#39;GO:0004146 : dihydrofolate reductase activity&#39;,
+                &#39;GO:0000900 : translation repressor activity, mRNA regulatory &#39;
+                &#39;element binding&#39;,
+                &#39;GO:0008144 : drug binding&#39;,
+                &#39;GO:0005737 : cytoplasm&#39;,
+                &#39;GO:0005739 : mitochondrion&#39;,
+                &#39;GO:0005829 : cytosol&#39;],
+ &#39;has_bound_molecule&#39;: &#39;Y&#39;,
+ &#39;has_carb_polymer&#39;: &#39;N&#39;,
+ &#39;has_cofactor&#39;: [&#39;Y&#39;],
+ &#39;has_modified_residues&#39;: &#39;N&#39;,
+ &#39;has_reactant&#39;: [&#39;Y&#39;],
+ &#39;homologus_pdb_entity_id&#39;: [&#39;4qhv_1&#39;,
+                             &#39;6dav_1&#39;,
+                             &#39;1dlr_1&#39;,
+                             &#39;4kak_1&#39;,
+                             &#39;4keb_1&#39;,
+                             &#39;5hqy_1&#39;,
+                             &#39;5hqz_1&#39;,
+                             &#39;1u72_1&#39;,
+                             &#39;2w3b_1&#39;,
+                             &#39;5hsr_1&#39;,
+                             &#39;5ht4_1&#39;,
+                             &#39;3nu0_1&#39;,
+                             &#39;3nxo_1&#39;,
+                             &#39;3nxt_1&#39;,
+                             &#39;3nxv_1&#39;,
+                             &#39;2c2s_1&#39;,
+                             &#39;3nxr_1&#39;,
+                             &#39;1hfr_1&#39;,
+                             &#39;1s3v_1&#39;,
+                             &#39;1s3w_1&#39;,
+                             &#39;1u71_1&#39;,
+                             &#39;1yho_1&#39;,
+                             &#39;2w3a_1&#39;,
+                             &#39;3nxy_1&#39;,
+                             &#39;3nzd_1&#39;,
+                             &#39;3s7a_1&#39;,
+                             &#39;5hve_1&#39;,
+                             &#39;1dls_1&#39;,
+                             &#39;1drf_1&#39;,
+                             &#39;1mvs_1&#39;,
+                             &#39;2c2t_1&#39;,
+                             &#39;4m6j_1&#39;,
+                             &#39;1kms_1&#39;,
+                             &#39;1pd9_1&#39;,
+                             &#39;3ghc_1&#39;,
+                             &#39;3ghw_1&#39;,
+                             &#39;3ntz_1&#39;,
+                             &#39;3nxx_1&#39;,
+                             &#39;1pdb_1&#39;,
+                             &#39;3f8y_1&#39;,
+                             &#39;3gi2_1&#39;,
+                             &#39;6a7e_1&#39;,
+                             &#39;1pd8_1&#39;,
+                             &#39;4ddr_1&#39;,
+                             &#39;4m6k_1&#39;,
+                             &#39;3f8z_1&#39;,
+                             &#39;3f91_1&#39;,
+                             &#39;3fs6_1&#39;,
+                             &#39;4m6l_1&#39;,
+                             &#39;4qjc_1&#39;,
+                             &#39;5hsu_1&#39;,
+                             &#39;1boz_1&#39;,
+                             &#39;3n0h_1&#39;,
+                             &#39;4kfj_1&#39;,
+                             &#39;1kmv_1&#39;,
+                             &#39;1mvt_1&#39;,
+                             &#39;3oaf_1&#39;,
+                             &#39;4kd7_1&#39;,
+                             &#39;5hpb_1&#39;,
+                             &#39;6a7c_1&#39;,
+                             &#39;1ohj_1&#39;,
+                             &#39;3gyf_1&#39;,
+                             &#39;4g95_1&#39;,
+                             &#39;5hui_1&#39;,
+                             &#39;1dhf_1&#39;,
+                             &#39;1s3u_1&#39;,
+                             &#39;2dhf_1&#39;,
+                             &#39;3ghv_1&#39;,
+                             &#39;1hfp_1&#39;,
+                             &#39;1hfq_1&#39;,
+                             &#39;1ohk_1&#39;,
+                             &#39;2w3m_1&#39;,
+                             &#39;3eig_1&#39;,
+                             &#39;3l3r_1&#39;,
+                             &#39;3s3v_1&#39;,
+                             &#39;4kbn_1&#39;,
+                             &#39;5ht5_1&#39;,
+                             &#39;5hvb_1&#39;,
+                             &#39;6de4_1&#39;],
+ &#39;int_lig_entity&#39;: [&#39;4&#39;, &#39;3&#39;, &#39;2&#39;],
+ &#39;interacting_ligands&#39;: [&#39;SO4 : SULFATE ION&#39;,
+                         &#39;NDP : NADPH &#39;
+                         &#39;DIHYDRO-NICOTINAMIDE-ADENINE-DINUCLEOTIDE PHOSPHATE&#39;,
+                         &#39;D2F : &#39;
+                         &#39;5-[(1E)-2-(2-methoxyphenyl)hex-1-en-1-yl]furo[2,3-d]pyrimidine-2,4-diamine&#39;],
+ &#39;interpro&#39;: [&#39;IPR001796 : Dihydrofolate reductase domain&#39;,
+              &#39;IPR024072 : Dihydrofolate reductase-like domain superfamily&#39;],
+ &#39;interpro_accession&#39;: [&#39;IPR001796&#39;, &#39;IPR024072&#39;],
+ &#39;interpro_dom&#39;: [&#39;IPR001796 : Dihydrofolate reductase domain&#39;],
+ &#39;interpro_dom_acc&#39;: [&#39;IPR001796&#39;],
+ &#39;interpro_dom_name&#39;: [&#39;Dihydrofolate reductase domain&#39;],
+ &#39;interpro_name&#39;: [&#39;Dihydrofolate reductase domain&#39;,
+                   &#39;Dihydrofolate reductase-like domain superfamily&#39;],
+ &#39;interpro_supfam&#39;: [&#39;IPR024072 : Dihydrofolate reductase-like domain &#39;
+                     &#39;superfamily&#39;],
+ &#39;interpro_supfam_acc&#39;: [&#39;IPR024072&#39;],
+ &#39;interpro_supfam_name&#39;: [&#39;Dihydrofolate reductase-like domain superfamily&#39;],
+ &#39;inv_overall_quality&#39;: 91.0,
+ &#39;journal&#39;: &#39;Acta Crystallogr. D Biol. Crystallogr.&#39;,
+ &#39;journal_page&#39;: &#39;1271-7&#39;,
+ &#39;journal_volume&#39;: &#39;66&#39;,
+ &#39;matthews_coefficient&#39;: 2.49,
+ &#39;max_observed_residues&#39;: 186,
+ &#39;mesh_terms&#39;: &#39;Crystallography, X-Ray,Humans,Hydrophobic and Hydrophilic &#39;
+               &#39;Interactions,Models, Molecular,NADP,Protein Structure, &#39;
+               &#39;Tertiary,Pyrimidines,Stereoisomerism,Tetrahydrofolate &#39;
+               &#39;Dehydrogenase&#39;,
+ &#39;model_quality&#39;: 40.91,
+ &#39;modified_residue_flag&#39;: &#39;N&#39;,
+ &#39;molecule_name&#39;: [&#39;Dihydrofolate reductase&#39;],
+ &#39;molecule_sequence&#39;: &#39;VGSLNCIVAVSQNMGIGKNGDLPWPPLRNEFRYFQRMTTTSSVEGKQNLVIMGKKTWFSIPEKNRPLKGRINLVLSRELKEPPQGAHFLSRSLDDALKLTEQPELANKVDMVWIVGGSSVYKEAMNHPGHLKLFVTRIMQDFESDTFFPEIDLEKYKLLPEYPGVLSDVQEEKGIKYKFEVYEKND&#39;,
+ &#39;molecule_synonym&#39;: [&#39;Dihydrofolate reductase&#39;],
+ &#39;molecule_type&#39;: &#39;Protein&#39;,
+ &#39;mutation&#39;: &#39;n&#39;,
+ &#39;nigli_cell_a&#39;: 55.069,
+ &#39;nigli_cell_alpha&#39;: 99.398,
+ &#39;nigli_cell_b&#39;: 55.069,
+ &#39;nigli_cell_beta&#39;: 99.398,
+ &#39;nigli_cell_c&#39;: 55.069,
+ &#39;nigli_cell_gamma&#39;: 99.398,
+ &#39;nigli_cell_symmetry&#39;: &#39;R32&#39;,
+ &#39;num_interacting_entity_id&#39;: [0],
+ &#39;num_r_free_reflections&#39;: [811],
+ &#39;number_of_bound_entities&#39;: 3,
+ &#39;number_of_bound_molecules&#39;: 3,
+ &#39;number_of_copies&#39;: 1,
+ &#39;number_of_models&#39;: 1,
+ &#39;number_of_polymer_entities&#39;: 1,
+ &#39;number_of_polymer_residues&#39;: 186,
+ &#39;number_of_polymers&#39;: 1,
+ &#39;number_of_protein_chains&#39;: 1,
+ &#39;organism_name&#39;: [&#39;Homo sapiens&#39;,
+                   &#39;Man&#39;,
+                   &#39;Homo Sapiens (Human)&#39;,
+                   &#39;Human&#39;,
+                   &#39;Homo Sapiens&#39;,
+                   &#39;Homo sapiens&#39;,
+                   &#39;Homo&#39;,
+                   &#39;Homininae&#39;,
+                   &#39;Hominidae&#39;,
+                   &#39;Primates&#39;,
+                   &#39;Mammalia&#39;,
+                   &#39;Chordata&#39;,
+                   &#39;Metazoa&#39;,
+                   &#39;Eukaryota&#39;],
+ &#39;organism_scientific_name&#39;: [&#39;Homo sapiens&#39;],
+ &#39;organism_synonyms&#39;: [&#39;Man&#39;,
+                       &#39;Homo Sapiens (Human)&#39;,
+                       &#39;Human&#39;,
+                       &#39;Homo Sapiens&#39;,
+                       &#39;Homo sapiens&#39;,
+                       &#39;Homo&#39;,
+                       &#39;Homininae&#39;,
+                       &#39;Hominidae&#39;,
+                       &#39;Primates&#39;,
+                       &#39;Mammalia&#39;,
+                       &#39;Chordata&#39;,
+                       &#39;Metazoa&#39;,
+                       &#39;Eukaryota&#39;],
+ &#39;overall_quality&#39;: 9.0,
+ &#39;pdb_accession&#39;: &#39;3nxv&#39;,
+ &#39;pdb_format_compatible&#39;: &#39;Y&#39;,
+ &#39;pdb_id&#39;: &#39;3nxv&#39;,
+ &#39;percent_solvent&#39;: 50.58,
+ &#39;pfam&#39;: [&#39;PF00186 : DHFR_1&#39;],
+ &#39;pfam_accession&#39;: [&#39;PF00186&#39;],
+ &#39;pfam_clan&#39;: [&#39;CL0387 : DHFred&#39;],
+ &#39;pfam_clan_name&#39;: [&#39;DHFred&#39;],
+ &#39;pfam_description&#39;: [&#39;Dihydrofolate reductase&#39;],
+ &#39;pfam_name&#39;: [&#39;DHFR_1&#39;],
+ &#39;pivot_resolution&#39;: 1.9,
+ &#39;polymer_length&#39;: 186,
+ &#39;prefered_assembly_id&#39;: &#39;1&#39;,
+ &#39;primary_wavelength&#39;: 1.54198,
+ &#39;processing_site&#39;: &#39;RCSB&#39;,
+ &#39;pubmed_author_list&#39;: [&#39;Cody V, Piraino J, Pace J, Li W, Gangjee A&#39;],
+ &#39;pubmed_authors&#39;: [&#39;Cody V&#39;, &#39;Piraino J&#39;, &#39;Pace J&#39;, &#39;Li W&#39;, &#39;Gangjee A&#39;],
+ &#39;pubmed_id&#39;: &#39;21123866&#39;,
+ &#39;q_abstracttext_unassigned&#39;: [&#39;The crystal structures of six human &#39;
+                               &#39;dihydrofolate reductase (hDHFR) ternary &#39;
+                               &#39;complexes with NADPH and a series of mixed E/Z &#39;
+                               &#39;isomers of 5-substituted &#39;
+                               &#39;5-[2-(2-methoxyphenyl)-prop-1-en-1-yl]furo[2,3-d]pyrimidine-2,4-diamines &#39;
+                               &#39;substituted at the C9 position with propyl, &#39;
+                               &#39;isopropyl, cyclopropyl, butyl, isobutyl and &#39;
+                               &#39;sec-butyl (E2-E7, Z3) were determined and the &#39;
+                               &#39;results were compared with the resolved E and &#39;
+                               &#39;Z isomers of the C9-methyl parent compound. &#39;
+                               &#39;The configuration of all of the inhibitors, &#39;
+                               &#39;save one, was observed as the E isomer, in &#39;
+                               &#39;which the binding of the furopyrimidine ring &#39;
+                               &#39;is flipped such that the 4-amino group binds &#39;
+                               &#39;in the 4-oxo site of folate. The Z3\xa0isomer &#39;
+                               &#39;of the C9-isopropyl analog has the normal &#39;
+                               &#39;2,4-diaminopyrimidine ring binding geometry, &#39;
+                               &#39;with the furo oxygen near Glu30 and the &#39;
+                               &#39;4-amino group interacting near the cofactor &#39;
+                               &#39;nicotinamide ring. Electron-density maps for &#39;
+                               &#39;these structures revealed the binding of only &#39;
+                               &#39;one isomer to hDHFR, despite the fact that &#39;
+                               &#39;chiral mixtures (E:Z ratios of 2:1, 3:1 and &#39;
+                               &#39;3:2) of the inhibitors were incubated with &#39;
+                               &#39;hDHFR prior to crystallization. Superposition &#39;
+                               &#39;of the hDHFR complexes with E2 and Z3 shows &#39;
+                               &#34;that the 2&#39;-methoxyphenyl ring of E2 is &#34;
+                               &#39;perpendicular to that of Z3. The most potent &#39;
+                               &#39;inhibitor in this series is the isopropyl &#39;
+                               &#39;analog Z3 and the least potent is the isobutyl &#39;
+                               &#39;analog E6, consistent with data that show that &#39;
+                               &#39;the Z isomer makes the most favorable &#39;
+                               &#39;interactions with the active-site residues. &#39;
+                               &#39;The isobutyl moiety of E6 is observed in two &#39;
+                               &#39;orientations and the resultant steric crowding &#39;
+                               &#39;of the E6 analog is consistent with its weaker &#39;
+                               &#39;activity. The alternative binding modes &#39;
+                               &#39;observed for the furopyrimidine ring in these &#39;
+                               &#39;E/Z isomers suggest that new templates can be &#39;
+                               &#39;designed to probe these binding regions of the &#39;
+                               &#39;DHFR active site.&#39;],
+ &#39;q_all_assembly_composition&#39;: [&#39;protein structure&#39;],
+ &#39;q_all_assembly_form&#39;: [&#39;homo&#39;],
+ &#39;q_all_assembly_id&#39;: [&#39;1&#39;],
+ &#39;q_all_assembly_mol_wt&#39;: [22.547],
+ &#39;q_all_assembly_type&#39;: [&#39;monomer&#39;],
+ &#39;q_all_authors&#39;: [&#39;Cody V&#39;, &#39;Gangjee A&#39;, &#39;Li W&#39;, &#39;Pace J&#39;, &#39;Piraino J&#39;],
+ &#39;q_all_compound_names&#39;: [&#39;D2F : &#39;
+                          &#39;5-[(1E)-2-(2-methoxyphenyl)hex-1-en-1-yl]furo[2,3-d]pyrimidine-2,4-diamine&#39;,
+                          &#39;NDP : NADPH &#39;
+                          &#39;DIHYDRO-NICOTINAMIDE-ADENINE-DINUCLEOTIDE PHOSPHATE&#39;,
+                          &#39;SO4 : SULFATE ION&#39;,
+                          &#39;NDP : Dihydronicotinamide-adenine dinucleotide &#39;
+                          &#39;phosphate&#39;,
+                          &#39;NDP : Reduced nicotinamide adenine dinucleotide &#39;
+                          &#39;phosphate&#39;,
+                          &#39;NDP : TPNH&#39;,
+                          &#39;SO4 : Sulfate&#39;,
+                          &#39;SO4 : Sulfate dianion&#39;,
+                          &#39;SO4 : Sulfate(2-)&#39;,
+                          &#39;SO4 : Sulfuric acid ion(2-)&#39;,
+                          &#39;D2F : &#39;
+                          &#39;5-[(1E)-2-(2-methoxyphenyl)hex-1-en-1-yl]furo[2,3-d]pyrimidine-2,4-diamine&#39;,
+                          &#39;SO4 : sulfate&#39;,
+                          &#39;D2F : &#39;
+                          &#39;5-[(E)-2-(2-methoxyphenyl)hex-1-enyl]furo[2,3-d]pyrimidine-2,4-diamine&#39;,
+                          &#39;NDP : &#39;
+                          &#39;[[(2R,3S,4R,5R)-5-(3-aminocarbonyl-4H-pyridin-1-yl)-3,4-dihydroxy-oxolan-2-yl]methoxy-hydroxy-phosphoryl] &#39;
+                          &#39;[(2R,3R,4R,5R)-5-(6-aminopurin-9-yl)-3-hydroxy-4-phosphonooxy-oxolan-2-yl]methyl &#39;
+                          &#39;hydrogen phosphate&#39;],
+ &#39;q_all_enzyme_names&#39;: [&#39;Oxidoreductases&#39;,
+                        &#39;Acting on the CH-NH group of donors&#39;,
+                        &#39;With NAD(+) or NADP(+) as acceptor&#39;,
+                        &#39;Dihydrofolate reductase&#39;,
+                        &#39;1.5.1.3 : Dihydrofolate reductase&#39;,
+                        &#39;5,6,7,8-tetrahydrofolate:NADP(+) oxidoreductase&#39;],
+ &#39;q_all_go_terms&#39;: [&#39;cytoplasm&#39;,
+                    &#39;mitochondrion&#39;,
+                    &#39;cytosol&#39;,
+                    &#39;folic acid binding&#39;,
+                    &#39;oxidoreductase activity&#39;,
+                    &#39;NADPH binding&#39;,
+                    &#39;sequence-specific mRNA binding&#39;,
+                    &#39;RNA binding&#39;,
+                    &#39;mRNA binding&#39;,
+                    &#39;NADP binding&#39;,
+                    &#39;methotrexate binding&#39;,
+                    &#39;dihydrofolate reductase activity&#39;,
+                    &#39;translation repressor activity, mRNA regulatory element &#39;
+                    &#39;binding&#39;,
+                    &#39;drug binding&#39;,
+                    &#39;one-carbon metabolic process&#39;,
+                    &#39;negative regulation of translation&#39;,
+                    &#39;folic acid metabolic process&#39;,
+                    &#39;response to methotrexate&#39;,
+                    &#39;regulation of removal of superoxide radicals&#39;,
+                    &#39;tetrahydrobiopterin biosynthetic process&#39;,
+                    &#39;tetrahydrofolate metabolic process&#39;,
+                    &#39;tetrahydrofolate biosynthetic process&#39;,
+                    &#39;oxidation-reduction process&#39;,
+                    &#39;regulation of transcription involved in G1/S transition &#39;
+                    &#39;of mitotic cell cycle&#39;,
+                    &#39;positive regulation of nitric-oxide synthase activity&#39;,
+                    &#39;axon regeneration&#39;,
+                    &#39;dihydrofolate metabolic process&#39;],
+ &#39;q_all_molecule_names&#39;: [&#39;Dihydrofolate reductase&#39;, &#39;Dihydrofolate reductase&#39;],
+ &#39;q_all_num_interacting_entity_id&#39;: [0],
+ &#39;q_all_sequence_family&#39;: [&#39;IPR001796 : Dihydrofolate reductase domain&#39;,
+                           &#39;IPR024072 : Dihydrofolate reductase-like domain &#39;
+                           &#39;superfamily&#39;,
+                           &#39;PF00186 : DHFR_1&#39;,
+                           &#39;CL0387 : DHFred&#39;],
+ &#39;q_all_structure_family&#39;: [&#39;3-Layer(aba) Sandwich&#39;,
+                            &#39;Alpha Beta&#39;,
+                            &#39;3.40.430.10&#39;,
+                            &#39;Dihydrofolate Reductase, subunit A&#39;,
+                            &#39;Dihydrofolate Reductase, subunit A&#39;],
+ &#39;q_assembly_composition&#39;: [&#39;protein structure&#39;],
+ &#39;q_assembly_form&#39;: [&#39;homo&#39;],
+ &#39;q_assembly_id&#39;: [&#39;1&#39;],
+ &#39;q_assembly_mol_wt&#39;: 22.547,
+ &#39;q_assembly_num_component&#39;: [1],
+ &#39;q_assembly_type&#39;: [&#39;monomer&#39;],
+ &#39;q_beam_source_name&#39;: [&#39;Rotating anode&#39;],
+ &#39;q_biological_cell_component&#39;: [&#39;cytoplasm&#39;, &#39;mitochondrion&#39;, &#39;cytosol&#39;],
+ &#39;q_biological_function&#39;: [&#39;folic acid binding&#39;,
+                           &#39;oxidoreductase activity&#39;,
+                           &#39;NADPH binding&#39;,
+                           &#39;sequence-specific mRNA binding&#39;,
+                           &#39;RNA binding&#39;,
+                           &#39;mRNA binding&#39;,
+                           &#39;NADP binding&#39;,
+                           &#39;methotrexate binding&#39;,
+                           &#39;dihydrofolate reductase activity&#39;,
+                           &#39;translation repressor activity, mRNA regulatory &#39;
+                           &#39;element binding&#39;,
+                           &#39;drug binding&#39;],
+ &#39;q_biological_process&#39;: [&#39;one-carbon metabolic process&#39;,
+                          &#39;negative regulation of translation&#39;,
+                          &#39;folic acid metabolic process&#39;,
+                          &#39;response to methotrexate&#39;,
+                          &#39;regulation of removal of superoxide radicals&#39;,
+                          &#39;tetrahydrobiopterin biosynthetic process&#39;,
+                          &#39;tetrahydrofolate metabolic process&#39;,
+                          &#39;tetrahydrofolate biosynthetic process&#39;,
+                          &#39;oxidation-reduction process&#39;,
+                          &#39;regulation of transcription involved in G1/S &#39;
+                          &#39;transition of mitotic cell cycle&#39;,
+                          &#39;positive regulation of nitric-oxide synthase &#39;
+                          &#39;activity&#39;,
+                          &#39;axon regeneration&#39;,
+                          &#39;dihydrofolate metabolic process&#39;],
+ &#39;q_bound_compound_id&#39;: [&#39;D2F&#39;, &#39;NDP&#39;, &#39;SO4&#39;],
+ &#39;q_bound_compound_name&#39;: [&#39;D2F : &#39;
+                           &#39;5-[(1E)-2-(2-methoxyphenyl)hex-1-en-1-yl]furo[2,3-d]pyrimidine-2,4-diamine&#39;,
+                           &#39;NDP : NADPH &#39;
+                           &#39;DIHYDRO-NICOTINAMIDE-ADENINE-DINUCLEOTIDE &#39;
+                           &#39;PHOSPHATE&#39;,
+                           &#39;SO4 : SULFATE ION&#39;],
+ &#39;q_bound_compound_synonym&#39;: [&#39;NDP : Dihydronicotinamide-adenine dinucleotide &#39;
+                              &#39;phosphate&#39;,
+                              &#39;NDP : Reduced nicotinamide adenine dinucleotide &#39;
+                              &#39;phosphate&#39;,
+                              &#39;NDP : TPNH&#39;,
+                              &#39;SO4 : Sulfate&#39;,
+                              &#39;SO4 : Sulfate dianion&#39;,
+                              &#39;SO4 : Sulfate(2-)&#39;,
+                              &#39;SO4 : Sulfuric acid ion(2-)&#39;],
+ &#39;q_bound_compound_systematic_name&#39;: [&#39;D2F : &#39;
+                                      &#39;5-[(1E)-2-(2-methoxyphenyl)hex-1-en-1-yl]furo[2,3-d]pyrimidine-2,4-diamine&#39;,
+                                      &#39;SO4 : sulfate&#39;,
+                                      &#39;D2F : &#39;
+                                      &#39;5-[(E)-2-(2-methoxyphenyl)hex-1-enyl]furo[2,3-d]pyrimidine-2,4-diamine&#39;,
+                                      &#39;NDP : &#39;
+                                      &#39;[[(2R,3S,4R,5R)-5-(3-aminocarbonyl-4H-pyridin-1-yl)-3,4-dihydroxy-oxolan-2-yl]methoxy-hydroxy-phosphoryl] &#39;
+                                      &#39;[(2R,3R,4R,5R)-5-(6-aminopurin-9-yl)-3-hydroxy-4-phosphonooxy-oxolan-2-yl]methyl &#39;
+                                      &#39;hydrogen phosphate&#39;],
+ &#39;q_bound_compound_weight&#39;: [338.404, 745.421, 96.063],
+ &#39;q_cath_architecture&#39;: [&#39;3-Layer(aba) Sandwich&#39;],
+ &#39;q_cath_class&#39;: [&#39;Alpha Beta&#39;],
+ &#39;q_cath_code&#39;: [&#39;3.40.430.10&#39;],
+ &#39;q_cath_homologous_superfamily&#39;: [&#39;Dihydrofolate Reductase, subunit A&#39;],
+ &#39;q_cath_topology&#39;: [&#39;Dihydrofolate Reductase, subunit A&#39;],
+ &#39;q_cell_a&#39;: 83.998,
+ &#39;q_cell_alpha&#39;: 90.0,
+ &#39;q_cell_b&#39;: 83.998,
+ &#39;q_cell_beta&#39;: 90.0,
+ &#39;q_cell_c&#39;: 78.273,
+ &#39;q_cell_gamma&#39;: 120.0,
+ &#39;q_chain_id&#39;: &#39;A&#39;,
+ &#39;q_citation_authors&#39;: [&#39;Cody V&#39;, &#39;Piraino J&#39;, &#39;Pace J&#39;, &#39;Li W&#39;, &#39;Gangjee A&#39;],
+ &#39;q_citation_doi&#39;: &#39;10.1107/S0907444910035808&#39;,
+ &#39;q_citation_title&#39;: &#39;Preferential selection of isomer binding from chiral &#39;
+                     &#39;mixtures: alternate binding modes observed for the E and &#39;
+                     &#39;Z isomers of a series of 5-substituted &#39;
+                     &#39;2,4-diaminofuro[2,3-d]pyrimidines as ternary complexes &#39;
+                     &#39;with NADPH and human dihydrofolate reductase.&#39;,
+ &#39;q_citation_year&#39;: 2010,
+ &#39;q_cofactor_class&#39;: [&#39;Nicotinamide-adenine dinucleotide&#39;],
+ &#39;q_cofactor_id&#39;: [&#39;NDP&#39;],
+ &#39;q_compound_id&#39;: [&#39;D2F&#39;, &#39;NDP&#39;, &#39;SO4&#39;],
+ &#39;q_compound_name&#39;: [&#39;D2F : &#39;
+                     &#39;5-[(1E)-2-(2-methoxyphenyl)hex-1-en-1-yl]furo[2,3-d]pyrimidine-2,4-diamine&#39;,
+                     &#39;NDP : NADPH DIHYDRO-NICOTINAMIDE-ADENINE-DINUCLEOTIDE &#39;
+                     &#39;PHOSPHATE&#39;,
+                     &#39;SO4 : SULFATE ION&#39;],
+ &#39;q_compound_synonym&#39;: [&#39;NDP : Dihydronicotinamide-adenine dinucleotide &#39;
+                        &#39;phosphate&#39;,
+                        &#39;NDP : Reduced nicotinamide adenine dinucleotide &#39;
+                        &#39;phosphate&#39;,
+                        &#39;NDP : TPNH&#39;,
+                        &#39;SO4 : Sulfate&#39;,
+                        &#39;SO4 : Sulfate dianion&#39;,
+                        &#39;SO4 : Sulfate(2-)&#39;,
+                        &#39;SO4 : Sulfuric acid ion(2-)&#39;],
+ &#39;q_compound_systematic_name&#39;: [&#39;D2F : &#39;
+                                &#39;5-[(1E)-2-(2-methoxyphenyl)hex-1-en-1-yl]furo[2,3-d]pyrimidine-2,4-diamine&#39;,
+                                &#39;SO4 : sulfate&#39;,
+                                &#39;D2F : &#39;
+                                &#39;5-[(E)-2-(2-methoxyphenyl)hex-1-enyl]furo[2,3-d]pyrimidine-2,4-diamine&#39;,
+                                &#39;NDP : &#39;
+                                &#39;[[(2R,3S,4R,5R)-5-(3-aminocarbonyl-4H-pyridin-1-yl)-3,4-dihydroxy-oxolan-2-yl]methoxy-hydroxy-phosphoryl] &#39;
+                                &#39;[(2R,3R,4R,5R)-5-(6-aminopurin-9-yl)-3-hydroxy-4-phosphonooxy-oxolan-2-yl]methyl &#39;
+                                &#39;hydrogen phosphate&#39;],
+ &#39;q_compound_weight&#39;: [338.404, 745.421, 96.063],
+ &#39;q_crystallisation_cond&#39;: [&#39;100 mM K2PO4, 60% saturated ammonium sulfate, 3% &#39;
+                            &#39;v/v ethanol, pH 6.9, VAPOR DIFFUSION, HANGING &#39;
+                            &#39;DROP, temperature 298K&#39;],
+ &#39;q_crystallisation_method&#39;: &#39;VAPOR DIFFUSION, HANGING DROP&#39;,
+ &#39;q_crystallisation_ph&#39;: [6.9, 6.9],
+ &#39;q_crystallisation_reservoir&#39;: [&#39;POTASSIUM PHOSPHATE&#39;,
+                                 &#39;AMMONIUM SULFATE&#39;,
+                                 &#39;ETHANOL&#39;],
+ &#39;q_crystallisation_temperature&#39;: 298.0,
+ &#39;q_data_collection_date&#39;: [&#39;2008-12-06T00:00:00Z&#39;],
+ &#39;q_data_collection_year&#39;: [2008],
+ &#39;q_data_quality&#39;: 33.46,
+ &#39;q_data_reduction_software&#39;: [&#39;MOSFLM&#39;],
+ &#39;q_data_scaling_software&#39;: [&#39;SCALA&#39;],
+ &#39;q_deposition_date&#39;: &#39;2010-07-14T01:00:00Z&#39;,
+ &#39;q_deposition_site&#39;: &#39;RCSB&#39;,
+ &#39;q_deposition_year&#39;: 2010,
+ &#39;q_detector&#39;: [&#39;Image plate&#39;],
+ &#39;q_detector_type&#39;: [&#39;RIGAKU RAXIS IV&#39;],
+ &#39;q_diffraction_protocol&#39;: [&#39;Single wavelength&#39;],
+ &#39;q_diffraction_source_type&#39;: [&#39;RIGAKU RU300&#39;],
+ &#39;q_diffraction_wavelengths&#39;: [1.54198],
+ &#39;q_ec_hierarchy_name&#39;: [&#39;Oxidoreductases&#39;,
+                         &#39;Acting on the CH-NH group of donors&#39;,
+                         &#39;With NAD(+) or NADP(+) as acceptor&#39;,
+                         &#39;Dihydrofolate reductase&#39;],
+ &#39;q_ec_number&#39;: [&#39;1.5.1.3&#39;],
+ &#39;q_entity_id&#39;: 1,
+ &#39;q_entity_weight&#39;: 21349.525,
+ &#39;q_entry_author_list&#39;: [&#39;Cody V&#39;],
+ &#39;q_entry_authors&#39;: [&#39;Cody V&#39;],
+ &#39;q_entry_lig_entity&#39;: [&#39;3nxv_SO4_4&#39;, &#39;3nxv_NDP_3&#39;, &#39;3nxv_D2F_2&#39;],
+ &#39;q_enzyme_name&#39;: [&#39;Dihydrofolate reductase&#39;],
+ &#39;q_enzyme_num_name&#39;: [&#39;1.5.1.3 : Dihydrofolate reductase&#39;],
+ &#39;q_enzyme_systematic_name&#39;: [&#39;5,6,7,8-tetrahydrofolate:NADP(+) &#39;
+                              &#39;oxidoreductase&#39;],
+ &#39;q_experiment_data_available&#39;: [&#39;y&#39;],
+ &#39;q_experimental_method&#39;: [&#39;X-ray diffraction&#39;],
+ &#39;q_expression_host_sci_name&#39;: [&#39;Escherichia coli&#39;],
+ &#39;q_expression_host_synonyms&#39;: [&#39;Bacterium Coli&#39;,
+                                &#39;Enterococcus Coli&#39;,
+                                &#39;Bacterium 10a&#39;,
+                                &#39;Escherichia Coli&#39;,
+                                &#39;Escherichia Sp. 3_2_53faa&#39;,
+                                &#39;Escherichia/Shigella Coli&#39;,
+                                &#39;Ecolx&#39;,
+                                &#39;Bacterium E3&#39;,
+                                &#39;Bacterium Coli Commune&#39;,
+                                &#39;E. Coli&#39;,
+                                &#39;Bacillus Coli&#39;,
+                                &#39;Escherichia Sp. Mar&#39;,
+                                &#39;Escherichia coli&#39;,
+                                &#39;Escherichia&#39;,
+                                &#39;Enterobacteriaceae&#39;,
+                                &#39;Enterobacterales&#39;,
+                                &#39;Gammaproteobacteria&#39;,
+                                &#39;Proteobacteria&#39;,
+                                &#39;Bacteria&#39;],
+ &#39;q_expression_host_tax_id&#39;: [562],
+ &#39;q_expression_organism_name&#39;: [&#39;Escherichia coli&#39;,
+                                &#39;Bacterium Coli&#39;,
+                                &#39;Enterococcus Coli&#39;,
+                                &#39;Bacterium 10a&#39;,
+                                &#39;Escherichia Coli&#39;,
+                                &#39;Escherichia Sp. 3_2_53faa&#39;,
+                                &#39;Escherichia/Shigella Coli&#39;,
+                                &#39;Ecolx&#39;,
+                                &#39;Bacterium E3&#39;,
+                                &#39;Bacterium Coli Commune&#39;,
+                                &#39;E. Coli&#39;,
+                                &#39;Bacillus Coli&#39;,
+                                &#39;Escherichia Sp. Mar&#39;,
+                                &#39;Escherichia coli&#39;,
+                                &#39;Escherichia&#39;,
+                                &#39;Enterobacteriaceae&#39;,
+                                &#39;Enterobacterales&#39;,
+                                &#39;Gammaproteobacteria&#39;,
+                                &#39;Proteobacteria&#39;,
+                                &#39;Bacteria&#39;],
+ &#39;q_gene_name&#39;: [&#39;DHFR&#39;],
+ &#39;q_genus&#39;: [&#39;Homo&#39;],
+ &#39;q_go_id&#39;: [&#39;GO:0006730&#39;,
+             &#39;GO:0017148&#39;,
+             &#39;GO:0046655&#39;,
+             &#39;GO:0031427&#39;,
+             &#39;GO:2000121&#39;,
+             &#39;GO:0006729&#39;,
+             &#39;GO:0046653&#39;,
+             &#39;GO:0046654&#39;,
+             &#39;GO:0055114&#39;,
+             &#39;GO:0000083&#39;,
+             &#39;GO:0051000&#39;,
+             &#39;GO:0031103&#39;,
+             &#39;GO:0046452&#39;,
+             &#39;GO:0005542&#39;,
+             &#39;GO:0016491&#39;,
+             &#39;GO:0070402&#39;,
+             &#39;GO:1990825&#39;,
+             &#39;GO:0003723&#39;,
+             &#39;GO:0003729&#39;,
+             &#39;GO:0050661&#39;,
+             &#39;GO:0051870&#39;,
+             &#39;GO:0004146&#39;,
+             &#39;GO:0000900&#39;,
+             &#39;GO:0008144&#39;,
+             &#39;GO:0005737&#39;,
+             &#39;GO:0005739&#39;,
+             &#39;GO:0005829&#39;],
+ &#39;q_go_mapping&#39;: [&#39;GO:0006730 : one-carbon metabolic process&#39;,
+                  &#39;GO:0017148 : negative regulation of translation&#39;,
+                  &#39;GO:0046655 : folic acid metabolic process&#39;,
+                  &#39;GO:0031427 : response to methotrexate&#39;,
+                  &#39;GO:2000121 : regulation of removal of superoxide radicals&#39;,
+                  &#39;GO:0006729 : tetrahydrobiopterin biosynthetic process&#39;,
+                  &#39;GO:0046653 : tetrahydrofolate metabolic process&#39;,
+                  &#39;GO:0046654 : tetrahydrofolate biosynthetic process&#39;,
+                  &#39;GO:0055114 : oxidation-reduction process&#39;,
+                  &#39;GO:0000083 : regulation of transcription involved in G1/S &#39;
+                  &#39;transition of mitotic cell cycle&#39;,
+                  &#39;GO:0051000 : positive regulation of nitric-oxide synthase &#39;
+                  &#39;activity&#39;,
+                  &#39;GO:0031103 : axon regeneration&#39;,
+                  &#39;GO:0046452 : dihydrofolate metabolic process&#39;,
+                  &#39;GO:0005542 : folic acid binding&#39;,
+                  &#39;GO:0016491 : oxidoreductase activity&#39;,
+                  &#39;GO:0070402 : NADPH binding&#39;,
+                  &#39;GO:1990825 : sequence-specific mRNA binding&#39;,
+                  &#39;GO:0003723 : RNA binding&#39;,
+                  &#39;GO:0003729 : mRNA binding&#39;,
+                  &#39;GO:0050661 : NADP binding&#39;,
+                  &#39;GO:0051870 : methotrexate binding&#39;,
+                  &#39;GO:0004146 : dihydrofolate reductase activity&#39;,
+                  &#39;GO:0000900 : translation repressor activity, mRNA &#39;
+                  &#39;regulatory element binding&#39;,
+                  &#39;GO:0008144 : drug binding&#39;,
+                  &#39;GO:0005737 : cytoplasm&#39;,
+                  &#39;GO:0005739 : mitochondrion&#39;,
+                  &#39;GO:0005829 : cytosol&#39;],
+ &#39;q_has_bound_molecule&#39;: &#39;Y&#39;,
+ &#39;q_has_carb_polymer&#39;: &#39;N&#39;,
+ &#39;q_has_cofactor&#39;: [&#39;Y&#39;],
+ &#39;q_has_modified_residues&#39;: &#39;N&#39;,
+ &#39;q_has_reactant&#39;: [&#39;Y&#39;],
+ &#39;q_homologus_pdb_entity_id&#39;: [&#39;4qhv_1&#39;,
+                               &#39;6dav_1&#39;,
+                               &#39;1dlr_1&#39;,
+                               &#39;4kak_1&#39;,
+                               &#39;4keb_1&#39;,
+                               &#39;5hqy_1&#39;,
+                               &#39;5hqz_1&#39;,
+                               &#39;1u72_1&#39;,
+                               &#39;2w3b_1&#39;,
+                               &#39;5hsr_1&#39;,
+                               &#39;5ht4_1&#39;,
+                               &#39;3nu0_1&#39;,
+                               &#39;3nxo_1&#39;,
+                               &#39;3nxt_1&#39;,
+                               &#39;3nxv_1&#39;,
+                               &#39;2c2s_1&#39;,
+                               &#39;3nxr_1&#39;,
+                               &#39;1hfr_1&#39;,
+                               &#39;1s3v_1&#39;,
+                               &#39;1s3w_1&#39;,
+                               &#39;1u71_1&#39;,
+                               &#39;1yho_1&#39;,
+                               &#39;2w3a_1&#39;,
+                               &#39;3nxy_1&#39;,
+                               &#39;3nzd_1&#39;,
+                               &#39;3s7a_1&#39;,
+                               &#39;5hve_1&#39;,
+                               &#39;1dls_1&#39;,
+                               &#39;1drf_1&#39;,
+                               &#39;1mvs_1&#39;,
+                               &#39;2c2t_1&#39;,
+                               &#39;4m6j_1&#39;,
+                               &#39;1kms_1&#39;,
+                               &#39;1pd9_1&#39;,
+                               &#39;3ghc_1&#39;,
+                               &#39;3ghw_1&#39;,
+                               &#39;3ntz_1&#39;,
+                               &#39;3nxx_1&#39;,
+                               &#39;1pdb_1&#39;,
+                               &#39;3f8y_1&#39;,
+                               &#39;3gi2_1&#39;,
+                               &#39;6a7e_1&#39;,
+                               &#39;1pd8_1&#39;,
+                               &#39;4ddr_1&#39;,
+                               &#39;4m6k_1&#39;,
+                               &#39;3f8z_1&#39;,
+                               &#39;3f91_1&#39;,
+                               &#39;3fs6_1&#39;,
+                               &#39;4m6l_1&#39;,
+                               &#39;4qjc_1&#39;,
+                               &#39;5hsu_1&#39;,
+                               &#39;1boz_1&#39;,
+                               &#39;3n0h_1&#39;,
+                               &#39;4kfj_1&#39;,
+                               &#39;1kmv_1&#39;,
+                               &#39;1mvt_1&#39;,
+                               &#39;3oaf_1&#39;,
+                               &#39;4kd7_1&#39;,
+                               &#39;5hpb_1&#39;,
+                               &#39;6a7c_1&#39;,
+                               &#39;1ohj_1&#39;,
+                               &#39;3gyf_1&#39;,
+                               &#39;4g95_1&#39;,
+                               &#39;5hui_1&#39;,
+                               &#39;1dhf_1&#39;,
+                               &#39;1s3u_1&#39;,
+                               &#39;2dhf_1&#39;,
+                               &#39;3ghv_1&#39;,
+                               &#39;1hfp_1&#39;,
+                               &#39;1hfq_1&#39;,
+                               &#39;1ohk_1&#39;,
+                               &#39;2w3m_1&#39;,
+                               &#39;3eig_1&#39;,
+                               &#39;3l3r_1&#39;,
+                               &#39;3s3v_1&#39;,
+                               &#39;4kbn_1&#39;,
+                               &#39;5ht5_1&#39;,
+                               &#39;5hvb_1&#39;,
+                               &#39;6de4_1&#39;],
+ &#39;q_int_lig_entity&#39;: [&#39;4&#39;, &#39;3&#39;, &#39;2&#39;],
+ &#39;q_interacting_ligands&#39;: [&#39;SO4 : SULFATE ION&#39;,
+                           &#39;NDP : NADPH &#39;
+                           &#39;DIHYDRO-NICOTINAMIDE-ADENINE-DINUCLEOTIDE &#39;
+                           &#39;PHOSPHATE&#39;,
+                           &#39;D2F : &#39;
+                           &#39;5-[(1E)-2-(2-methoxyphenyl)hex-1-en-1-yl]furo[2,3-d]pyrimidine-2,4-diamine&#39;],
+ &#39;q_interpro&#39;: [&#39;IPR001796 : Dihydrofolate reductase domain&#39;,
+                &#39;IPR024072 : Dihydrofolate reductase-like domain superfamily&#39;],
+ &#39;q_interpro_accession&#39;: [&#39;IPR001796&#39;, &#39;IPR024072&#39;],
+ &#39;q_interpro_dom&#39;: [&#39;IPR001796 : Dihydrofolate reductase domain&#39;],
+ &#39;q_interpro_dom_acc&#39;: [&#39;IPR001796&#39;],
+ &#39;q_interpro_dom_name&#39;: [&#39;Dihydrofolate reductase domain&#39;],
+ &#39;q_interpro_name&#39;: [&#39;Dihydrofolate reductase domain&#39;,
+                     &#39;Dihydrofolate reductase-like domain superfamily&#39;],
+ &#39;q_interpro_supfam&#39;: [&#39;IPR024072 : Dihydrofolate reductase-like domain &#39;
+                       &#39;superfamily&#39;],
+ &#39;q_interpro_supfam_acc&#39;: [&#39;IPR024072&#39;],
+ &#39;q_interpro_supfam_name&#39;: [&#39;Dihydrofolate reductase-like domain superfamily&#39;],
+ &#39;q_inv_overall_quality&#39;: 91.0,
+ &#39;q_journal&#39;: &#39;Acta Crystallogr. D Biol. Crystallogr.&#39;,
+ &#39;q_journal_page&#39;: &#39;1271-7&#39;,
+ &#39;q_journal_volume&#39;: &#39;66&#39;,
+ &#39;q_matthews_coefficient&#39;: 2.49,
+ &#39;q_max_observed_residues&#39;: 186,
+ &#39;q_mesh_terms&#39;: &#39;Crystallography, X-Ray,Humans,Hydrophobic and Hydrophilic &#39;
+                 &#39;Interactions,Models, Molecular,NADP,Protein Structure, &#39;
+                 &#39;Tertiary,Pyrimidines,Stereoisomerism,Tetrahydrofolate &#39;
+                 &#39;Dehydrogenase&#39;,
+ &#39;q_model_quality&#39;: 40.91,
+ &#39;q_modified_residue_flag&#39;: &#39;N&#39;,
+ &#39;q_molecule_name&#39;: [&#39;Dihydrofolate reductase&#39;],
+ &#39;q_molecule_sequence&#39;: &#39;VGSLNCIVAVSQNMGIGKNGDLPWPPLRNEFRYFQRMTTTSSVEGKQNLVIMGKKTWFSIPEKNRPLKGRINLVLSRELKEPPQGAHFLSRSLDDALKLTEQPELANKVDMVWIVGGSSVYKEAMNHPGHLKLFVTRIMQDFESDTFFPEIDLEKYKLLPEYPGVLSDVQEEKGIKYKFEVYEKND&#39;,
+ &#39;q_molecule_synonym&#39;: [&#39;Dihydrofolate reductase&#39;],
+ &#39;q_molecule_type&#39;: &#39;Protein&#39;,
+ &#39;q_mutation&#39;: &#39;n&#39;,
+ &#39;q_nigli_cell_a&#39;: 55.069,
+ &#39;q_nigli_cell_alpha&#39;: 99.398,
+ &#39;q_nigli_cell_b&#39;: 55.069,
+ &#39;q_nigli_cell_beta&#39;: 99.398,
+ &#39;q_nigli_cell_c&#39;: 55.069,
+ &#39;q_nigli_cell_gamma&#39;: 99.398,
+ &#39;q_nigli_cell_symmetry&#39;: &#39;R32&#39;,
+ &#39;q_num_interacting_entity_id&#39;: [0],
+ &#39;q_num_r_free_reflections&#39;: [811],
+ &#39;q_number_of_bound_entities&#39;: 3,
+ &#39;q_number_of_bound_molecules&#39;: 3,
+ &#39;q_number_of_copies&#39;: 1,
+ &#39;q_number_of_models&#39;: 1,
+ &#39;q_number_of_polymer_entities&#39;: 1,
+ &#39;q_number_of_polymer_residues&#39;: 186,
+ &#39;q_number_of_polymers&#39;: 1,
+ &#39;q_number_of_protein_chains&#39;: 1,
+ &#39;q_organism_name&#39;: [&#39;Homo sapiens&#39;,
+                     &#39;Man&#39;,
+                     &#39;Homo Sapiens (Human)&#39;,
+                     &#39;Human&#39;,
+                     &#39;Homo Sapiens&#39;,
+                     &#39;Homo sapiens&#39;,
+                     &#39;Homo&#39;,
+                     &#39;Homininae&#39;,
+                     &#39;Hominidae&#39;,
+                     &#39;Primates&#39;,
+                     &#39;Mammalia&#39;,
+                     &#39;Chordata&#39;,
+                     &#39;Metazoa&#39;,
+                     &#39;Eukaryota&#39;],
+ &#39;q_organism_scientific_name&#39;: [&#39;Homo sapiens&#39;],
+ &#39;q_organism_synonyms&#39;: [&#39;Man&#39;,
+                         &#39;Homo Sapiens (Human)&#39;,
+                         &#39;Human&#39;,
+                         &#39;Homo Sapiens&#39;,
+                         &#39;Homo sapiens&#39;,
+                         &#39;Homo&#39;,
+                         &#39;Homininae&#39;,
+                         &#39;Hominidae&#39;,
+                         &#39;Primates&#39;,
+                         &#39;Mammalia&#39;,
+                         &#39;Chordata&#39;,
+                         &#39;Metazoa&#39;,
+                         &#39;Eukaryota&#39;],
+ &#39;q_overall_quality&#39;: 9.0,
+ &#39;q_pdb_accession&#39;: &#39;3nxv&#39;,
+ &#39;q_pdb_format_compatible&#39;: &#39;Y&#39;,
+ &#39;q_pdb_id&#39;: &#39;3nxv&#39;,
+ &#39;q_percent_solvent&#39;: 50.58,
+ &#39;q_pfam&#39;: [&#39;PF00186 : DHFR_1&#39;],
+ &#39;q_pfam_accession&#39;: [&#39;PF00186&#39;],
+ &#39;q_pfam_clan&#39;: [&#39;CL0387 : DHFred&#39;],
+ &#39;q_pfam_clan_name&#39;: [&#39;DHFred&#39;],
+ &#39;q_pfam_description&#39;: [&#39;Dihydrofolate reductase&#39;],
+ &#39;q_pfam_name&#39;: [&#39;DHFR_1&#39;],
+ &#39;q_pivot_resolution&#39;: 1.9,
+ &#39;q_polymer_length&#39;: 186,
+ &#39;q_prefered_assembly_id&#39;: &#39;1&#39;,
+ &#39;q_primary_wavelength&#39;: 1.54198,
+ &#39;q_processing_site&#39;: &#39;RCSB&#39;,
+ &#39;q_pubmed_author_list&#39;: [&#39;Cody V, Piraino J, Pace J, Li W, Gangjee A&#39;],
+ &#39;q_pubmed_authors&#39;: [&#39;Cody V&#39;, &#39;Piraino J&#39;, &#39;Pace J&#39;, &#39;Li W&#39;, &#39;Gangjee A&#39;],
+ &#39;q_pubmed_id&#39;: &#39;21123866&#39;,
+ &#39;q_r_factor&#39;: 0.19536,
+ &#39;q_r_free&#39;: 0.2456,
+ &#39;q_r_work&#39;: [0.19278],
+ &#39;q_rank&#39;: [&#39;species&#39;,
+            &#39;genus&#39;,
+            &#39;subfamily&#39;,
+            &#39;family&#39;,
+            &#39;order&#39;,
+            &#39;class&#39;,
+            &#39;phylum&#39;,
+            &#39;kingdom&#39;,
+            &#39;superkingdom&#39;,
+            &#39;species&#39;,
+            &#39;genus&#39;,
+            &#39;family&#39;,
+            &#39;order&#39;,
+            &#39;class&#39;,
+            &#39;phylum&#39;,
+            &#39;superkingdom&#39;],
+ &#39;q_reactant_id&#39;: [&#39;NDP&#39;],
+ &#39;q_refinement_software&#39;: [&#39;REFMAC&#39;],
+ &#39;q_release_date&#39;: &#39;2010-12-01T01:00:00Z&#39;,
+ &#39;q_release_year&#39;: 2010,
+ &#39;q_resolution&#39;: 1.9,
+ &#39;q_revision_date&#39;: &#39;2017-11-08T01:00:00Z&#39;,
+ &#39;q_revision_year&#39;: 2017,
+ &#39;q_sample_preparation_method&#39;: [&#39;Engineered&#39;],
+ &#39;q_seq_100_cluster_number&#39;: &#39;4490&#39;,
+ &#39;q_seq_100_cluster_rank&#39;: 61,
+ &#39;q_seq_30_cluster_number&#39;: &#39;27142&#39;,
+ &#39;q_seq_30_cluster_rank&#39;: 93,
+ &#39;q_seq_40_cluster_number&#39;: &#39;26258&#39;,
+ &#39;q_seq_40_cluster_rank&#39;: 93,
+ &#39;q_seq_50_cluster_number&#39;: &#39;11970&#39;,
+ &#39;q_seq_50_cluster_rank&#39;: 93,
+ &#39;q_seq_70_cluster_number&#39;: &#39;2815&#39;,
+ &#39;q_seq_70_cluster_rank&#39;: 93,
+ &#39;q_seq_90_cluster_number&#39;: &#39;26718&#39;,
+ &#39;q_seq_90_cluster_rank&#39;: 79,
+ &#39;q_seq_95_cluster_number&#39;: &#39;26336&#39;,
+ &#39;q_seq_95_cluster_rank&#39;: 79,
+ &#39;q_serial_crystal_experiment&#39;: [&#39;N&#39;],
+ &#39;q_spacegroup&#39;: &#39;H 3&#39;,
+ &#39;q_status&#39;: &#39;REL&#39;,
+ &#39;q_struct_asym_id&#39;: [&#39;A&#39;],
+ &#39;q_structure_determination_method&#39;: [&#39;MOLECULAR REPLACEMENT&#39;],
+ &#39;q_structure_solution_software&#39;: [&#39;MOLREP&#39;],
+ &#39;q_superkingdom&#39;: [&#39;Eukaryota&#39;],
+ &#39;q_tax_id&#39;: [9606],
+ &#39;q_tax_query&#39;: [9606],
+ &#39;q_title&#39;: &#39;Preferential Selection of Isomer Binding from Chiral Mixtures: &#39;
+            &#39;Alternate Binding Modes Observed for the E- and Z-isomers of a &#39;
+            &#39;Series of 5-Substituted 2,4-Diaminofuro[2,3-d]pyrimidines as &#39;
+            &#39;Ternary Complexes with NADPH and Human Dihydrofolate Reductase&#39;,
+ &#39;q_uniprot&#39;: [&#39;P00374 : DYR_HUMAN&#39;],
+ &#39;q_uniprot_accession&#39;: [&#39;P00374&#39;, &#39;P00374-2&#39;],
+ &#39;q_uniprot_accession_best&#39;: [&#39;P00374&#39;],
+ &#39;q_uniprot_best&#39;: [&#39;P00374 : DYR_HUMAN&#39;],
+ &#39;q_uniprot_coverage&#39;: [0.99],
+ &#39;q_uniprot_features&#39;: [&#39;Protein has possible alternate isoforms&#39;,
+                        &#39;DHFR&#39;,
+                        &#39;Protein has possible natural variant &#39;,
+                        &#39;Nucleotide binding - NADP&#39;],
+ &#39;q_uniprot_id&#39;: [&#39;DYR_HUMAN&#39;, &#39;DYR_HUMAN&#39;],
+ &#39;q_uniprot_id_best&#39;: [&#39;DYR_HUMAN&#39;],
+ &#39;q_uniprot_non_canonical&#39;: [&#39;P00374-2 : DYR_HUMAN&#39;],
+ &#39;q_unp_count&#39;: 1,
+ &#39;q_unp_nf90_accession&#39;: [&#39;B0YJ76&#39;,
+                          &#39;A0A2K6C3Y8&#39;,
+                          &#39;S5WD14&#39;,
+                          &#39;S5VM81&#39;,
+                          &#39;P00374&#39;,
+                          &#39;A0A024RAQ3&#39;],
+ &#39;q_unp_nf90_id&#39;: [&#39;B0YJ76_HUMAN&#39;,
+                   &#39;A0A2K6C3Y8_MACNE&#39;,
+                   &#39;S5WD14_SHISS&#39;,
+                   &#39;S5VM81_ECO57&#39;,
+                   &#39;DYR_HUMAN&#39;,
+                   &#39;A0A024RAQ3_HUMAN&#39;],
+ &#39;q_unp_nf90_organism&#39;: [&#39;Homo sapiens (Human)&#39;,
+                         &#39;Macaca nemestrina (Pig-tailed macaque)&#39;,
+                         &#39;Shigella sonnei (strain Ss046)&#39;,
+                         &#39;Escherichia coli O157:H7&#39;,
+                         &#39;Homo sapiens (Human)&#39;,
+                         &#39;Homo sapiens (Human)&#39;],
+ &#39;q_unp_nf90_protein_name&#39;: [&#39;Dihydrofolate reductase&#39;,
+                             &#39;DHFR domain-containing protein&#39;,
+                             &#39;Dihydrofolate reductase&#39;,
+                             &#39;Dihydrofolate reductase&#39;,
+                             &#39;Dihydrofolate reductase&#39;,
+                             &#39;Dihydrofolate reductase&#39;],
+ &#39;q_unp_nf90_tax_id&#39;: [&#39;9606&#39;, &#39;9545&#39;, &#39;300269&#39;, &#39;83334&#39;, &#39;9606&#39;, &#39;9606&#39;],
+ &#39;r_factor&#39;: 0.19536,
+ &#39;r_free&#39;: 0.2456,
+ &#39;r_work&#39;: [0.19278],
+ &#39;rank&#39;: [&#39;species&#39;,
+          &#39;genus&#39;,
+          &#39;subfamily&#39;,
+          &#39;family&#39;,
+          &#39;order&#39;,
+          &#39;class&#39;,
+          &#39;phylum&#39;,
+          &#39;kingdom&#39;,
+          &#39;superkingdom&#39;,
+          &#39;species&#39;,
+          &#39;genus&#39;,
+          &#39;family&#39;,
+          &#39;order&#39;,
+          &#39;class&#39;,
+          &#39;phylum&#39;,
+          &#39;superkingdom&#39;],
+ &#39;reactant_id&#39;: [&#39;NDP&#39;],
+ &#39;refinement_software&#39;: [&#39;REFMAC&#39;],
+ &#39;release_date&#39;: &#39;2010-12-01T01:00:00Z&#39;,
+ &#39;release_year&#39;: 2010,
+ &#39;resolution&#39;: 1.9,
+ &#39;revision_date&#39;: &#39;2017-11-08T01:00:00Z&#39;,
+ &#39;revision_year&#39;: 2017,
+ &#39;sample_preparation_method&#39;: [&#39;Engineered&#39;],
+ &#39;seq_100_cluster_number&#39;: &#39;4490&#39;,
+ &#39;seq_100_cluster_rank&#39;: 61,
+ &#39;seq_30_cluster_number&#39;: &#39;27142&#39;,
+ &#39;seq_30_cluster_rank&#39;: 93,
+ &#39;seq_40_cluster_number&#39;: &#39;26258&#39;,
+ &#39;seq_40_cluster_rank&#39;: 93,
+ &#39;seq_50_cluster_number&#39;: &#39;11970&#39;,
+ &#39;seq_50_cluster_rank&#39;: 93,
+ &#39;seq_70_cluster_number&#39;: &#39;2815&#39;,
+ &#39;seq_70_cluster_rank&#39;: 93,
+ &#39;seq_90_cluster_number&#39;: &#39;26718&#39;,
+ &#39;seq_90_cluster_rank&#39;: 79,
+ &#39;seq_95_cluster_number&#39;: &#39;26336&#39;,
+ &#39;seq_95_cluster_rank&#39;: 79,
+ &#39;serial_crystal_experiment&#39;: [&#39;N&#39;],
+ &#39;spacegroup&#39;: &#39;H 3&#39;,
+ &#39;status&#39;: &#39;REL&#39;,
+ &#39;struct_asym_id&#39;: [&#39;A&#39;],
+ &#39;structure_determination_method&#39;: [&#39;MOLECULAR REPLACEMENT&#39;],
+ &#39;structure_solution_software&#39;: [&#39;MOLREP&#39;],
+ &#39;superkingdom&#39;: [&#39;Eukaryota&#39;],
+ &#39;t_abstracttext_unassigned&#39;: [&#39;The crystal structures of six human &#39;
+                               &#39;dihydrofolate reductase (hDHFR) ternary &#39;
+                               &#39;complexes with NADPH and a series of mixed E/Z &#39;
+                               &#39;isomers of 5-substituted &#39;
+                               &#39;5-[2-(2-methoxyphenyl)-prop-1-en-1-yl]furo[2,3-d]pyrimidine-2,4-diamines &#39;
+                               &#39;substituted at the C9 position with propyl, &#39;
+                               &#39;isopropyl, cyclopropyl, butyl, isobutyl and &#39;
+                               &#39;sec-butyl (E2-E7, Z3) were determined and the &#39;
+                               &#39;results were compared with the resolved E and &#39;
+                               &#39;Z isomers of the C9-methyl parent compound. &#39;
+                               &#39;The configuration of all of the inhibitors, &#39;
+                               &#39;save one, was observed as the E isomer, in &#39;
+                               &#39;which the binding of the furopyrimidine ring &#39;
+                               &#39;is flipped such that the 4-amino group binds &#39;
+                               &#39;in the 4-oxo site of folate. The Z3\xa0isomer &#39;
+                               &#39;of the C9-isopropyl analog has the normal &#39;
+                               &#39;2,4-diaminopyrimidine ring binding geometry, &#39;
+                               &#39;with the furo oxygen near Glu30 and the &#39;
+                               &#39;4-amino group interacting near the cofactor &#39;
+                               &#39;nicotinamide ring. Electron-density maps for &#39;
+                               &#39;these structures revealed the binding of only &#39;
+                               &#39;one isomer to hDHFR, despite the fact that &#39;
+                               &#39;chiral mixtures (E:Z ratios of 2:1, 3:1 and &#39;
+                               &#39;3:2) of the inhibitors were incubated with &#39;
+                               &#39;hDHFR prior to crystallization. Superposition &#39;
+                               &#39;of the hDHFR complexes with E2 and Z3 shows &#39;
+                               &#34;that the 2&#39;-methoxyphenyl ring of E2 is &#34;
+                               &#39;perpendicular to that of Z3. The most potent &#39;
+                               &#39;inhibitor in this series is the isopropyl &#39;
+                               &#39;analog Z3 and the least potent is the isobutyl &#39;
+                               &#39;analog E6, consistent with data that show that &#39;
+                               &#39;the Z isomer makes the most favorable &#39;
+                               &#39;interactions with the active-site residues. &#39;
+                               &#39;The isobutyl moiety of E6 is observed in two &#39;
+                               &#39;orientations and the resultant steric crowding &#39;
+                               &#39;of the E6 analog is consistent with its weaker &#39;
+                               &#39;activity. The alternative binding modes &#39;
+                               &#39;observed for the furopyrimidine ring in these &#39;
+                               &#39;E/Z isomers suggest that new templates can be &#39;
+                               &#39;designed to probe these binding regions of the &#39;
+                               &#39;DHFR active site.&#39;],
+ &#39;t_all_compound_names&#39;: [&#39;Nicotinamide-adenine dinucleotide&#39;,
+                          &#39;NDP&#39;,
+                          &#39;D2F : &#39;
+                          &#39;5-[(1E)-2-(2-methoxyphenyl)hex-1-en-1-yl]furo[2,3-d]pyrimidine-2,4-diamine&#39;,
+                          &#39;NDP : NADPH &#39;
+                          &#39;DIHYDRO-NICOTINAMIDE-ADENINE-DINUCLEOTIDE PHOSPHATE&#39;,
+                          &#39;SO4 : SULFATE ION&#39;,
+                          &#39;NDP : Dihydronicotinamide-adenine dinucleotide &#39;
+                          &#39;phosphate&#39;,
+                          &#39;NDP : Reduced nicotinamide adenine dinucleotide &#39;
+                          &#39;phosphate&#39;,
+                          &#39;NDP : TPNH&#39;,
+                          &#39;SO4 : Sulfate&#39;,
+                          &#39;SO4 : Sulfate dianion&#39;,
+                          &#39;SO4 : Sulfate(2-)&#39;,
+                          &#39;SO4 : Sulfuric acid ion(2-)&#39;,
+                          &#39;D2F : &#39;
+                          &#39;5-[(1E)-2-(2-methoxyphenyl)hex-1-en-1-yl]furo[2,3-d]pyrimidine-2,4-diamine&#39;,
+                          &#39;SO4 : sulfate&#39;,
+                          &#39;D2F : &#39;
+                          &#39;5-[(E)-2-(2-methoxyphenyl)hex-1-enyl]furo[2,3-d]pyrimidine-2,4-diamine&#39;,
+                          &#39;NDP : &#39;
+                          &#39;[[(2R,3S,4R,5R)-5-(3-aminocarbonyl-4H-pyridin-1-yl)-3,4-dihydroxy-oxolan-2-yl]methoxy-hydroxy-phosphoryl] &#39;
+                          &#39;[(2R,3R,4R,5R)-5-(6-aminopurin-9-yl)-3-hydroxy-4-phosphonooxy-oxolan-2-yl]methyl &#39;
+                          &#39;hydrogen phosphate&#39;],
+ &#39;t_all_enzyme_names&#39;: [&#39;Oxidoreductases&#39;,
+                        &#39;Acting on the CH-NH group of donors&#39;,
+                        &#39;With NAD(+) or NADP(+) as acceptor&#39;,
+                        &#39;Dihydrofolate reductase&#39;,
+                        &#39;1.5.1.3 : Dihydrofolate reductase&#39;,
+                        &#39;5,6,7,8-tetrahydrofolate:NADP(+) oxidoreductase&#39;],
+ &#39;t_all_go_terms&#39;: [&#39;cytoplasm&#39;,
+                    &#39;mitochondrion&#39;,
+                    &#39;cytosol&#39;,
+                    &#39;folic acid binding&#39;,
+                    &#39;oxidoreductase activity&#39;,
+                    &#39;NADPH binding&#39;,
+                    &#39;sequence-specific mRNA binding&#39;,
+                    &#39;RNA binding&#39;,
+                    &#39;mRNA binding&#39;,
+                    &#39;NADP binding&#39;,
+                    &#39;methotrexate binding&#39;,
+                    &#39;dihydrofolate reductase activity&#39;,
+                    &#39;translation repressor activity, mRNA regulatory element &#39;
+                    &#39;binding&#39;,
+                    &#39;drug binding&#39;,
+                    &#39;one-carbon metabolic process&#39;,
+                    &#39;negative regulation of translation&#39;,
+                    &#39;folic acid metabolic process&#39;,
+                    &#39;response to methotrexate&#39;,
+                    &#39;regulation of removal of superoxide radicals&#39;,
+                    &#39;tetrahydrobiopterin biosynthetic process&#39;,
+                    &#39;tetrahydrofolate metabolic process&#39;,
+                    &#39;tetrahydrofolate biosynthetic process&#39;,
+                    &#39;oxidation-reduction process&#39;,
+                    &#39;regulation of transcription involved in G1/S transition &#39;
+                    &#39;of mitotic cell cycle&#39;,
+                    &#39;positive regulation of nitric-oxide synthase activity&#39;,
+                    &#39;axon regeneration&#39;,
+                    &#39;dihydrofolate metabolic process&#39;],
+ &#39;t_all_sequence_family&#39;: [&#39;IPR001796 : Dihydrofolate reductase domain&#39;,
+                           &#39;IPR024072 : Dihydrofolate reductase-like domain &#39;
+                           &#39;superfamily&#39;,
+                           &#39;PF00186 : DHFR_1&#39;,
+                           &#39;CL0387 : DHFred&#39;],
+ &#39;t_all_structure_family&#39;: [&#39;3-Layer(aba) Sandwich&#39;,
+                            &#39;Alpha Beta&#39;,
+                            &#39;3.40.430.10&#39;,
+                            &#39;Dihydrofolate Reductase, subunit A&#39;,
+                            &#39;Dihydrofolate Reductase, subunit A&#39;],
+ &#39;t_citation_authors&#39;: [&#39;Cody V&#39;, &#39;Piraino J&#39;, &#39;Pace J&#39;, &#39;Li W&#39;, &#39;Gangjee A&#39;],
+ &#39;t_citation_title&#39;: [&#39;Preferential selection of isomer binding from chiral &#39;
+                      &#39;mixtures: alternate binding modes observed for the E &#39;
+                      &#39;and Z isomers of a series of 5-substituted &#39;
+                      &#39;2,4-diaminofuro[2,3-d]pyrimidines as ternary complexes &#39;
+                      &#39;with NADPH and human dihydrofolate reductase.&#39;],
+ &#39;t_entry_authors&#39;: [&#39;Cody V&#39;],
+ &#39;t_entry_info&#39;: [&#39;POTASSIUM PHOSPHATE&#39;,
+                  &#39;AMMONIUM SULFATE&#39;,
+                  &#39;ETHANOL&#39;,
+                  &#39;MOSFLM&#39;,
+                  &#39;SCALA&#39;,
+                  &#39;Image plate&#39;,
+                  &#39;RIGAKU RAXIS IV&#39;,
+                  &#39;X-ray diffraction&#39;,
+                  &#39;REFMAC&#39;,
+                  &#39;MOLECULAR REPLACEMENT&#39;,
+                  &#39;MOLREP&#39;],
+ &#39;t_entry_title&#39;: [&#39;Preferential Selection of Isomer Binding from Chiral &#39;
+                   &#39;Mixtures: Alternate Binding Modes Observed for the E- and &#39;
+                   &#39;Z-isomers of a Series of 5-Substituted &#39;
+                   &#39;2,4-Diaminofuro[2,3-d]pyrimidines as Ternary Complexes &#39;
+                   &#39;with NADPH and Human Dihydrofolate Reductase&#39;],
+ &#39;t_expression_organism_name&#39;: [&#39;Escherichia coli&#39;,
+                                &#39;Bacterium Coli&#39;,
+                                &#39;Enterococcus Coli&#39;,
+                                &#39;Bacterium 10a&#39;,
+                                &#39;Escherichia Coli&#39;,
+                                &#39;Escherichia Sp. 3_2_53faa&#39;,
+                                &#39;Escherichia/Shigella Coli&#39;,
+                                &#39;Ecolx&#39;,
+                                &#39;Bacterium E3&#39;,
+                                &#39;Bacterium Coli Commune&#39;,
+                                &#39;E. Coli&#39;,
+                                &#39;Bacillus Coli&#39;,
+                                &#39;Escherichia Sp. Mar&#39;,
+                                &#39;Escherichia coli&#39;,
+                                &#39;Escherichia&#39;,
+                                &#39;Enterobacteriaceae&#39;,
+                                &#39;Enterobacterales&#39;,
+                                &#39;Gammaproteobacteria&#39;,
+                                &#39;Proteobacteria&#39;,
+                                &#39;Bacteria&#39;],
+ &#39;t_journal&#39;: [&#39;Acta Crystallogr. D Biol. Crystallogr.&#39;],
+ &#39;t_mesh_terms&#39;: [&#39;Crystallography, X-Ray,Humans,Hydrophobic and Hydrophilic &#39;
+                  &#39;Interactions,Models, Molecular,NADP,Protein Structure, &#39;
+                  &#39;Tertiary,Pyrimidines,Stereoisomerism,Tetrahydrofolate &#39;
+                  &#39;Dehydrogenase&#39;],
+ &#39;t_molecule_info&#39;: [&#39;protein structure&#39;,
+                     &#39;homo&#39;,
+                     &#39;monomer&#39;,
+                     &#39;Dihydrofolate reductase&#39;,
+                     &#39;Dihydrofolate reductase&#39;,
+                     &#39;protein structure&#39;,
+                     &#39;homo&#39;,
+                     &#39;monomer&#39;,
+                     &#39;DHFR&#39;,
+                     &#39;P00374&#39;,
+                     &#39;P00374-2&#39;,
+                     &#39;Protein has possible alternate isoforms&#39;,
+                     &#39;DHFR&#39;,
+                     &#39;Protein has possible natural variant &#39;,
+                     &#39;Nucleotide binding - NADP&#39;,
+                     &#39;DYR_HUMAN&#39;,
+                     &#39;DYR_HUMAN&#39;],
+ &#39;t_molecule_sequence&#39;: &#39;VGSLNCIVAVSQNMGIGKNGDLPWPPLRNEFRYFQRMTTTSSVEGKQNLVIMGKKTWFSIPEKNRPLKGRINLVLSRELKEPPQGAHFLSRSLDDALKLTEQPELANKVDMVWIVGGSSVYKEAMNHPGHLKLFVTRIMQDFESDTFFPEIDLEKYKLLPEYPGVLSDVQEEKGIKYKFEVYEKND&#39;,
+ &#39;t_organism_name&#39;: [&#39;Homo sapiens&#39;,
+                     &#39;Man&#39;,
+                     &#39;Homo Sapiens (Human)&#39;,
+                     &#39;Human&#39;,
+                     &#39;Homo Sapiens&#39;,
+                     &#39;Homo sapiens&#39;,
+                     &#39;Homo&#39;,
+                     &#39;Homininae&#39;,
+                     &#39;Hominidae&#39;,
+                     &#39;Primates&#39;,
+                     &#39;Mammalia&#39;,
+                     &#39;Chordata&#39;,
+                     &#39;Metazoa&#39;,
+                     &#39;Eukaryota&#39;],
+ &#39;tax_id&#39;: [9606],
+ &#39;tax_query&#39;: [9606],
+ &#39;title&#39;: &#39;Preferential Selection of Isomer Binding from Chiral Mixtures: &#39;
+          &#39;Alternate Binding Modes Observed for the E- and Z-isomers of a &#39;
+          &#39;Series of 5-Substituted 2,4-Diaminofuro[2,3-d]pyrimidines as &#39;
+          &#39;Ternary Complexes with NADPH and Human Dihydrofolate Reductase&#39;,
+ &#39;uniprot&#39;: [&#39;P00374 : DYR_HUMAN&#39;],
+ &#39;uniprot_accession&#39;: [&#39;P00374&#39;, &#39;P00374-2&#39;],
+ &#39;uniprot_accession_best&#39;: [&#39;P00374&#39;],
+ &#39;uniprot_best&#39;: [&#39;P00374 : DYR_HUMAN&#39;],
+ &#39;uniprot_coverage&#39;: [0.99],
+ &#39;uniprot_features&#39;: [&#39;Protein has possible alternate isoforms&#39;,
+                      &#39;DHFR&#39;,
+                      &#39;Protein has possible natural variant &#39;,
+                      &#39;Nucleotide binding - NADP&#39;],
+ &#39;uniprot_id&#39;: [&#39;DYR_HUMAN&#39;, &#39;DYR_HUMAN&#39;],
+ &#39;uniprot_id_best&#39;: [&#39;DYR_HUMAN&#39;],
+ &#39;uniprot_non_canonical&#39;: [&#39;P00374-2 : DYR_HUMAN&#39;],
+ &#39;unp_count&#39;: 1,
+ &#39;unp_nf90_accession&#39;: [&#39;B0YJ76&#39;,
+                        &#39;A0A2K6C3Y8&#39;,
+                        &#39;S5WD14&#39;,
+                        &#39;S5VM81&#39;,
+                        &#39;P00374&#39;,
+                        &#39;A0A024RAQ3&#39;],
+ &#39;unp_nf90_id&#39;: [&#39;B0YJ76_HUMAN&#39;,
+                 &#39;A0A2K6C3Y8_MACNE&#39;,
+                 &#39;S5WD14_SHISS&#39;,
+                 &#39;S5VM81_ECO57&#39;,
+                 &#39;DYR_HUMAN&#39;,
+                 &#39;A0A024RAQ3_HUMAN&#39;],
+ &#39;unp_nf90_organism&#39;: [&#39;Homo sapiens (Human)&#39;,
+                       &#39;Macaca nemestrina (Pig-tailed macaque)&#39;,
+                       &#39;Shigella sonnei (strain Ss046)&#39;,
+                       &#39;Escherichia coli O157:H7&#39;,
+                       &#39;Homo sapiens (Human)&#39;,
+                       &#39;Homo sapiens (Human)&#39;],
+ &#39;unp_nf90_protein_name&#39;: [&#39;Dihydrofolate reductase&#39;,
+                           &#39;DHFR domain-containing protein&#39;,
+                           &#39;Dihydrofolate reductase&#39;,
+                           &#39;Dihydrofolate reductase&#39;,
+                           &#39;Dihydrofolate reductase&#39;,
+                           &#39;Dihydrofolate reductase&#39;],
+ &#39;unp_nf90_tax_id&#39;: [&#39;9606&#39;, &#39;9545&#39;, &#39;300269&#39;, &#39;83334&#39;, &#39;9606&#39;, &#39;9606&#39;]}
+</pre></div></div>
+</div>
+<p>A full list of available search terms is available using the following command.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;There are </span><span class="si">{}</span><span class="s1"> available search terms&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">second_results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">second_results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="n">keys_without_q</span> <span class="o">=</span> <span class="p">[</span><span class="n">q</span> <span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="n">second_results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;q_&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;t_&#39;</span><span class="p">)))]</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">keys_without_q</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+There are 442 available search terms
+dict_keys([&#39;abstracttext_unassigned&#39;, &#39;t_abstracttext_unassigned&#39;, &#39;q_abstracttext_unassigned&#39;, &#39;all_assembly_composition&#39;, &#39;t_molecule_info&#39;, &#39;q_all_assembly_composition&#39;, &#39;all_assembly_form&#39;, &#39;q_all_assembly_form&#39;, &#39;all_assembly_id&#39;, &#39;q_all_assembly_id&#39;, &#39;all_assembly_mol_wt&#39;, &#39;q_all_assembly_mol_wt&#39;, &#39;all_assembly_type&#39;, &#39;q_all_assembly_type&#39;, &#39;all_authors&#39;, &#39;q_all_authors&#39;, &#39;all_molecule_names&#39;, &#39;q_all_molecule_names&#39;, &#39;all_num_interacting_entity_id&#39;, &#39;q_all_num_interacting_entity_id&#39;, &#39;assembly_composition&#39;, &#39;q_assembly_composition&#39;, &#39;assembly_form&#39;, &#39;q_assembly_form&#39;, &#39;assembly_id&#39;, &#39;q_assembly_id&#39;, &#39;assembly_mol_wt&#39;, &#39;q_assembly_mol_wt&#39;, &#39;assembly_num_component&#39;, &#39;q_assembly_num_component&#39;, &#39;assembly_type&#39;, &#39;q_assembly_type&#39;, &#39;beam_source_name&#39;, &#39;q_beam_source_name&#39;, &#39;biological_cell_component&#39;, &#39;all_go_terms&#39;, &#39;q_all_go_terms&#39;, &#39;t_all_go_terms&#39;, &#39;q_biological_cell_component&#39;, &#39;biological_function&#39;, &#39;q_biological_function&#39;, &#39;biological_process&#39;, &#39;q_biological_process&#39;, &#39;bound_compound_id&#39;, &#39;q_bound_compound_id&#39;, &#39;bound_compound_name&#39;, &#39;q_bound_compound_name&#39;, &#39;bound_compound_synonym&#39;, &#39;q_bound_compound_synonym&#39;, &#39;bound_compound_systematic_name&#39;, &#39;q_bound_compound_systematic_name&#39;, &#39;bound_compound_weight&#39;, &#39;q_bound_compound_weight&#39;, &#39;cath_architecture&#39;, &#39;all_structure_family&#39;, &#39;q_all_structure_family&#39;, &#39;t_all_structure_family&#39;, &#39;q_cath_architecture&#39;, &#39;cath_class&#39;, &#39;q_cath_class&#39;, &#39;cath_code&#39;, &#39;q_cath_code&#39;, &#39;cath_homologous_superfamily&#39;, &#39;q_cath_homologous_superfamily&#39;, &#39;cath_topology&#39;, &#39;q_cath_topology&#39;, &#39;cell_a&#39;, &#39;q_cell_a&#39;, &#39;cell_alpha&#39;, &#39;q_cell_alpha&#39;, &#39;cell_b&#39;, &#39;q_cell_b&#39;, &#39;cell_beta&#39;, &#39;q_cell_beta&#39;, &#39;cell_c&#39;, &#39;q_cell_c&#39;, &#39;cell_gamma&#39;, &#39;q_cell_gamma&#39;, &#39;chain_id&#39;, &#39;q_chain_id&#39;, &#39;citation_authors&#39;, &#39;t_citation_authors&#39;, &#39;q_citation_authors&#39;, &#39;citation_doi&#39;, &#39;q_citation_doi&#39;, &#39;citation_title&#39;, &#39;t_citation_title&#39;, &#39;q_citation_title&#39;, &#39;citation_year&#39;, &#39;q_citation_year&#39;, &#39;cofactor_class&#39;, &#39;t_all_compound_names&#39;, &#39;q_cofactor_class&#39;, &#39;cofactor_id&#39;, &#39;q_cofactor_id&#39;, &#39;compound_id&#39;, &#39;q_compound_id&#39;, &#39;compound_name&#39;, &#39;all_compound_names&#39;, &#39;q_all_compound_names&#39;, &#39;q_compound_name&#39;, &#39;compound_synonym&#39;, &#39;q_compound_synonym&#39;, &#39;compound_systematic_name&#39;, &#39;q_compound_systematic_name&#39;, &#39;compound_weight&#39;, &#39;q_compound_weight&#39;, &#39;crystallisation_cond&#39;, &#39;q_crystallisation_cond&#39;, &#39;crystallisation_method&#39;, &#39;q_crystallisation_method&#39;, &#39;crystallisation_ph&#39;, &#39;q_crystallisation_ph&#39;, &#39;crystallisation_reservoir&#39;, &#39;t_entry_info&#39;, &#39;q_crystallisation_reservoir&#39;, &#39;crystallisation_temperature&#39;, &#39;q_crystallisation_temperature&#39;, &#39;data_collection_date&#39;, &#39;q_data_collection_date&#39;, &#39;data_collection_year&#39;, &#39;q_data_collection_year&#39;, &#39;data_quality&#39;, &#39;q_data_quality&#39;, &#39;data_reduction_software&#39;, &#39;q_data_reduction_software&#39;, &#39;data_scaling_software&#39;, &#39;q_data_scaling_software&#39;, &#39;deposition_date&#39;, &#39;q_deposition_date&#39;, &#39;deposition_site&#39;, &#39;q_deposition_site&#39;, &#39;deposition_year&#39;, &#39;q_deposition_year&#39;, &#39;detector&#39;, &#39;q_detector&#39;, &#39;detector_type&#39;, &#39;q_detector_type&#39;, &#39;diffraction_protocol&#39;, &#39;q_diffraction_protocol&#39;, &#39;diffraction_source_type&#39;, &#39;q_diffraction_source_type&#39;, &#39;diffraction_wavelengths&#39;, &#39;q_diffraction_wavelengths&#39;, &#39;ec_hierarchy_name&#39;, &#39;all_enzyme_names&#39;, &#39;q_all_enzyme_names&#39;, &#39;t_all_enzyme_names&#39;, &#39;q_ec_hierarchy_name&#39;, &#39;ec_number&#39;, &#39;q_ec_number&#39;, &#39;entity_id&#39;, &#39;q_entity_id&#39;, &#39;entity_weight&#39;, &#39;q_entity_weight&#39;, &#39;entry_author_list&#39;, &#39;q_entry_author_list&#39;, &#39;entry_authors&#39;, &#39;t_entry_authors&#39;, &#39;q_entry_authors&#39;, &#39;entry_entity&#39;, &#39;entry_lig_entity&#39;, &#39;q_entry_lig_entity&#39;, &#39;entry_organism_scientific_name&#39;, &#39;enzyme_name&#39;, &#39;q_enzyme_name&#39;, &#39;enzyme_num_name&#39;, &#39;q_enzyme_num_name&#39;, &#39;enzyme_systematic_name&#39;, &#39;q_enzyme_systematic_name&#39;, &#39;experiment_data_available&#39;, &#39;q_experiment_data_available&#39;, &#39;experimental_method&#39;, &#39;q_experimental_method&#39;, &#39;expression_host_sci_name&#39;, &#39;expression_organism_name&#39;, &#39;q_expression_organism_name&#39;, &#39;t_expression_organism_name&#39;, &#39;q_expression_host_sci_name&#39;, &#39;expression_host_synonyms&#39;, &#39;q_expression_host_synonyms&#39;, &#39;expression_host_tax_id&#39;, &#39;q_expression_host_tax_id&#39;, &#39;gene_name&#39;, &#39;q_gene_name&#39;, &#39;genus&#39;, &#39;q_genus&#39;, &#39;go_id&#39;, &#39;q_go_id&#39;, &#39;go_mapping&#39;, &#39;q_go_mapping&#39;, &#39;has_bound_molecule&#39;, &#39;q_has_bound_molecule&#39;, &#39;has_carb_polymer&#39;, &#39;q_has_carb_polymer&#39;, &#39;has_cofactor&#39;, &#39;q_has_cofactor&#39;, &#39;has_modified_residues&#39;, &#39;q_has_modified_residues&#39;, &#39;has_reactant&#39;, &#39;q_has_reactant&#39;, &#39;homologus_pdb_entity_id&#39;, &#39;q_homologus_pdb_entity_id&#39;, &#39;int_lig_entity&#39;, &#39;q_int_lig_entity&#39;, &#39;interacting_ligands&#39;, &#39;q_interacting_ligands&#39;, &#39;interpro&#39;, &#39;all_sequence_family&#39;, &#39;q_all_sequence_family&#39;, &#39;t_all_sequence_family&#39;, &#39;q_interpro&#39;, &#39;interpro_accession&#39;, &#39;q_interpro_accession&#39;, &#39;interpro_dom&#39;, &#39;q_interpro_dom&#39;, &#39;interpro_dom_acc&#39;, &#39;q_interpro_dom_acc&#39;, &#39;interpro_dom_name&#39;, &#39;q_interpro_dom_name&#39;, &#39;interpro_name&#39;, &#39;q_interpro_name&#39;, &#39;interpro_supfam&#39;, &#39;q_interpro_supfam&#39;, &#39;interpro_supfam_acc&#39;, &#39;q_interpro_supfam_acc&#39;, &#39;interpro_supfam_name&#39;, &#39;q_interpro_supfam_name&#39;, &#39;inv_overall_quality&#39;, &#39;q_inv_overall_quality&#39;, &#39;journal&#39;, &#39;t_journal&#39;, &#39;q_journal&#39;, &#39;journal_page&#39;, &#39;q_journal_page&#39;, &#39;journal_volume&#39;, &#39;q_journal_volume&#39;, &#39;matthews_coefficient&#39;, &#39;q_matthews_coefficient&#39;, &#39;max_observed_residues&#39;, &#39;q_max_observed_residues&#39;, &#39;mesh_terms&#39;, &#39;t_mesh_terms&#39;, &#39;q_mesh_terms&#39;, &#39;model_quality&#39;, &#39;q_model_quality&#39;, &#39;modified_residue_flag&#39;, &#39;q_modified_residue_flag&#39;, &#39;molecule_name&#39;, &#39;q_molecule_name&#39;, &#39;molecule_sequence&#39;, &#39;q_molecule_sequence&#39;, &#39;t_molecule_sequence&#39;, &#39;molecule_synonym&#39;, &#39;q_molecule_synonym&#39;, &#39;molecule_type&#39;, &#39;q_molecule_type&#39;, &#39;mutation&#39;, &#39;q_mutation&#39;, &#39;nigli_cell_a&#39;, &#39;q_nigli_cell_a&#39;, &#39;nigli_cell_alpha&#39;, &#39;q_nigli_cell_alpha&#39;, &#39;nigli_cell_b&#39;, &#39;q_nigli_cell_b&#39;, &#39;nigli_cell_beta&#39;, &#39;q_nigli_cell_beta&#39;, &#39;nigli_cell_c&#39;, &#39;q_nigli_cell_c&#39;, &#39;nigli_cell_gamma&#39;, &#39;q_nigli_cell_gamma&#39;, &#39;nigli_cell_symmetry&#39;, &#39;q_nigli_cell_symmetry&#39;, &#39;num_interacting_entity_id&#39;, &#39;q_num_interacting_entity_id&#39;, &#39;num_r_free_reflections&#39;, &#39;q_num_r_free_reflections&#39;, &#39;number_of_bound_entities&#39;, &#39;q_number_of_bound_entities&#39;, &#39;number_of_bound_molecules&#39;, &#39;q_number_of_bound_molecules&#39;, &#39;number_of_copies&#39;, &#39;q_number_of_copies&#39;, &#39;number_of_models&#39;, &#39;q_number_of_models&#39;, &#39;number_of_polymer_entities&#39;, &#39;q_number_of_polymer_entities&#39;, &#39;number_of_polymer_residues&#39;, &#39;q_number_of_polymer_residues&#39;, &#39;number_of_polymers&#39;, &#39;q_number_of_polymers&#39;, &#39;number_of_protein_chains&#39;, &#39;q_number_of_protein_chains&#39;, &#39;organism_scientific_name&#39;, &#39;organism_name&#39;, &#39;q_organism_name&#39;, &#39;t_organism_name&#39;, &#39;q_organism_scientific_name&#39;, &#39;organism_synonyms&#39;, &#39;q_organism_synonyms&#39;, &#39;overall_quality&#39;, &#39;q_overall_quality&#39;, &#39;pdb_accession&#39;, &#39;q_pdb_accession&#39;, &#39;pdb_format_compatible&#39;, &#39;q_pdb_format_compatible&#39;, &#39;pdb_id&#39;, &#39;q_pdb_id&#39;, &#39;percent_solvent&#39;, &#39;q_percent_solvent&#39;, &#39;pfam&#39;, &#39;q_pfam&#39;, &#39;pfam_accession&#39;, &#39;q_pfam_accession&#39;, &#39;pfam_clan&#39;, &#39;q_pfam_clan&#39;, &#39;pfam_clan_name&#39;, &#39;q_pfam_clan_name&#39;, &#39;pfam_description&#39;, &#39;q_pfam_description&#39;, &#39;pfam_name&#39;, &#39;q_pfam_name&#39;, &#39;pivot_resolution&#39;, &#39;q_pivot_resolution&#39;, &#39;polymer_length&#39;, &#39;q_polymer_length&#39;, &#39;prefered_assembly_id&#39;, &#39;q_prefered_assembly_id&#39;, &#39;primary_wavelength&#39;, &#39;q_primary_wavelength&#39;, &#39;processing_site&#39;, &#39;q_processing_site&#39;, &#39;pubmed_author_list&#39;, &#39;q_pubmed_author_list&#39;, &#39;pubmed_authors&#39;, &#39;q_pubmed_authors&#39;, &#39;pubmed_id&#39;, &#39;q_pubmed_id&#39;, &#39;r_factor&#39;, &#39;q_r_factor&#39;, &#39;r_free&#39;, &#39;q_r_free&#39;, &#39;r_work&#39;, &#39;q_r_work&#39;, &#39;rank&#39;, &#39;q_rank&#39;, &#39;reactant_id&#39;, &#39;q_reactant_id&#39;, &#39;refinement_software&#39;, &#39;q_refinement_software&#39;, &#39;release_date&#39;, &#39;q_release_date&#39;, &#39;release_year&#39;, &#39;q_release_year&#39;, &#39;resolution&#39;, &#39;q_resolution&#39;, &#39;revision_date&#39;, &#39;q_revision_date&#39;, &#39;revision_year&#39;, &#39;q_revision_year&#39;, &#39;sample_preparation_method&#39;, &#39;q_sample_preparation_method&#39;, &#39;seq_100_cluster_number&#39;, &#39;q_seq_100_cluster_number&#39;, &#39;seq_100_cluster_rank&#39;, &#39;q_seq_100_cluster_rank&#39;, &#39;seq_30_cluster_number&#39;, &#39;q_seq_30_cluster_number&#39;, &#39;seq_30_cluster_rank&#39;, &#39;q_seq_30_cluster_rank&#39;, &#39;seq_40_cluster_number&#39;, &#39;q_seq_40_cluster_number&#39;, &#39;seq_40_cluster_rank&#39;, &#39;q_seq_40_cluster_rank&#39;, &#39;seq_50_cluster_number&#39;, &#39;q_seq_50_cluster_number&#39;, &#39;seq_50_cluster_rank&#39;, &#39;q_seq_50_cluster_rank&#39;, &#39;seq_70_cluster_number&#39;, &#39;q_seq_70_cluster_number&#39;, &#39;seq_70_cluster_rank&#39;, &#39;q_seq_70_cluster_rank&#39;, &#39;seq_90_cluster_number&#39;, &#39;q_seq_90_cluster_number&#39;, &#39;seq_90_cluster_rank&#39;, &#39;q_seq_90_cluster_rank&#39;, &#39;seq_95_cluster_number&#39;, &#39;q_seq_95_cluster_number&#39;, &#39;seq_95_cluster_rank&#39;, &#39;q_seq_95_cluster_rank&#39;, &#39;serial_crystal_experiment&#39;, &#39;q_serial_crystal_experiment&#39;, &#39;spacegroup&#39;, &#39;q_spacegroup&#39;, &#39;status&#39;, &#39;q_status&#39;, &#39;struct_asym_id&#39;, &#39;q_struct_asym_id&#39;, &#39;structure_determination_method&#39;, &#39;q_structure_determination_method&#39;, &#39;structure_solution_software&#39;, &#39;q_structure_solution_software&#39;, &#39;superkingdom&#39;, &#39;q_superkingdom&#39;, &#39;tax_id&#39;, &#39;q_tax_id&#39;, &#39;tax_query&#39;, &#39;q_tax_query&#39;, &#39;title&#39;, &#39;t_entry_title&#39;, &#39;q_title&#39;, &#39;uniprot&#39;, &#39;q_uniprot&#39;, &#39;uniprot_accession&#39;, &#39;q_uniprot_accession&#39;, &#39;uniprot_accession_best&#39;, &#39;q_uniprot_accession_best&#39;, &#39;uniprot_best&#39;, &#39;q_uniprot_best&#39;, &#39;uniprot_coverage&#39;, &#39;q_uniprot_coverage&#39;, &#39;uniprot_features&#39;, &#39;q_uniprot_features&#39;, &#39;uniprot_id&#39;, &#39;q_uniprot_id&#39;, &#39;uniprot_id_best&#39;, &#39;q_uniprot_id_best&#39;, &#39;uniprot_non_canonical&#39;, &#39;q_uniprot_non_canonical&#39;, &#39;unp_nf90_accession&#39;, &#39;q_unp_nf90_accession&#39;, &#39;unp_nf90_id&#39;, &#39;q_unp_nf90_id&#39;, &#39;unp_nf90_organism&#39;, &#39;q_unp_nf90_organism&#39;, &#39;unp_nf90_protein_name&#39;, &#39;q_unp_nf90_protein_name&#39;, &#39;unp_nf90_tax_id&#39;, &#39;q_unp_nf90_tax_id&#39;, &#39;_version_&#39;, &#39;q_unp_count&#39;, &#39;unp_count&#39;])
+214
+</pre></div></div>
+</div>
+<p>As you can see we get lots of data back about the individual molecule we have searched for and the PDB entries in which it is contained.</p>
+<p>We can get the PDB ID and experimental method for this first row as follows. Note that experimental method is a list</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">second_results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;pdb_id&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">second_results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;experimental_method&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+3nxv
+[&#39;X-ray diffraction&#39;]
+</pre></div></div>
+</div>
+<p>We can restrict the results to only the information we want using a filter so its easier to see the information we want.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;3rd search&#39;</span><span class="p">)</span>
+<span class="n">search_terms</span> <span class="o">=</span> <span class="n">Q</span><span class="p">(</span><span class="n">molecule_name</span><span class="o">=</span><span class="s2">&quot;Dihydrofolate reductase&quot;</span><span class="p">,</span><span class="n">organism_name</span><span class="o">=</span><span class="s2">&quot;Human&quot;</span><span class="p">)</span>
+<span class="n">filter_terms</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;pdb_id&#39;</span><span class="p">,</span> <span class="s1">&#39;experimental_method&#39;</span><span class="p">]</span>
+<span class="n">third_results</span> <span class="o">=</span> <span class="n">run_search</span><span class="p">(</span><span class="n">search_terms</span><span class="p">,</span> <span class="n">filter_terms</span><span class="p">)</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">third_results</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+3rd search
+Number of results: 79
+[{&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;3nxv&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;5hqz&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;1s3u&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;1mvs&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;1ohk&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;3s3v&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;2w3b&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;1s3w&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;1pd8&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;4kfj&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;1kmv&#39;},
+ {&#39;experimental_method&#39;: [&#39;Solution NMR&#39;], &#39;pdb_id&#39;: &#39;1yho&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;1pdb&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;3s7a&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;5hvb&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;4kbn&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;6a7c&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;4m6j&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;5hui&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;1mvt&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;3nu0&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;3fs6&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;6de4&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;3nxy&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;3ghw&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;5hve&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;1pd9&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;4m6l&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;1dhf&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;3eig&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;1hfp&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;3nxr&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;3oaf&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;6dav&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;1dlr&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;5hpb&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;1u71&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;5ht5&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;1u72&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;3nxt&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;1hfq&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;3f8y&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;1s3v&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;3nxx&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;4m6k&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;5ht4&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;4keb&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;1boz&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;1dls&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;6a7e&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;1kms&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;3gyf&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;5hsr&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;3gi2&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;2c2t&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;3nxo&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;2c2s&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;4kd7&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;5hsu&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;3f91&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;2dhf&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;4g95&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;2w3m&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;1drf&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;4qjc&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;5hqy&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;1ohj&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;3nzd&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;3ghc&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;4qhv&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;1hfr&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;4kak&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;3l3r&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;3n0h&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;4ddr&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;3ghv&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;2w3a&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;3f8z&#39;},
+ {&#39;experimental_method&#39;: [&#39;X-ray diffraction&#39;], &#39;pdb_id&#39;: &#39;3ntz&#39;}]
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="6)-Analysing-and-plotting-the-results">
+<h2>6) Analysing and plotting the results<a class="headerlink" href="#6)-Analysing-and-plotting-the-results" title="Permalink to this headline">¶</a></h2>
+<p>We are going to use a Python package called Pandas to help us sort and visualise the results</p>
+<p>First we have to do a bit of housekeeping, some of the results are lists (a PDB entry can have more than one experimental method or organism for example) so we need to change them into strings so we can use them in a graph</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">change_lists_to_strings</span><span class="p">(</span><span class="n">results</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    input - list of results from search</span>
+<span class="sd">    output - list of results with lists changed into strings</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">row</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="n">data</span><span class="p">])</span> <span class="o">==</span> <span class="nb">list</span><span class="p">:</span>
+                <span class="c1"># if there are any numbers in the list change them into strings</span>
+                <span class="n">row</span><span class="p">[</span><span class="n">data</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">row</span><span class="p">[</span><span class="n">data</span><span class="p">]]</span>
+                <span class="c1"># unique and sort the list and then change the list into a string</span>
+                <span class="n">row</span><span class="p">[</span><span class="n">data</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;,&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="n">data</span><span class="p">]))))</span>
+
+    <span class="k">return</span> <span class="n">results</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">change_lists_to_strings</span><span class="p">(</span><span class="n">third_results</span><span class="p">)</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[{&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;3nxv&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;5hqz&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;1s3u&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;1mvs&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;1ohk&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;3s3v&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;2w3b&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;1s3w&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;1pd8&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;4kfj&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;1kmv&#39;},
+ {&#39;experimental_method&#39;: &#39;Solution NMR&#39;, &#39;pdb_id&#39;: &#39;1yho&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;1pdb&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;3s7a&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;5hvb&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;4kbn&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;6a7c&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;4m6j&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;5hui&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;1mvt&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;3nu0&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;3fs6&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;6de4&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;3nxy&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;3ghw&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;5hve&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;1pd9&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;4m6l&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;1dhf&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;3eig&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;1hfp&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;3nxr&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;3oaf&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;6dav&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;1dlr&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;5hpb&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;1u71&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;5ht5&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;1u72&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;3nxt&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;1hfq&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;3f8y&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;1s3v&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;3nxx&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;4m6k&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;5ht4&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;4keb&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;1boz&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;1dls&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;6a7e&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;1kms&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;3gyf&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;5hsr&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;3gi2&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;2c2t&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;3nxo&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;2c2s&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;4kd7&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;5hsu&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;3f91&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;2dhf&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;4g95&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;2w3m&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;1drf&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;4qjc&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;5hqy&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;1ohj&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;3nzd&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;3ghc&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;4qhv&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;1hfr&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;4kak&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;3l3r&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;3n0h&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;4ddr&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;3ghv&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;2w3a&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;3f8z&#39;},
+ {&#39;experimental_method&#39;: &#39;X-ray diffraction&#39;, &#39;pdb_id&#39;: &#39;3ntz&#39;}]
+</pre></div></div>
+</div>
+<p>Notice that the only thing that changed is [‘X-ray diffraction’] is now ‘X-ray diffraction’</p>
+<p>If we wanted to know the experimental methods used to determine structures of Human Dihydrofolate reductase we could loop through the results and count how many entries use each experimental method.</p>
+<p>We can use a Python package called Pandas to do this for us. It changes the results into a mini database - called a DataFrame.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">pandas_dataset</span><span class="p">(</span><span class="n">list_of_results</span><span class="p">):</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">change_lists_to_strings</span><span class="p">(</span><span class="n">list_of_results</span><span class="p">)</span> <span class="c1"># we have added our function to change lists to strings</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">df</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pandas_dataset</span><span class="p">(</span><span class="n">list_of_results</span><span class="o">=</span><span class="n">results</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+   experimental_method pdb_id
+0    X-ray diffraction   3nxv
+1    X-ray diffraction   5hqz
+2    X-ray diffraction   1s3u
+3    X-ray diffraction   1mvs
+4    X-ray diffraction   1ohk
+..                 ...    ...
+74   X-ray diffraction   4ddr
+75   X-ray diffraction   3ghv
+76   X-ray diffraction   2w3a
+77   X-ray diffraction   3f8z
+78   X-ray diffraction   3ntz
+
+[79 rows x 2 columns]
+</pre></div></div>
+</div>
+<p>We can use the this to count how many PDB codes there are for each experimental method This groups PDB IDs by experimental method and then counts the number of unique PDB IDs per method.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;experimental_method&#39;</span><span class="p">)[</span><span class="s1">&#39;pdb_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ds</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+experimental_method
+Solution NMR          1
+X-ray diffraction    78
+Name: pdb_id, dtype: int64
+</pre></div></div>
+</div>
+<p>We can find which experimental method has the greatest (max) or lowest (min) number of entries.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">dt</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+78
+1
+</pre></div></div>
+</div>
+<p>We can sort the results so its in decending order and then the first value is the experimental method with the highest number of results</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ds</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;X-ray diffraction&#39;
+</pre></div></div>
+</div>
+<p>Or sort ascending so the experimental method with the lowest number of results is given</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ds</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;Solution NMR&#39;
+</pre></div></div>
+</div>
+<p>Or we can then very easily plot these results as a bar chart</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ds</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;AxesSubplot:xlabel=&#39;experimental_method&#39;&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/webinars_web2_6_PDB_search_37_1.png" src="../../_images/webinars_web2_6_PDB_search_37_1.png" />
+</div>
+</div>
+<p>We will make this into two functions so we can use them again</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">pandas_count</span><span class="p">(</span><span class="n">list_of_results</span><span class="p">,</span> <span class="n">column_to_group_by</span><span class="p">):</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pandas_dataset</span><span class="p">(</span><span class="n">list_of_results</span><span class="p">)</span>
+    <span class="n">ds</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">column_to_group_by</span><span class="p">)[</span><span class="s1">&#39;pdb_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">ds</span>
+
+<span class="k">def</span> <span class="nf">pandas_min_max</span><span class="p">(</span><span class="n">list_of_results</span><span class="p">,</span> <span class="n">column_to_group_by</span><span class="p">,</span> <span class="n">get_min</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pandas_dataset</span><span class="p">(</span><span class="n">list_of_results</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">get_min</span><span class="p">:</span>
+        <span class="n">ds</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">column_to_group_by</span><span class="p">)[</span><span class="s1">&#39;pdb_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">ds</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">column_to_group_by</span><span class="p">)[</span><span class="s1">&#39;pdb_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">ds</span>
+
+<span class="k">def</span> <span class="nf">pandas_plot</span><span class="p">(</span><span class="n">list_of_results</span><span class="p">,</span> <span class="n">column_to_group_by</span><span class="p">,</span> <span class="n">graph_type</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">):</span>
+    <span class="n">ds</span> <span class="o">=</span> <span class="n">pandas_count</span><span class="p">(</span><span class="n">list_of_results</span><span class="o">=</span><span class="n">list_of_results</span><span class="p">,</span> <span class="n">column_to_group_by</span><span class="o">=</span><span class="n">column_to_group_by</span><span class="p">)</span>
+    <span class="n">ds</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="n">graph_type</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<p>One for counting the results</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">pandas_count</span><span class="p">(</span><span class="n">list_of_results</span><span class="o">=</span><span class="n">results</span><span class="p">,</span> <span class="n">column_to_group_by</span><span class="o">=</span><span class="s1">&#39;experimental_method&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+experimental_method
+Solution NMR          1
+X-ray diffraction    78
+Name: pdb_id, dtype: int64
+</pre></div></div>
+</div>
+<p>One for getting min or max</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;updated search&#39;</span><span class="p">)</span>
+<span class="n">search_terms</span> <span class="o">=</span> <span class="n">Q</span><span class="p">(</span><span class="n">molecule_name</span><span class="o">=</span><span class="s2">&quot;Dihydrofolate reductase&quot;</span><span class="p">,</span><span class="n">organism_name</span><span class="o">=</span><span class="s2">&quot;Human&quot;</span><span class="p">)</span>
+<span class="n">filter_terms</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;pdb_id&#39;</span><span class="p">,</span> <span class="s1">&#39;resolution&#39;</span><span class="p">]</span>
+<span class="n">new_results</span> <span class="o">=</span> <span class="n">run_search</span><span class="p">(</span><span class="n">search_terms</span><span class="p">,</span> <span class="n">filter_terms</span><span class="p">)</span>
+<span class="n">pandas_min_max</span><span class="p">(</span><span class="n">list_of_results</span><span class="o">=</span><span class="n">new_results</span><span class="p">,</span> <span class="n">column_to_group_by</span><span class="o">=</span><span class="s1">&#39;resolution&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+updated search
+Number of results: 79
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+resolution
+1.050    1kmv
+1.090    1kms
+1.201    4m6j
+1.210    5hsr
+1.230    3fs6
+1.240    3ghw
+1.270    2w3b
+1.300    3ghc
+1.350    3ntz
+1.396    4m6k
+1.400    2c2s
+1.450    3f8y
+1.460    5hqy
+1.500    2c2t
+1.530    3gi2
+1.550    6dav
+1.600    2w3m
+1.610    4qhv
+1.620    4qjc
+1.650    5hpb
+1.700    3eig
+1.760    4kfj
+1.800    1mvt
+1.840    4kbn
+1.850    6a7e
+1.900    1mvs
+1.920    3n0h
+2.000    1drf
+2.010    3f8z
+2.050    4ddr
+2.060    6a7c
+2.100    1boz
+2.200    1pd9
+2.300    1dhf
+2.411    6de4
+2.500    1ohj
+2.715    4kd7
+Name: pdb_id, dtype: object
+</pre></div></div>
+</div>
+<p>and one for plotting the results</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">pandas_plot</span><span class="p">(</span><span class="n">list_of_results</span><span class="o">=</span><span class="n">results</span><span class="p">,</span> <span class="n">column_to_group_by</span><span class="o">=</span><span class="s1">&#39;experimental_method&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/webinars_web2_6_PDB_search_45_0.png" src="../../_images/webinars_web2_6_PDB_search_45_0.png" />
+</div>
+</div>
+<p>Remember this only searched through the first 10 results. To increase the number of entries we have to run the search again, this time setting number_of_rows to a number in the function run_search.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">search_terms</span> <span class="o">=</span> <span class="n">Q</span><span class="p">(</span><span class="n">molecule_name</span><span class="o">=</span><span class="s2">&quot;Dihydrofolate reductase&quot;</span><span class="p">,</span><span class="n">organism_name</span><span class="o">=</span><span class="s2">&quot;Human&quot;</span><span class="p">)</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">run_search</span><span class="p">(</span><span class="n">search_terms</span><span class="p">,</span> <span class="n">number_of_rows</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Number of results: 79
+</pre></div></div>
+</div>
+<p>Then we can count the results using our pandas function above</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">pandas_count</span><span class="p">(</span><span class="n">list_of_results</span><span class="o">=</span><span class="n">results</span><span class="p">,</span> <span class="n">column_to_group_by</span><span class="o">=</span><span class="s1">&#39;experimental_method&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+experimental_method
+Solution NMR          1
+X-ray diffraction    78
+Name: pdb_id, dtype: int64
+</pre></div></div>
+</div>
+<p>Changing the result so it groups by release year of the PDB entries.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">pandas_count</span><span class="p">(</span><span class="n">list_of_results</span><span class="o">=</span><span class="n">results</span><span class="p">,</span> <span class="n">column_to_group_by</span><span class="o">=</span><span class="s1">&#39;release_year&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+release_year
+1990     2
+1992     1
+1995     2
+1998     6
+2002     2
+2003     5
+2004     3
+2005     3
+2007     2
+2009    13
+2010     7
+2011     7
+2012     1
+2013     8
+2014     1
+2015     2
+2017    10
+2018     2
+2019     2
+Name: pdb_id, dtype: int64
+</pre></div></div>
+</div>
+<p>And then plot the number of entries released per year</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">pandas_plot</span><span class="p">(</span><span class="n">list_of_results</span><span class="o">=</span><span class="n">results</span><span class="p">,</span> <span class="n">column_to_group_by</span><span class="o">=</span><span class="s1">&#39;release_year&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/webinars_web2_6_PDB_search_53_0.png" src="../../_images/webinars_web2_6_PDB_search_53_0.png" />
+</div>
+</div>
+<p>We can make this into a line graph</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">pandas_plot</span><span class="p">(</span><span class="n">list_of_results</span><span class="o">=</span><span class="n">results</span><span class="p">,</span> <span class="n">column_to_group_by</span><span class="o">=</span><span class="s1">&#39;release_year&#39;</span><span class="p">,</span> <span class="n">graph_type</span><span class="o">=</span><span class="s1">&#39;line&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/webinars_web2_6_PDB_search_55_0.png" src="../../_images/webinars_web2_6_PDB_search_55_0.png" />
+</div>
+</div>
+<p>Try changing the term you want to search for and see if you get interesting results.</p>
+</div>
+<div class="section" id="7)-searching-for-two-terms-at-once">
+<h2>7) searching for two terms at once<a class="headerlink" href="#7)-searching-for-two-terms-at-once" title="Permalink to this headline">¶</a></h2>
+<p>It would be interesting to see how many PDB entries were solved by each experimental method per year.</p>
+<p>we can use the tag “release_year” to get the year of release of each entry</p>
+<p>We have to define a new function to group entries by two terms.</p>
+<p>When we do the search we have to filter the results by the terms we want to plot otherwise it takes too long to run.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">search_terms</span> <span class="o">=</span> <span class="n">Q</span><span class="p">(</span><span class="n">all_enzyme_names</span><span class="o">=</span><span class="s2">&quot;Lysozyme&quot;</span><span class="p">)</span>
+<span class="n">filter_results</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;beam_source_name&#39;</span><span class="p">,</span><span class="s1">&#39;release_year&#39;</span><span class="p">,</span> <span class="s1">&#39;pdb_id&#39;</span><span class="p">]</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">run_search</span><span class="p">(</span><span class="n">search_terms</span><span class="p">,</span> <span class="n">filter_results</span><span class="p">,</span> <span class="n">number_of_rows</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Number of results: 1969
+</pre></div></div>
+</div>
+<p>This will take a while as it will return lots of results. We can then define a function to group the results by two terms.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">pandas_plot_multi_groupby</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">first_column_to_group_by</span><span class="p">,</span> <span class="n">second_column_to_group_by</span><span class="p">,</span> <span class="n">y_axis</span><span class="o">=</span><span class="s1">&#39;pdb_id&#39;</span><span class="p">,</span> <span class="n">graph_type</span><span class="o">=</span><span class="s1">&#39;line&#39;</span><span class="p">):</span>
+
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pandas_dataset</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+    <span class="n">new_df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="n">first_column_to_group_by</span><span class="p">,</span> <span class="n">second_column_to_group_by</span><span class="p">])</span>
+    <span class="n">ds</span> <span class="o">=</span> <span class="n">new_df</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">first_column_to_group_by</span><span class="p">)</span>
+    <span class="n">ds</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">first_column_to_group_by</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y_axis</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="n">graph_type</span><span class="p">)</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">pandas_plot_multi_groupby_min</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">first_column_to_group_by</span><span class="p">,</span> <span class="n">second_column_to_group_by</span><span class="p">,</span> <span class="n">graph_type</span><span class="o">=</span><span class="s1">&#39;line&#39;</span><span class="p">,</span> <span class="n">use_min</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">use_max</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pandas_dataset</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+    <span class="n">new_df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="n">first_column_to_group_by</span><span class="p">])[</span><span class="n">second_column_to_group_by</span><span class="p">]</span>
+    <span class="n">ds</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">use_min</span><span class="p">:</span>
+        <span class="n">ds</span> <span class="o">=</span> <span class="n">new_df</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+    <span class="k">elif</span> <span class="n">use_max</span><span class="p">:</span>
+        <span class="n">ds</span> <span class="o">=</span> <span class="n">new_df</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;specify either use_min or use_max&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="n">ds</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">first_column_to_group_by</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">second_column_to_group_by</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="n">graph_type</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">pandas_box_plot</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">first_column_to_group_by</span><span class="p">,</span> <span class="n">second_column_to_group_by</span><span class="p">):</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pandas_dataset</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="n">second_column_to_group_by</span><span class="p">,</span><span class="n">by</span><span class="o">=</span><span class="n">first_column_to_group_by</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">pandas_plot_multi_groupby</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="s1">&#39;release_year&#39;</span><span class="p">,</span> <span class="s1">&#39;beam_source_name&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/webinars_web2_6_PDB_search_61_0.png" src="../../_images/webinars_web2_6_PDB_search_61_0.png" />
+</div>
+</div>
+<p>This shows us that rotating anodes were used as the major source of radiation until around 2004 when Synchrotron’s overtook as the major source of radiation.</p>
+<p>Try editing the queries to plot interesting trends within the PDB</p>
+</div>
+<div class="section" id="Questions-to-answer">
+<h2>Questions to answer<a class="headerlink" href="#Questions-to-answer" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Electron Microscopy is going through a revolution. Is this leading to a growth in Electron Microscopy PDB entries?</p></li>
+</ol>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">search_terms</span> <span class="o">=</span> <span class="n">Q</span><span class="p">(</span><span class="n">experimental_method</span><span class="o">=</span><span class="s1">&#39;X-ray diffraction&#39;</span><span class="p">,</span><span class="n">release_year</span><span class="o">=</span><span class="s1">&#39;2018&#39;</span><span class="p">)</span>
+<span class="n">filter_results</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;structure_determination_method&#39;</span><span class="p">,</span><span class="s1">&#39;release_year&#39;</span><span class="p">,</span> <span class="s1">&#39;pdb_id&#39;</span><span class="p">]</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">run_search</span><span class="p">(</span><span class="n">search_terms</span><span class="p">,</span> <span class="n">filter_results</span><span class="p">,</span> <span class="n">number_of_rows</span><span class="o">=</span><span class="mi">1000000</span><span class="p">)</span>
+<span class="n">pandas_plot</span><span class="p">(</span><span class="n">list_of_results</span><span class="o">=</span><span class="n">results</span><span class="p">,</span> <span class="n">column_to_group_by</span><span class="o">=</span><span class="s1">&#39;structure_determination_method&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Number of results: 15794
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/webinars_web2_6_PDB_search_65_1.png" src="../../_images/webinars_web2_6_PDB_search_65_1.png" />
+</div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>New refinement programs have got better and there are more methods to validate the quality of strucures in the PDB. Have structures got better over time? We can use “overall_quality” to judge this This could be plotted as a groupby or a box plot.</p></li>
+</ol>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">search_terms</span> <span class="o">=</span> <span class="n">Q</span><span class="p">(</span><span class="n">experimental_method</span><span class="o">=</span><span class="s1">&#39;Electron Microscopy&#39;</span><span class="p">)</span>
+<span class="n">filter_results</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;experimental_method&#39;</span><span class="p">,</span><span class="s1">&#39;release_year&#39;</span><span class="p">,</span> <span class="s1">&#39;pdb_id&#39;</span><span class="p">]</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">run_search</span><span class="p">(</span><span class="n">search_terms</span><span class="p">,</span> <span class="n">filter_results</span><span class="p">,</span> <span class="n">number_of_rows</span><span class="o">=</span><span class="mi">1000000</span><span class="p">)</span>
+<span class="n">pandas_plot_multi_groupby</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="s1">&#39;release_year&#39;</span><span class="p">,</span> <span class="s1">&#39;experimental_method&#39;</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Number of results: 58334
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/webinars_web2_6_PDB_search_67_1.png" src="../../_images/webinars_web2_6_PDB_search_67_1.png" />
+</div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Electron Microscopy resolution has been said to be improving. Is this true? hint - the search term and filter can be different. pandas_plot_multi_groupby_min with use_min would be useful to plot this or maybe a box plot?</p></li>
+</ol>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">search_terms</span> <span class="o">=</span> <span class="n">Q</span><span class="p">(</span><span class="n">experimental_method</span><span class="o">=</span><span class="s1">&#39;Electron Microscopy&#39;</span><span class="p">)</span>
+<span class="n">filter_results</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;overall_quality&#39;</span><span class="p">,</span><span class="s1">&#39;release_year&#39;</span><span class="p">,</span> <span class="s1">&#39;pdb_id&#39;</span><span class="p">]</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">run_search</span><span class="p">(</span><span class="n">search_terms</span><span class="p">,</span> <span class="n">filter_results</span><span class="p">,</span> <span class="n">number_of_rows</span><span class="o">=</span><span class="mi">1000000</span><span class="p">)</span>
+<span class="n">pandas_plot_multi_groupby_min</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="s1">&#39;release_year&#39;</span><span class="p">,</span> <span class="s1">&#39;overall_quality&#39;</span><span class="p">,</span> <span class="n">use_min</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">pandas_box_plot</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="s1">&#39;release_year&#39;</span><span class="p">,</span> <span class="s1">&#39;overall_quality&#39;</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+https://www.ebi.ac.uk/pdbe/search/pdb/select?q=experimental_method:&#34;Electron Microscopy&#34;&amp;fl=overall_quality,release_year,pdb_id&amp;wt=json&amp;rows=1000000
+Number of results for Electron Microscopy: 56456
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/webinars_web2_6_PDB_search_69_1.png" src="../../_images/webinars_web2_6_PDB_search_69_1.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/webinars_web2_6_PDB_search_69_2.png" src="../../_images/webinars_web2_6_PDB_search_69_2.png" />
+</div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>It has been said that all the simple structures have been done and that only complicated structures are left. One metric for “complicated” could be size of the assembly - assembly_mol_wt would be useful here.</p></li>
+</ol>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">search_terms</span> <span class="o">=</span> <span class="n">Q</span><span class="p">(</span><span class="n">experimental_method</span><span class="o">=</span><span class="s1">&#39;Electron Microscopy&#39;</span><span class="p">)</span>
+<span class="n">filter_results</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;assembly_mol_wt&#39;</span><span class="p">,</span><span class="s1">&#39;release_year&#39;</span><span class="p">,</span> <span class="s1">&#39;pdb_id&#39;</span><span class="p">]</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">run_search</span><span class="p">(</span><span class="n">search_terms</span><span class="p">,</span> <span class="n">filter_results</span><span class="p">,</span> <span class="n">number_of_rows</span><span class="o">=</span><span class="mi">1000000</span><span class="p">)</span>
+<span class="n">pandas_box_plot</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="s1">&#39;release_year&#39;</span><span class="p">,</span> <span class="s1">&#39;assembly_mol_wt&#39;</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Number of results: 58334
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/webinars_web2_6_PDB_search_71_1.png" src="../../_images/webinars_web2_6_PDB_search_71_1.png" />
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="7_PDB_sequence_search.html" class="btn btn-neutral float-right" title="PDB sequence search" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="webinar.html" class="btn btn-neutral float-left" title="Searching with the PDBe API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Protein Data Bank in Europe
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

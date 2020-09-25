@@ -43,7 +43,7 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Creating complex PDBe API queries" href="../web3/webinar.html" />
+    <link rel="next" title="PDB search" href="6_PDB_search.html" />
     <link rel="prev" title="Introduction to PDBe programmatic access" href="../web1/webinar.html" /> 
 </head>
 
@@ -98,7 +98,24 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../web1/webinar.html">Introduction to PDBe programmatic access</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Searching with the PDBe API</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Searching with the PDBe API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="6_PDB_search.html">PDB search</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="6_PDB_search.html#1)-Making-imports-and-setting-variables">1) Making imports and setting variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_PDB_search.html#2)-a-function-to-get-data-from-the-search-API">2) a function to get data from the search API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_PDB_search.html#3)-formatting-the-search-terms">3) formatting the search terms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_PDB_search.html#4)-Getting-useful-data-out-of-the-search">4) Getting useful data out of the search</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_PDB_search.html#5)-running-a-search">5) running a search</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_PDB_search.html#6)-Analysing-and-plotting-the-results">6) Analysing and plotting the results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_PDB_search.html#7)-searching-for-two-terms-at-once">7) searching for two terms at once</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_PDB_search.html#Questions-to-answer">Questions to answer</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="7_PDB_sequence_search.html">PDB sequence search</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="7_PDB_sequence_search.html#1)-Making-imports-and-setting-variables">1) Making imports and setting variables</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../web3/webinar.html">Creating complex PDBe API queries</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../web4/webinar.html">Using the PDBe graph API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../web5/webinar.html">PDBe tools in github</a></li>
@@ -195,6 +212,26 @@
 <div class="section" id="searching-with-the-pdbe-api">
 <h1>Searching with the PDBe API<a class="headerlink" href="#searching-with-the-pdbe-api" title="Permalink to this headline">¶</a></h1>
 <p>Slides are available from <a href="../../_static/downloads/webinar2/2020_search_webinar.pdf">here</a>.</p>
+<p>The code that is being discussed in the webinar is available from the following notebooks:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="6_PDB_search.html">PDB search</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="6_PDB_search.html#1)-Making-imports-and-setting-variables">1) Making imports and setting variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_PDB_search.html#2)-a-function-to-get-data-from-the-search-API">2) a function to get data from the search API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_PDB_search.html#3)-formatting-the-search-terms">3) formatting the search terms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_PDB_search.html#4)-Getting-useful-data-out-of-the-search">4) Getting useful data out of the search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_PDB_search.html#5)-running-a-search">5) running a search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_PDB_search.html#6)-Analysing-and-plotting-the-results">6) Analysing and plotting the results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_PDB_search.html#7)-searching-for-two-terms-at-once">7) searching for two terms at once</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_PDB_search.html#Questions-to-answer">Questions to answer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="7_PDB_sequence_search.html">PDB sequence search</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="7_PDB_sequence_search.html#1)-Making-imports-and-setting-variables">1) Making imports and setting variables</a></li>
+</ul>
+</li>
+</ul>
+</div>
 <p>The video is available from <a class="reference external" href="https://youtu.be/sv4dgfDjjUk">Youtube</a>.</p>
 <iframe width="736px" height="414px" src="https://www.youtube.com/embed/sv4dgfDjjUk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
 
@@ -206,7 +243,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../web3/webinar.html" class="btn btn-neutral float-right" title="Creating complex PDBe API queries" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="6_PDB_search.html" class="btn btn-neutral float-right" title="PDB search" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../web1/webinar.html" class="btn btn-neutral float-left" title="Introduction to PDBe programmatic access" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
