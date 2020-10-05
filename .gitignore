@@ -4,3 +4,4 @@ web/.mypy_cache/*
 web/_build/*
 
 .ipynb_checkpoints
+.vscode
