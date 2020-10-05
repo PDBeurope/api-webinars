@@ -44,8 +44,6 @@ This webinar will introduce the PDBe search API, a powerful Solr-based query sys
 
 This webinar will demonstrate how to create more complex queries by combining the PDBe search API with numerous other calls. By introducing specific case studies, we will highlight the scope of PDBe programmatic access
 
-[Registration link](https://attendee.gototraining.com/r/7897381214211130113)
-
 [Materials](webinars/web3/webinar.md)
 
 ## Using the PDBe graph API
