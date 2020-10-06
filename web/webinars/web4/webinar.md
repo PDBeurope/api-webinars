@@ -1,5 +1,7 @@
 # Using the PDBe Graph API
 
+Slides are available from <a href="../../_static/downloads/webinar4/2020_aggregated_api_webinar.pdf">here</a>.
+
 ## Introduction
 PDBe Graph API (also referred as `Aggregated API`) is a RESTful API using PDBe Graph Database as backend. It currently supports only `GET` requests and provides aggregated data across all relevant PDB entries, for eg. based on entities, UniProt IDs, residues and more. 
 
@@ -20,7 +22,7 @@ The application is mainly of two components,
 
 There is also provision to try out the API from the documentation. This is available below the parameters section of each endpoint.
 
-# Usecases
+## Usecases
 
 ```eval_rst
 .. toctree::
