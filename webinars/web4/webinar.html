@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Using the PDBe graph API &mdash; PDBe API webinar series 1.0 documentation</title>
+  <title>Using the PDBe Graph API &mdash; PDBe API webinar series 1.0 documentation</title>
   
 
   
@@ -43,7 +43,7 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="PDBe tools in github" href="../web5/webinar.html" />
+    <link rel="next" title="Predicted ligand binding sites in interaction interface" href="usecases/ligand_sites.html" />
     <link rel="prev" title="Creating complex PDBe API queries" href="../web3/webinar.html" /> 
 </head>
 
@@ -117,7 +117,29 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../web3/webinar.html">Creating complex PDBe API queries</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Using the PDBe graph API</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Using the PDBe Graph API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#using-the-documentation">Using the documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#usecases">Usecases</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="usecases/ligand_sites.html">Predicted ligand binding sites in interaction interface</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="usecases/ligand_sites.html#1)-Get-the-annotations-data-for-UniProt-accession-P61626">1) Get the annotations data for UniProt accession <code class="docutils literal notranslate"><span class="pre">P61626</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="usecases/ligand_sites.html#2)-Filter-the-data-for-providers-p2rank-and-3dligandsite">2) Filter the data for providers <code class="docutils literal notranslate"><span class="pre">p2rank</span></code> and <code class="docutils literal notranslate"><span class="pre">3dligandsite</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="usecases/ligand_sites.html#3)-Get-interacting-residues-for-the-UniProt-accession">3) Get interacting residues for the UniProt accession</a></li>
+<li class="toctree-l4"><a class="reference internal" href="usecases/ligand_sites.html#4)-Filter-interface_data-on-common-residues">4) Filter <code class="docutils literal notranslate"><span class="pre">interface_data</span></code> on common residues</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="usecases/accessible_residues.html">Accessible residues for a PDB structure</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="usecases/accessible_residues.html#1)-Get-the-3Dcomplex-annotations-for-PDB-entry-3pxe">1) Get the <code class="docutils literal notranslate"><span class="pre">3Dcomplex</span></code> annotations for PDB entry <code class="docutils literal notranslate"><span class="pre">3pxe</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="usecases/accessible_residues.html#2)-Filter-the-data-for-ASA_alone-label">2) Filter the data for <code class="docutils literal notranslate"><span class="pre">ASA_alone</span></code> label</a></li>
+<li class="toctree-l4"><a class="reference internal" href="usecases/accessible_residues.html#3)-Filter-site_residues-on-raw_score-&gt;-0">3) Filter <code class="docutils literal notranslate"><span class="pre">site_residues</span></code> on <code class="docutils literal notranslate"><span class="pre">raw_score</span> <span class="pre">&gt;</span> <span class="pre">0</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../web5/webinar.html">PDBe tools in github</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../web6/webinar.html">Data visualisation at PDBe</a></li>
 </ul>
@@ -166,7 +188,7 @@
     
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Using the PDBe graph API</li>
+      <li>Using the PDBe Graph API</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -210,7 +232,45 @@
 }
 </style>
 <div class="section" id="using-the-pdbe-graph-api">
-<h1>Using the PDBe graph API<a class="headerlink" href="#using-the-pdbe-graph-api" title="Permalink to this headline">¶</a></h1>
+<h1>Using the PDBe Graph API<a class="headerlink" href="#using-the-pdbe-graph-api" title="Permalink to this headline">¶</a></h1>
+<p>Slides are available from <a href="../../_static/downloads/webinar4/2020_aggregated_api_webinar.pdf">here</a>.</p>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>PDBe Graph API (also referred as <code class="docutils literal notranslate"><span class="pre">Aggregated</span> <span class="pre">API</span></code>) is a RESTful API using PDBe Graph Database as backend. It currently supports only <code class="docutils literal notranslate"><span class="pre">GET</span></code> requests and provides aggregated data across all relevant PDB entries, for eg. based on entities, UniProt IDs, residues and more.</p>
+<p>API documentation can be accessed here <a class="reference external" href="https://pdbe.org/aggregated-api">pdbe.org/aggregated-api</a></p>
+<div class="section" id="using-the-documentation">
+<h3>Using the documentation<a class="headerlink" href="#using-the-documentation" title="Permalink to this headline">¶</a></h3>
+<p>The documentation is a web based application to work with the API.</p>
+<p><img alt="documentation home" src="../../_images/web4_doc_home.png" /></p>
+<p>The application is mainly of two components,</p>
+<ul class="simple">
+<li><p>One the left side there is a list of API calls available which is categorised for easy navigation. Also it is equipped with a filter on top which helps in filtering the endpoints based on a keyword.</p></li>
+<li><p>The right component provides a description of each call and the URL to be used to access it. It also provides information of the parameters to be used and description of fields in the result dataset in case of a successful response.</p></li>
+</ul>
+<p><img alt="sample request" src="../../_images/web4_sample_req.png" /></p>
+<p>There is also provision to try out the API from the documentation. This is available below the parameters section of each endpoint.</p>
+</div>
+</div>
+<div class="section" id="usecases">
+<h2>Usecases<a class="headerlink" href="#usecases" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="usecases/ligand_sites.html">Predicted ligand binding sites in interaction interface</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="usecases/ligand_sites.html#1)-Get-the-annotations-data-for-UniProt-accession-P61626">1) Get the annotations data for UniProt accession <code class="docutils literal notranslate"><span class="pre">P61626</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="usecases/ligand_sites.html#2)-Filter-the-data-for-providers-p2rank-and-3dligandsite">2) Filter the data for providers <code class="docutils literal notranslate"><span class="pre">p2rank</span></code> and <code class="docutils literal notranslate"><span class="pre">3dligandsite</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="usecases/ligand_sites.html#3)-Get-interacting-residues-for-the-UniProt-accession">3) Get interacting residues for the UniProt accession</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usecases/ligand_sites.html#4)-Filter-interface_data-on-common-residues">4) Filter <code class="docutils literal notranslate"><span class="pre">interface_data</span></code> on common residues</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="usecases/accessible_residues.html">Accessible residues for a PDB structure</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="usecases/accessible_residues.html#1)-Get-the-3Dcomplex-annotations-for-PDB-entry-3pxe">1) Get the <code class="docutils literal notranslate"><span class="pre">3Dcomplex</span></code> annotations for PDB entry <code class="docutils literal notranslate"><span class="pre">3pxe</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="usecases/accessible_residues.html#2)-Filter-the-data-for-ASA_alone-label">2) Filter the data for <code class="docutils literal notranslate"><span class="pre">ASA_alone</span></code> label</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usecases/accessible_residues.html#3)-Filter-site_residues-on-raw_score-&gt;-0">3) Filter <code class="docutils literal notranslate"><span class="pre">site_residues</span></code> on <code class="docutils literal notranslate"><span class="pre">raw_score</span> <span class="pre">&gt;</span> <span class="pre">0</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
 </div>
 
 
@@ -221,7 +281,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../web5/webinar.html" class="btn btn-neutral float-right" title="PDBe tools in github" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="usecases/ligand_sites.html" class="btn btn-neutral float-right" title="Predicted ligand binding sites in interaction interface" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../web3/webinar.html" class="btn btn-neutral float-left" title="Creating complex PDBe API queries" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

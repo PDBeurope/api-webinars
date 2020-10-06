@@ -1,0 +1,781 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Accessible residues for a PDB structure &mdash; PDBe API webinar series 1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/jupyter-sphinx.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/thebelab.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/styles.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script src="../../../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="PDBe tools in github" href="../../web5/webinar.html" />
+    <link rel="prev" title="Predicted ligand binding sites in interaction interface" href="ligand_sites.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home" alt="Documentation Home"> PDBe API webinar series
+          
+
+          
+            
+            <img src="../../../_static/pdbelogo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../web1/webinar.html">Introduction to PDBe programmatic access</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../web2/webinar.html">Searching with the PDBe API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../web2/6_PDB_search.html">PDB search</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../web2/6_PDB_search.html#1)-Making-imports-and-setting-variables">1) Making imports and setting variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../web2/6_PDB_search.html#2)-a-function-to-get-data-from-the-search-API">2) a function to get data from the search API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../web2/6_PDB_search.html#3)-formatting-the-search-terms">3) formatting the search terms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../web2/6_PDB_search.html#4)-Getting-useful-data-out-of-the-search">4) Getting useful data out of the search</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../web2/6_PDB_search.html#5)-running-a-search">5) running a search</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../web2/6_PDB_search.html#6)-Analysing-and-plotting-the-results">6) Analysing and plotting the results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../web2/6_PDB_search.html#7)-searching-for-two-terms-at-once">7) searching for two terms at once</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../web2/6_PDB_search.html#Questions-to-answer">Questions to answer</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../web2/7_PDB_sequence_search.html">PDB sequence search</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../web2/7_PDB_sequence_search.html#1)-Making-imports-and-setting-variables">1) Making imports and setting variables</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../web3/webinar.html">Creating complex PDBe API queries</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../webinar.html">Using the PDBe Graph API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../webinar.html#introduction">Introduction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../webinar.html#using-the-documentation">Using the documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="reference internal" href="../webinar.html#usecases">Usecases</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="ligand_sites.html">Predicted ligand binding sites in interaction interface</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ligand_sites.html#1)-Get-the-annotations-data-for-UniProt-accession-P61626">1) Get the annotations data for UniProt accession <code class="docutils literal notranslate"><span class="pre">P61626</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ligand_sites.html#2)-Filter-the-data-for-providers-p2rank-and-3dligandsite">2) Filter the data for providers <code class="docutils literal notranslate"><span class="pre">p2rank</span></code> and <code class="docutils literal notranslate"><span class="pre">3dligandsite</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ligand_sites.html#3)-Get-interacting-residues-for-the-UniProt-accession">3) Get interacting residues for the UniProt accession</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ligand_sites.html#4)-Filter-interface_data-on-common-residues">4) Filter <code class="docutils literal notranslate"><span class="pre">interface_data</span></code> on common residues</a></li>
+</ul>
+</li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Accessible residues for a PDB structure</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#1)-Get-the-3Dcomplex-annotations-for-PDB-entry-3pxe">1) Get the <code class="docutils literal notranslate"><span class="pre">3Dcomplex</span></code> annotations for PDB entry <code class="docutils literal notranslate"><span class="pre">3pxe</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#2)-Filter-the-data-for-ASA_alone-label">2) Filter the data for <code class="docutils literal notranslate"><span class="pre">ASA_alone</span></code> label</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#3)-Filter-site_residues-on-raw_score-&gt;-0">3) Filter <code class="docutils literal notranslate"><span class="pre">site_residues</span></code> on <code class="docutils literal notranslate"><span class="pre">raw_score</span> <span class="pre">&gt;</span> <span class="pre">0</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../web5/webinar.html">PDBe tools in github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../web6/webinar.html">Data visualisation at PDBe</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">PDBe API webinar series</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../webinar.html">Using the PDBe Graph API</a> &raquo;</li>
+        
+      <li>Accessible residues for a PDB structure</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/webinars/web4/usecases/accessible_residues.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="Accessible-residues-for-a-PDB-structure">
+<h1>Accessible residues for a PDB structure<a class="headerlink" href="#Accessible-residues-for-a-PDB-structure" title="Permalink to this headline">¶</a></h1>
+<p>If you have a structure and want to know the residues which are accessible, use the annotations API call for a PDB entry for a particular resource. This data is provided by <code class="docutils literal notranslate"><span class="pre">3Dcomplex</span></code>. So use the origin in query parameter as <code class="docutils literal notranslate"><span class="pre">3Dcomplex</span></code>. Then filter the residues on label <code class="docutils literal notranslate"><span class="pre">ASA_alone</span></code> and <code class="docutils literal notranslate"><span class="pre">raw</span> <span class="pre">score</span> <span class="pre">&gt;</span> <span class="pre">0</span></code>.</p>
+<p><img alt="funpdbe origin" src="../../../_images/web4_funpdbe_origin.png" /></p>
+<div class="section" id="1)-Get-the-3Dcomplex-annotations-for-PDB-entry-3pxe">
+<h2>1) Get the <code class="docutils literal notranslate"><span class="pre">3Dcomplex</span></code> annotations for PDB entry <code class="docutils literal notranslate"><span class="pre">3pxe</span></code><a class="headerlink" href="#1)-Get-the-3Dcomplex-annotations-for-PDB-entry-3pxe" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">pdb_id</span> <span class="o">=</span> <span class="s2">&quot;3pxe&quot;</span>
+<span class="n">request_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://wwwint.ebi.ac.uk/pdbe/graph-api/pdb/funpdbe_annotation/3Dcomplex/</span><span class="si">{</span><span class="n">pdb_id</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="n">annotations_data</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">request_url</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="2)-Filter-the-data-for-ASA_alone-label">
+<h2>2) Filter the data for <code class="docutils literal notranslate"><span class="pre">ASA_alone</span></code> label<a class="headerlink" href="#2)-Filter-the-data-for-ASA_alone-label" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">filtered_annotations_data</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s2">&quot;label&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;ASA_alone&quot;</span><span class="p">,</span> <span class="n">annotations_data</span><span class="p">[</span><span class="n">pdb_id</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;annotations&quot;</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="3)-Filter-site_residues-on-raw_score-&gt;-0">
+<h2>3) Filter <code class="docutils literal notranslate"><span class="pre">site_residues</span></code> on <code class="docutils literal notranslate"><span class="pre">raw_score</span> <span class="pre">&gt;</span> <span class="pre">0</span></code><a class="headerlink" href="#3)-Filter-site_residues-on-raw_score->-0" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">for</span> <span class="n">site</span> <span class="ow">in</span> <span class="n">filtered_annotations_data</span><span class="p">:</span>
+    <span class="n">filtered_site_residues</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s2">&quot;raw_score&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="n">site</span><span class="p">[</span><span class="s2">&quot;site_residues&quot;</span><span class="p">]))</span>
+    <span class="k">for</span> <span class="n">residue</span> <span class="ow">in</span> <span class="n">filtered_site_residues</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Residue </span><span class="si">{}</span><span class="s2"> (author residue </span><span class="si">{}</span><span class="s2">) in chain </span><span class="si">{}</span><span class="s2"> of entity </span><span class="si">{}</span><span class="s2"> annotated as accessible residue&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">residue</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;residue_number&quot;</span><span class="p">),</span> <span class="n">residue</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;author_residue_number&quot;</span><span class="p">),</span> <span class="n">residue</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;chain_id&quot;</span><span class="p">),</span> <span class="n">residue</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;entity_id&quot;</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Residue 2 (author residue 1647) in chain A of entity 1 annotated as accessible residue
+Residue 3 (author residue 1648) in chain A of entity 1 annotated as accessible residue
+Residue 4 (author residue 1649) in chain A of entity 1 annotated as accessible residue
+Residue 5 (author residue 1650) in chain A of entity 1 annotated as accessible residue
+Residue 6 (author residue 1651) in chain A of entity 1 annotated as accessible residue
+Residue 9 (author residue 1654) in chain A of entity 1 annotated as accessible residue
+Residue 10 (author residue 1655) in chain A of entity 1 annotated as accessible residue
+Residue 11 (author residue 1656) in chain A of entity 1 annotated as accessible residue
+Residue 12 (author residue 1657) in chain A of entity 1 annotated as accessible residue
+Residue 13 (author residue 1658) in chain A of entity 1 annotated as accessible residue
+Residue 14 (author residue 1659) in chain A of entity 1 annotated as accessible residue
+Residue 15 (author residue 1660) in chain A of entity 1 annotated as accessible residue
+Residue 16 (author residue 1661) in chain A of entity 1 annotated as accessible residue
+Residue 17 (author residue 1662) in chain A of entity 1 annotated as accessible residue
+Residue 18 (author residue 1663) in chain A of entity 1 annotated as accessible residue
+Residue 19 (author residue 1664) in chain A of entity 1 annotated as accessible residue
+Residue 21 (author residue 1666) in chain A of entity 1 annotated as accessible residue
+Residue 22 (author residue 1667) in chain A of entity 1 annotated as accessible residue
+Residue 23 (author residue 1668) in chain A of entity 1 annotated as accessible residue
+Residue 24 (author residue 1669) in chain A of entity 1 annotated as accessible residue
+Residue 25 (author residue 1670) in chain A of entity 1 annotated as accessible residue
+Residue 26 (author residue 1671) in chain A of entity 1 annotated as accessible residue
+Residue 27 (author residue 1672) in chain A of entity 1 annotated as accessible residue
+Residue 28 (author residue 1673) in chain A of entity 1 annotated as accessible residue
+Residue 29 (author residue 1674) in chain A of entity 1 annotated as accessible residue
+Residue 30 (author residue 1675) in chain A of entity 1 annotated as accessible residue
+Residue 31 (author residue 1676) in chain A of entity 1 annotated as accessible residue
+Residue 32 (author residue 1677) in chain A of entity 1 annotated as accessible residue
+Residue 33 (author residue 1678) in chain A of entity 1 annotated as accessible residue
+Residue 34 (author residue 1679) in chain A of entity 1 annotated as accessible residue
+Residue 35 (author residue 1680) in chain A of entity 1 annotated as accessible residue
+Residue 36 (author residue 1681) in chain A of entity 1 annotated as accessible residue
+Residue 37 (author residue 1682) in chain A of entity 1 annotated as accessible residue
+Residue 38 (author residue 1683) in chain A of entity 1 annotated as accessible residue
+Residue 39 (author residue 1684) in chain A of entity 1 annotated as accessible residue
+Residue 40 (author residue 1685) in chain A of entity 1 annotated as accessible residue
+Residue 41 (author residue 1686) in chain A of entity 1 annotated as accessible residue
+Residue 44 (author residue 1689) in chain A of entity 1 annotated as accessible residue
+Residue 45 (author residue 1690) in chain A of entity 1 annotated as accessible residue
+Residue 46 (author residue 1691) in chain A of entity 1 annotated as accessible residue
+Residue 47 (author residue 1692) in chain A of entity 1 annotated as accessible residue
+Residue 48 (author residue 1693) in chain A of entity 1 annotated as accessible residue
+Residue 49 (author residue 1694) in chain A of entity 1 annotated as accessible residue
+Residue 50 (author residue 1695) in chain A of entity 1 annotated as accessible residue
+Residue 51 (author residue 1696) in chain A of entity 1 annotated as accessible residue
+Residue 52 (author residue 1697) in chain A of entity 1 annotated as accessible residue
+Residue 53 (author residue 1698) in chain A of entity 1 annotated as accessible residue
+Residue 54 (author residue 1699) in chain A of entity 1 annotated as accessible residue
+Residue 55 (author residue 1700) in chain A of entity 1 annotated as accessible residue
+Residue 56 (author residue 1701) in chain A of entity 1 annotated as accessible residue
+Residue 57 (author residue 1702) in chain A of entity 1 annotated as accessible residue
+Residue 59 (author residue 1704) in chain A of entity 1 annotated as accessible residue
+Residue 60 (author residue 1705) in chain A of entity 1 annotated as accessible residue
+Residue 62 (author residue 1707) in chain A of entity 1 annotated as accessible residue
+Residue 64 (author residue 1709) in chain A of entity 1 annotated as accessible residue
+Residue 65 (author residue 1710) in chain A of entity 1 annotated as accessible residue
+Residue 66 (author residue 1711) in chain A of entity 1 annotated as accessible residue
+Residue 67 (author residue 1712) in chain A of entity 1 annotated as accessible residue
+Residue 71 (author residue 1716) in chain A of entity 1 annotated as accessible residue
+Residue 72 (author residue 1717) in chain A of entity 1 annotated as accessible residue
+Residue 73 (author residue 1718) in chain A of entity 1 annotated as accessible residue
+Residue 75 (author residue 1720) in chain A of entity 1 annotated as accessible residue
+Residue 76 (author residue 1721) in chain A of entity 1 annotated as accessible residue
+Residue 77 (author residue 1722) in chain A of entity 1 annotated as accessible residue
+Residue 78 (author residue 1723) in chain A of entity 1 annotated as accessible residue
+Residue 79 (author residue 1724) in chain A of entity 1 annotated as accessible residue
+Residue 80 (author residue 1725) in chain A of entity 1 annotated as accessible residue
+Residue 81 (author residue 1726) in chain A of entity 1 annotated as accessible residue
+Residue 82 (author residue 1727) in chain A of entity 1 annotated as accessible residue
+Residue 83 (author residue 1728) in chain A of entity 1 annotated as accessible residue
+Residue 84 (author residue 1729) in chain A of entity 1 annotated as accessible residue
+Residue 85 (author residue 1730) in chain A of entity 1 annotated as accessible residue
+Residue 86 (author residue 1731) in chain A of entity 1 annotated as accessible residue
+Residue 87 (author residue 1732) in chain A of entity 1 annotated as accessible residue
+Residue 88 (author residue 1733) in chain A of entity 1 annotated as accessible residue
+Residue 89 (author residue 1734) in chain A of entity 1 annotated as accessible residue
+Residue 90 (author residue 1735) in chain A of entity 1 annotated as accessible residue
+Residue 91 (author residue 1736) in chain A of entity 1 annotated as accessible residue
+Residue 92 (author residue 1737) in chain A of entity 1 annotated as accessible residue
+Residue 94 (author residue 1739) in chain A of entity 1 annotated as accessible residue
+Residue 95 (author residue 1740) in chain A of entity 1 annotated as accessible residue
+Residue 96 (author residue 1741) in chain A of entity 1 annotated as accessible residue
+Residue 97 (author residue 1742) in chain A of entity 1 annotated as accessible residue
+Residue 98 (author residue 1743) in chain A of entity 1 annotated as accessible residue
+Residue 99 (author residue 1744) in chain A of entity 1 annotated as accessible residue
+Residue 100 (author residue 1745) in chain A of entity 1 annotated as accessible residue
+Residue 101 (author residue 1746) in chain A of entity 1 annotated as accessible residue
+Residue 102 (author residue 1747) in chain A of entity 1 annotated as accessible residue
+Residue 104 (author residue 1749) in chain A of entity 1 annotated as accessible residue
+Residue 105 (author residue 1750) in chain A of entity 1 annotated as accessible residue
+Residue 106 (author residue 1751) in chain A of entity 1 annotated as accessible residue
+Residue 107 (author residue 1752) in chain A of entity 1 annotated as accessible residue
+Residue 108 (author residue 1753) in chain A of entity 1 annotated as accessible residue
+Residue 109 (author residue 1754) in chain A of entity 1 annotated as accessible residue
+Residue 110 (author residue 1755) in chain A of entity 1 annotated as accessible residue
+Residue 111 (author residue 1756) in chain A of entity 1 annotated as accessible residue
+Residue 112 (author residue 1757) in chain A of entity 1 annotated as accessible residue
+Residue 113 (author residue 1758) in chain A of entity 1 annotated as accessible residue
+Residue 114 (author residue 1759) in chain A of entity 1 annotated as accessible residue
+Residue 115 (author residue 1760) in chain A of entity 1 annotated as accessible residue
+Residue 117 (author residue 1762) in chain A of entity 1 annotated as accessible residue
+Residue 118 (author residue 1763) in chain A of entity 1 annotated as accessible residue
+Residue 119 (author residue 1764) in chain A of entity 1 annotated as accessible residue
+Residue 120 (author residue 1765) in chain A of entity 1 annotated as accessible residue
+Residue 121 (author residue 1766) in chain A of entity 1 annotated as accessible residue
+Residue 122 (author residue 1767) in chain A of entity 1 annotated as accessible residue
+Residue 123 (author residue 1768) in chain A of entity 1 annotated as accessible residue
+Residue 124 (author residue 1769) in chain A of entity 1 annotated as accessible residue
+Residue 125 (author residue 1770) in chain A of entity 1 annotated as accessible residue
+Residue 126 (author residue 1771) in chain A of entity 1 annotated as accessible residue
+Residue 127 (author residue 1772) in chain A of entity 1 annotated as accessible residue
+Residue 128 (author residue 1773) in chain A of entity 1 annotated as accessible residue
+Residue 129 (author residue 1774) in chain A of entity 1 annotated as accessible residue
+Residue 130 (author residue 1775) in chain A of entity 1 annotated as accessible residue
+Residue 131 (author residue 1776) in chain A of entity 1 annotated as accessible residue
+Residue 132 (author residue 1777) in chain A of entity 1 annotated as accessible residue
+Residue 133 (author residue 1778) in chain A of entity 1 annotated as accessible residue
+Residue 134 (author residue 1779) in chain A of entity 1 annotated as accessible residue
+Residue 135 (author residue 1780) in chain A of entity 1 annotated as accessible residue
+Residue 136 (author residue 1781) in chain A of entity 1 annotated as accessible residue
+Residue 137 (author residue 1782) in chain A of entity 1 annotated as accessible residue
+Residue 139 (author residue 1784) in chain A of entity 1 annotated as accessible residue
+Residue 140 (author residue 1785) in chain A of entity 1 annotated as accessible residue
+Residue 141 (author residue 1786) in chain A of entity 1 annotated as accessible residue
+Residue 143 (author residue 1788) in chain A of entity 1 annotated as accessible residue
+Residue 144 (author residue 1789) in chain A of entity 1 annotated as accessible residue
+Residue 145 (author residue 1790) in chain A of entity 1 annotated as accessible residue
+Residue 146 (author residue 1791) in chain A of entity 1 annotated as accessible residue
+Residue 147 (author residue 1792) in chain A of entity 1 annotated as accessible residue
+Residue 148 (author residue 1793) in chain A of entity 1 annotated as accessible residue
+Residue 149 (author residue 1794) in chain A of entity 1 annotated as accessible residue
+Residue 150 (author residue 1795) in chain A of entity 1 annotated as accessible residue
+Residue 151 (author residue 1796) in chain A of entity 1 annotated as accessible residue
+Residue 152 (author residue 1797) in chain A of entity 1 annotated as accessible residue
+Residue 153 (author residue 1798) in chain A of entity 1 annotated as accessible residue
+Residue 154 (author residue 1799) in chain A of entity 1 annotated as accessible residue
+Residue 155 (author residue 1800) in chain A of entity 1 annotated as accessible residue
+Residue 156 (author residue 1801) in chain A of entity 1 annotated as accessible residue
+Residue 159 (author residue 1804) in chain A of entity 1 annotated as accessible residue
+Residue 160 (author residue 1805) in chain A of entity 1 annotated as accessible residue
+Residue 161 (author residue 1806) in chain A of entity 1 annotated as accessible residue
+Residue 162 (author residue 1807) in chain A of entity 1 annotated as accessible residue
+Residue 166 (author residue 1811) in chain A of entity 1 annotated as accessible residue
+Residue 167 (author residue 1812) in chain A of entity 1 annotated as accessible residue
+Residue 168 (author residue 1813) in chain A of entity 1 annotated as accessible residue
+Residue 169 (author residue 1814) in chain A of entity 1 annotated as accessible residue
+Residue 170 (author residue 1815) in chain A of entity 1 annotated as accessible residue
+Residue 171 (author residue 1816) in chain A of entity 1 annotated as accessible residue
+Residue 172 (author residue 1817) in chain A of entity 1 annotated as accessible residue
+Residue 173 (author residue 1818) in chain A of entity 1 annotated as accessible residue
+Residue 174 (author residue 1819) in chain A of entity 1 annotated as accessible residue
+Residue 175 (author residue 1820) in chain A of entity 1 annotated as accessible residue
+Residue 176 (author residue 1821) in chain A of entity 1 annotated as accessible residue
+Residue 177 (author residue 1822) in chain A of entity 1 annotated as accessible residue
+Residue 178 (author residue 1823) in chain A of entity 1 annotated as accessible residue
+Residue 179 (author residue 1824) in chain A of entity 1 annotated as accessible residue
+Residue 180 (author residue 1825) in chain A of entity 1 annotated as accessible residue
+Residue 181 (author residue 1826) in chain A of entity 1 annotated as accessible residue
+Residue 182 (author residue 1827) in chain A of entity 1 annotated as accessible residue
+Residue 183 (author residue 1828) in chain A of entity 1 annotated as accessible residue
+Residue 184 (author residue 1829) in chain A of entity 1 annotated as accessible residue
+Residue 185 (author residue 1830) in chain A of entity 1 annotated as accessible residue
+Residue 186 (author residue 1831) in chain A of entity 1 annotated as accessible residue
+Residue 187 (author residue 1832) in chain A of entity 1 annotated as accessible residue
+Residue 189 (author residue 1834) in chain A of entity 1 annotated as accessible residue
+Residue 190 (author residue 1835) in chain A of entity 1 annotated as accessible residue
+Residue 191 (author residue 1836) in chain A of entity 1 annotated as accessible residue
+Residue 192 (author residue 1837) in chain A of entity 1 annotated as accessible residue
+Residue 194 (author residue 1839) in chain A of entity 1 annotated as accessible residue
+Residue 195 (author residue 1840) in chain A of entity 1 annotated as accessible residue
+Residue 199 (author residue 1844) in chain A of entity 1 annotated as accessible residue
+Residue 200 (author residue 1845) in chain A of entity 1 annotated as accessible residue
+Residue 201 (author residue 1846) in chain A of entity 1 annotated as accessible residue
+Residue 202 (author residue 1847) in chain A of entity 1 annotated as accessible residue
+Residue 203 (author residue 1848) in chain A of entity 1 annotated as accessible residue
+Residue 204 (author residue 1849) in chain A of entity 1 annotated as accessible residue
+Residue 205 (author residue 1850) in chain A of entity 1 annotated as accessible residue
+Residue 206 (author residue 1851) in chain A of entity 1 annotated as accessible residue
+Residue 207 (author residue 1852) in chain A of entity 1 annotated as accessible residue
+Residue 208 (author residue 1853) in chain A of entity 1 annotated as accessible residue
+Residue 209 (author residue 1854) in chain A of entity 1 annotated as accessible residue
+Residue 210 (author residue 1855) in chain A of entity 1 annotated as accessible residue
+Residue 211 (author residue 1856) in chain A of entity 1 annotated as accessible residue
+Residue 212 (author residue 1857) in chain A of entity 1 annotated as accessible residue
+Residue 213 (author residue 1858) in chain A of entity 1 annotated as accessible residue
+Residue 214 (author residue 1859) in chain A of entity 1 annotated as accessible residue
+Residue 3 (author residue 3) in chain E of entity 2 annotated as accessible residue
+Residue 4 (author residue 4) in chain E of entity 2 annotated as accessible residue
+Residue 6 (author residue 6) in chain E of entity 2 annotated as accessible residue
+Residue 7 (author residue 7) in chain E of entity 2 annotated as accessible residue
+Residue 8 (author residue 8) in chain E of entity 2 annotated as accessible residue
+Residue 9 (author residue 9) in chain E of entity 2 annotated as accessible residue
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../web5/webinar.html" class="btn btn-neutral float-right" title="PDBe tools in github" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ligand_sites.html" class="btn btn-neutral float-left" title="Predicted ligand binding sites in interaction interface" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Protein Data Bank in Europe
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
