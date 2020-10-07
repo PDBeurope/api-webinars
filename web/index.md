@@ -52,8 +52,6 @@ This webinar will demonstrate how to create more complex queries by combining th
 
 This webinar will introduce the PDBe graph API, which is generated from the PDBe graph database and contains an even richer level of data than our standard API. We will highlight how this API supports our PDBe-KB aggregated views, with specific case studies that demonstrate the possibilities through this API.
 
-[Registration link](https://attendee.gototraining.com/r/1536781214317670145)
-
 [Materials](webinars/web4/webinar.md)
 
 ## PDBe tools in GitHub
