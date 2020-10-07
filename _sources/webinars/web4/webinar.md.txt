@@ -2,6 +2,12 @@
 
 Slides are available from <a href="../../_static/downloads/webinar4/2020_aggregated_api_webinar.pdf">here</a>.
 
+The video is available from [Youtube](https://youtu.be/M6m5RlofsQw).
+
+<iframe width="736px" height="414px" src="https://www.youtube.com/embed/M6m5RlofsQw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+---
+
 ## Introduction
 PDBe Graph API (also referred as `Aggregated API`) is a RESTful API using PDBe Graph Database as backend. It currently supports only `GET` requests and provides aggregated data across all relevant PDB entries, for eg. based on entities, UniProt IDs, residues and more. 
 
