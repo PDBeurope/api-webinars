@@ -1,0 +1,1058 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>pdbecif &mdash; PDBe API webinar series 1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/jupyter-sphinx.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/thebelab.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/styles.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="../../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="pdbeccdutils" href="pdbeccdutils.html" />
+    <link rel="prev" title="PDBe tools in GitHub" href="webinar.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> PDBe API webinar series
+          
+
+          
+            
+            <img src="../../_static/pdbelogo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../web1/webinar.html">Introduction to PDBe programmatic access</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web2/webinar.html">Searching with the PDBe API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../web2/6_PDB_search.html">PDB search</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../web2/6_PDB_search.html#1)-Making-imports-and-setting-variables">1) Making imports and setting variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../web2/6_PDB_search.html#2)-a-function-to-get-data-from-the-search-API">2) a function to get data from the search API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../web2/6_PDB_search.html#3)-formatting-the-search-terms">3) formatting the search terms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../web2/6_PDB_search.html#4)-Getting-useful-data-out-of-the-search">4) Getting useful data out of the search</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../web2/6_PDB_search.html#5)-running-a-search">5) running a search</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../web2/6_PDB_search.html#6)-Analysing-and-plotting-the-results">6) Analysing and plotting the results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../web2/6_PDB_search.html#7)-searching-for-two-terms-at-once">7) searching for two terms at once</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../web2/6_PDB_search.html#Questions-to-answer">Questions to answer</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../web2/7_PDB_sequence_search.html">PDB sequence search</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../web2/7_PDB_sequence_search.html#1)-Making-imports-and-setting-variables">1) Making imports and setting variables</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../web3/webinar.html">Creating complex PDBe API queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web4/webinar.html">Using the PDBe Graph API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../web4/webinar.html#introduction">Introduction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../web4/webinar.html#using-the-documentation">Using the documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../web4/webinar.html#usecases">Usecases</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../web4/usecases/ligand_sites.html">Predicted ligand binding sites in interaction interface</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../web4/usecases/ligand_sites.html#1)-Get-the-annotations-data-for-UniProt-accession-P61626">1) Get the annotations data for UniProt accession <code class="docutils literal notranslate"><span class="pre">P61626</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../web4/usecases/ligand_sites.html#2)-Filter-the-data-for-providers-p2rank-and-3dligandsite">2) Filter the data for providers <code class="docutils literal notranslate"><span class="pre">p2rank</span></code> and <code class="docutils literal notranslate"><span class="pre">3dligandsite</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../web4/usecases/ligand_sites.html#3)-Get-interacting-residues-for-the-UniProt-accession">3) Get interacting residues for the UniProt accession</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../web4/usecases/ligand_sites.html#4)-Filter-interface_data-on-common-residues">4) Filter <code class="docutils literal notranslate"><span class="pre">interface_data</span></code> on common residues</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../web4/usecases/accessible_residues.html">Accessible residues for a PDB structure</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../web4/usecases/accessible_residues.html#1)-Get-the-3Dcomplex-annotations-for-PDB-entry-3pxe">1) Get the <code class="docutils literal notranslate"><span class="pre">3Dcomplex</span></code> annotations for PDB entry <code class="docutils literal notranslate"><span class="pre">3pxe</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../web4/usecases/accessible_residues.html#2)-Filter-the-data-for-ASA_alone-label">2) Filter the data for <code class="docutils literal notranslate"><span class="pre">ASA_alone</span></code> label</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../web4/usecases/accessible_residues.html#3)-Filter-site_residues-on-raw_score-&gt;-0">3) Filter <code class="docutils literal notranslate"><span class="pre">site_residues</span></code> on <code class="docutils literal notranslate"><span class="pre">raw_score</span> <span class="pre">&gt;</span> <span class="pre">0</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="webinar.html">PDBe tools in GitHub</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">pdbecif</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Structure-reading">Structure reading</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Dictionary-output">Dictionary output</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#CIFWrapper-output">CIFWrapper output</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#CifFile-output">CifFile output</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#Structure-writing">Structure writing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pdbeccdutils.html">pdbeccdutils</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pdbeccdutils.html#Structure-reading">Structure reading</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pdbeccdutils.html#Component-object">Component object</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdbeccdutils.html#Scaffolds">Scaffolds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdbeccdutils.html#Fragments">Fragments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdbeccdutils.html#Molecular-depictions">Molecular depictions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pdbeccdutils.html#Structure-writing">Structure writing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pdbeccdutils.html#Parity-method">Parity method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pdbeccdutils.html#Scripts">Scripts</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arpeggio.html">arpeggio</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="arpeggio.html#Precomputed-data">Precomputed data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="arpeggio.html#Example">Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="arpeggio.html#arpeggio-script">arpeggio script</a></li>
+<li class="toctree-l3"><a class="reference internal" href="arpeggio.html#arpeggio-API">arpeggio API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="arpeggio.html#Excercise">Excercise</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../web6/webinar.html">Data visualisation at PDBe</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">PDBe API webinar series</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="webinar.html">PDBe tools in GitHub</a> &raquo;</li>
+        
+      <li>pdbecif</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/webinars/web5/pdbecif.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="pdbecif">
+<h1>pdbecif<a class="headerlink" href="#pdbecif" title="Permalink to this headline">¶</a></h1>
+<p>This exercise demonstrates the use of the <a class="reference external" href="https://github.com/PDBeurope/pdbecif">PDBeCIF</a>. Lightweight pure python 2/3 mmCif/CIF/STAR parser. The mmCIF format replaced the older <a class="reference external" href="https://www.wwpdb.org/documentation/file-format-content/format33/v3.3.html">PDB format</a> in 2014 as a master format of the wwPDB and is used for depositions of x-ray structures since 2020. The description of the mmCIF format is <a class="reference external" href="http://mmcif.wwpdb.org/docs/tutorials/mechanics/pdbx-mmcif-syntax.html">available</a>.</p>
+<p>There are no external dependencies, but internally Global phasing tokenizer is used. The package allows I/O operations over mmCIF files distributed by wwPDB partners.</p>
+<p>You can install the package from PYPi or from the repository using one of the following commands:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">pdbecif</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">git</span><span class="o">+</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">PDBeurope</span><span class="o">/</span><span class="n">pdbecif</span><span class="o">.</span><span class="n">git</span><span class="nd">@master</span><span class="c1">#egg=pdbecif</span>
+</pre></div>
+</div>
+<p>Full API documentation is <a class="reference external" href="https://pdbeurope.github.io/pdbecif">available</a>.</p>
+<p>Before we start we need to download a structure of any PDB entry. We are going to use <a class="reference external" href="https://pdbe.org/1cbs">1cbs</a> for this purpose.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span> <span class="c1"># for later pretty printing only</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;http://www.ebi.ac.uk/pdbe/entry-files/download/1cbs_updated.cif&#39;</span><span class="p">)</span>
+<span class="n">cif_path</span> <span class="o">=</span> <span class="s1">&#39;1cbs.cif&#39;</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">cif_path</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+    <span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="Structure-reading">
+<h2>Structure reading<a class="headerlink" href="#Structure-reading" title="Permalink to this headline">¶</a></h2>
+<p>There are three main data structures one can consume while reading mmCIF files using PDBeCIF package. In the following sections we are going to go through all of them and highlight different use cases.</p>
+<div class="section" id="Dictionary-output">
+<h3>Dictionary output<a class="headerlink" href="#Dictionary-output" title="Permalink to this headline">¶</a></h3>
+<p>One of the outputs is a dictionary. You can get python dictionary by setting parameter <code class="docutils literal notranslate"><span class="pre">output='cif_dictionary'</span></code>.</p>
+<p>Use this option:</p>
+<ul class="simple">
+<li><p>If you want to have a direct way of modifying data</p></li>
+<li><p>Fastest option</p></li>
+</ul>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">pdbecif.mmcif_io</span> <span class="kn">import</span> <span class="n">CifFileReader</span>
+
+<span class="n">reader</span> <span class="o">=</span> <span class="n">CifFileReader</span><span class="p">()</span>
+
+<span class="n">cif_dict</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">cif_path</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s1">&#39;cif_dictionary&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>The result is an mmCIF file structured in a plain python <a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#dictionaries">dictionary</a> in a tree like structure where the key at the first level is equal to the <strong>data block id</strong>. The value to this key is another dictionary with category names as keys. The schema looks like this:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;DATABLOCK_ID&quot;</span><span class="p">:</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;CATEGORY_NAME&quot;</span><span class="p">:</span>
+        <span class="p">{</span>
+          <span class="nt">&quot;CATEGORY_ITEM&quot;</span><span class="p">:</span> <span class="s2">&quot;VALUE&quot;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>See example for details:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;1CBS&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;_entry&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1CBS&quot;</span><span class="p">},</span>
+    <span class="nt">&quot;_symmetry&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;Int_Tables_number&quot;</span><span class="p">:</span> <span class="s2">&quot;19&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;cell_setting&quot;</span><span class="p">:</span> <span class="s2">&quot;?&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;entry_id&quot;</span><span class="p">:</span> <span class="s2">&quot;1CBS&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;pdbx_full_space_group_name_H-M&quot;</span><span class="p">:</span> <span class="s2">&quot;?&quot;</span><span class="p">,</span>
+                  <span class="nt">&quot;space_group_name_H-M&quot;</span><span class="p">:</span> <span class="s2">&quot;P 21 21 21&quot;</span><span class="p">}}}</span>
+</pre></div>
+</div>
+<p>that corresponds to the following part of the mmCIF file:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>data_1CBS
+#
+_entry.id 1CBS
+#
+_symmetry.entry_id 1CBS
+_symmetry.space_group_name_H-M &#39;P 21 21 21&#39;
+_symmetry.pdbx_full_space_group_name_H-M ?
+_symmetry.cell_setting ?
+_symmetry.Int_Tables_number 19
+#
+</pre></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># you can also limit data categories by listing the names you are interested in</span>
+<span class="n">short_dict</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">cif_path</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s1">&#39;cif_dictionary&#39;</span><span class="p">,</span> <span class="n">only</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;_entry&#39;</span><span class="p">,</span> <span class="s1">&#39;_symmetry&#39;</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Number of categories in the CIF file: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">cif_dict</span><span class="p">[</span><span class="s1">&#39;1CBS&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Limited number of categories in the CIF file: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">short_dict</span><span class="p">[</span><span class="s1">&#39;1CBS&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Number of categories in the CIF file: 46
+Limited number of categories in the CIF file: 2
+</pre></div></div>
+</div>
+<p>The other way is to provide a list of category names that should be <strong>discarded</strong> from the CIF file. This can be particularly useful when one does not want to deal with huge categories, e.g. coordinates (<code class="docutils literal notranslate"><span class="pre">_atom_site</span></code>)</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ignored_categories</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">cif_path</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s1">&#39;cif_dictionary&#39;</span><span class="p">,</span> <span class="n">ignore</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;_atom_site&#39;</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;_atom_site is present in cif_dict: </span><span class="si">{</span><span class="nb">bool</span><span class="p">(</span><span class="s1">&#39;_atom_site&#39;</span> <span class="ow">in</span> <span class="n">cif_dict</span><span class="p">[</span><span class="s1">&#39;1CBS&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;_atom_site is present in ignored_categories: </span><span class="si">{</span><span class="nb">bool</span><span class="p">(</span><span class="s1">&#39;_atom_site&#39;</span> <span class="ow">in</span> <span class="n">ignored_categories</span><span class="p">[</span><span class="s1">&#39;1CBS&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+_atom_site is present in cif_dict: True
+_atom_site is present in ignored_categories: False
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="CIFWrapper-output">
+<h3>CIFWrapper output<a class="headerlink" href="#CIFWrapper-output" title="Permalink to this headline">¶</a></h3>
+<p>when you specify <code class="docutils literal notranslate"><span class="pre">output='cif_wrapper'</span></code>to the <code class="docutils literal notranslate"><span class="pre">read()</span></code> function, one retrieves a wrapper object that allows some extra functionality:</p>
+<ul class="simple">
+<li><p>access data items and their values using python dot (.) notation</p></li>
+<li><p>searching in the data item values</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">cif_wrapper_result</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">cif_path</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s1">&#39;cif_wrapper&#39;</span><span class="p">)</span>
+<span class="n">cif_wrapper_result</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#39;1CBS&#39;: &lt;pdbecif.mmcif.CIFWrapper at 0x7f87f8ffbd90&gt;}
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">cif_wrapper</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">cif_wrapper_result</span><span class="o">.</span><span class="n">values</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># access data objects using dot notation</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cif_wrapper</span><span class="o">.</span><span class="n">_entity</span><span class="o">.</span><span class="n">pdbx_description</span><span class="p">)</span>
+
+<span class="c1"># or by indexing, the result is the same</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cif_wrapper</span><span class="p">[</span><span class="s1">&#39;_entity&#39;</span><span class="p">][</span><span class="s1">&#39;pdbx_description&#39;</span><span class="p">])</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;CELLULAR RETINOIC ACID BINDING PROTEIN TYPE II&#39;, &#39;RETINOIC ACID&#39;, &#39;water&#39;]
+[&#39;CELLULAR RETINOIC ACID BINDING PROTEIN TYPE II&#39;, &#39;RETINOIC ACID&#39;, &#39;water&#39;]
+</pre></div></div>
+</div>
+<p><a class="reference external" href="https://pdbeurope.github.io/pdbecif/documentation/mmcif.html#pdbecif.mmcif.CIFWrapper">CIFWrapper</a> object wraps up mmCIF categories and allows accessing them. A category object is represented by <a class="reference external" href="https://pdbeurope.github.io/pdbecif/documentation/mmcif.html#pdbecif.mmcif.CIFWrapperTable">CIFWrapperTable</a> that exposes convenience functions for <strong>searching</strong> through the data.</p>
+<p>Let’s have a look at the following example and extract all the chemical components of ‘non-polymer’ type:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">components</span> <span class="o">=</span> <span class="n">cif_wrapper</span><span class="o">.</span><span class="n">_chem_comp</span>
+<span class="n">non_polymer_components</span> <span class="o">=</span> <span class="n">components</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="s1">&#39;non-polymer&#39;</span><span class="p">)</span>
+<span class="n">non_polymer_components</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{8: {&#39;id&#39;: &#39;HOH&#39;,
+  &#39;type&#39;: &#39;non-polymer&#39;,
+  &#39;mon_nstd_flag&#39;: &#39;.&#39;,
+  &#39;name&#39;: &#39;WATER&#39;,
+  &#39;pdbx_synonyms&#39;: &#39;?&#39;,
+  &#39;formula&#39;: &#39;H2 O&#39;,
+  &#39;formula_weight&#39;: &#39;18.015&#39;},
+ 15: {&#39;id&#39;: &#39;REA&#39;,
+  &#39;type&#39;: &#39;non-polymer&#39;,
+  &#39;mon_nstd_flag&#39;: &#39;.&#39;,
+  &#39;name&#39;: &#39;RETINOIC ACID&#39;,
+  &#39;pdbx_synonyms&#39;: &#39;?&#39;,
+  &#39;formula&#39;: &#39;C20 H28 O2&#39;,
+  &#39;formula_weight&#39;: &#39;300.435&#39;}}
+</pre></div></div>
+</div>
+<p>Regular expressions are also supported.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">re</span>
+
+<span class="c1"># all chemical components with ID starting with A</span>
+<span class="n">reg_exp</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;^A&#39;</span><span class="p">)</span>
+<span class="n">components</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="n">reg_exp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{0: {&#39;id&#39;: &#39;ALA&#39;,
+  &#39;type&#39;: &#39;L-peptide linking&#39;,
+  &#39;mon_nstd_flag&#39;: &#39;y&#39;,
+  &#39;name&#39;: &#39;ALANINE&#39;,
+  &#39;pdbx_synonyms&#39;: &#39;?&#39;,
+  &#39;formula&#39;: &#39;C3 H7 N O2&#39;,
+  &#39;formula_weight&#39;: &#39;89.093&#39;},
+ 1: {&#39;id&#39;: &#39;ARG&#39;,
+  &#39;type&#39;: &#39;L-peptide linking&#39;,
+  &#39;mon_nstd_flag&#39;: &#39;y&#39;,
+  &#39;name&#39;: &#39;ARGININE&#39;,
+  &#39;pdbx_synonyms&#39;: &#39;?&#39;,
+  &#39;formula&#39;: &#39;C6 H15 N4 O2 1&#39;,
+  &#39;formula_weight&#39;: &#39;175.209&#39;},
+ 2: {&#39;id&#39;: &#39;ASN&#39;,
+  &#39;type&#39;: &#39;L-peptide linking&#39;,
+  &#39;mon_nstd_flag&#39;: &#39;y&#39;,
+  &#39;name&#39;: &#39;ASPARAGINE&#39;,
+  &#39;pdbx_synonyms&#39;: &#39;?&#39;,
+  &#39;formula&#39;: &#39;C4 H8 N2 O3&#39;,
+  &#39;formula_weight&#39;: &#39;132.118&#39;},
+ 3: {&#39;id&#39;: &#39;ASP&#39;,
+  &#39;type&#39;: &#39;L-peptide linking&#39;,
+  &#39;mon_nstd_flag&#39;: &#39;y&#39;,
+  &#39;name&#39;: &#39;ASPARTIC ACID&#39;,
+  &#39;pdbx_synonyms&#39;: &#39;?&#39;,
+  &#39;formula&#39;: &#39;C4 H7 N O4&#39;,
+  &#39;formula_weight&#39;: &#39;133.103&#39;}}
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="CifFile-output">
+<h3>CifFile output<a class="headerlink" href="#CifFile-output" title="Permalink to this headline">¶</a></h3>
+<p>when specifying <code class="docutils literal notranslate"><span class="pre">output='cif_file'</span></code>to the <code class="docutils literal notranslate"><span class="pre">read()</span></code> function, one retrieves a <a class="reference external" href="https://pdbeurope.github.io/pdbecif/documentation/mmcif.html#pdbecif.mmcif.CifFile">CifFile</a> object that allows some extra functionality. Use this option:</p>
+<ul class="simple">
+<li><p>when you want to add or remove categories from your cif file using convenience functions as well as modifying existing data.</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">cif_file</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">cif_path</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s1">&#39;cif_file&#39;</span><span class="p">)</span>
+<span class="n">cif_file</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;CifFile &#34;1cbs.cif&#34;&gt;
+</pre></div></div>
+</div>
+<p>There are convenience function to retrieve a list of data block ids as well as data blocks containing data. The following example demonstrates the hierarchy of the CifFile object:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># cif file is organized in data blocks. 1cbs.cif contains a single one.</span>
+<span class="n">block_id</span> <span class="o">=</span> <span class="n">cif_file</span><span class="o">.</span><span class="n">getDataBlockIds</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">data_block</span> <span class="o">=</span> <span class="n">cif_file</span><span class="o">.</span><span class="n">getDataBlock</span><span class="p">(</span><span class="n">block_id</span><span class="p">)</span>
+
+<span class="c1"># each data block contains a list of categories that include data items</span>
+<span class="n">all_category_names</span> <span class="o">=</span> <span class="n">data_block</span><span class="o">.</span><span class="n">getCategoryIds</span><span class="p">()</span>
+<span class="n">entity_like_categories</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">all_category_names</span> <span class="k">if</span> <span class="s1">&#39;entity&#39;</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Entity-like categories: </span><span class="si">{</span><span class="n">entity_like_categories</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># extract entity_poly category</span>
+<span class="n">entity_poly</span> <span class="o">=</span> <span class="n">data_block</span><span class="o">.</span><span class="n">getCategory</span><span class="p">(</span><span class="s1">&#39;entity_poly&#39;</span><span class="p">)</span>
+
+<span class="c1"># list all the data items</span>
+<span class="n">item_names</span> <span class="o">=</span> <span class="n">entity_poly</span><span class="o">.</span><span class="n">getItemNames</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;These are the item names for &#39;entity_poly&#39; category </span><span class="si">{</span><span class="n">item_names</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># extract PDB sequence stored in the data item: `pdbx_seq_one_letter_code_can`</span>
+<span class="n">item</span> <span class="o">=</span> <span class="n">entity_poly</span><span class="o">.</span><span class="n">getItem</span><span class="p">(</span><span class="s1">&#39;pdbx_seq_one_letter_code_can&#39;</span><span class="p">)</span>
+
+<span class="n">formated_val</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">getFormattedValue</span><span class="p">()</span>
+<span class="n">plain_val</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">getRawValue</span><span class="p">()</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Entity-like categories: [&#39;entity&#39;, &#39;entity_poly&#39;, &#39;entity_poly_seq&#39;, &#39;entity_src_gen&#39;, &#39;pdbx_entity_nonpoly&#39;]
+These are the item names for &#39;entity_poly&#39; category [&#39;entity_id&#39;, &#39;type&#39;, &#39;nstd_linkage&#39;, &#39;nstd_monomer&#39;, &#39;pdbx_seq_one_letter_code&#39;, &#39;pdbx_seq_one_letter_code_can&#39;, &#39;pdbx_strand_id&#39;, &#39;pdbx_target_identifier&#39;]
+</pre></div></div>
+</div>
+<p>Compare values of the <code class="docutils literal notranslate"><span class="pre">pdbx_seq_one_letter_code_can</span></code> item:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">formated_val</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">plain_val</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+
+;PNFSGNWKIIRSENFEELLKVLGVNVMLRKIAVAAASKPAVEIKQEGDTFYIKTSTTVRTTEINFKVGEEFEEQTVDGRP
+CKSLVKWESENKMVCEQKLLKGEGPKTSWTRELTNDGELILTMTADDVVCTRVYVRE
+;
+
+PNFSGNWKIIRSENFEELLKVLGVNVMLRKIAVAAASKPAVEIKQEGDTFYIKTSTTVRTTEINFKVGEEFEEQTVDGRP
+CKSLVKWESENKMVCEQKLLKGEGPKTSWTRELTNDGELILTMTADDVVCTRVYVRE
+</pre></div></div>
+</div>
+<p>These are different because <a class="reference external" href="https://pdbeurope.github.io/pdbecif/documentation/mmcif.html#pdbecif.mmcif.Item.getFormattedValue">getFormattedValue()</a> retrieves the value exactly as it is formatted in the input mmCIF file, whereas (does not remove any leading or trailing whitespace characters or delimiters), this is the purpose of <a class="reference external" href="https://pdbeurope.github.io/pdbecif/documentation/mmcif.html#pdbecif.mmcif.Item.getRawValue">getRawValue()</a> method. However, the value is retrieved as a string
+including all characters. Note there are still <strong>white space</strong> characters in the data item value <code class="docutils literal notranslate"><span class="pre">\n</span></code> in this case!</p>
+<p>You can also create or remove categories as you wish</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># add category</span>
+<span class="n">category</span> <span class="o">=</span> <span class="n">data_block</span><span class="o">.</span><span class="n">setCategory</span><span class="p">(</span><span class="s2">&quot;new_category&quot;</span><span class="p">)</span>
+<span class="n">new_item</span> <span class="o">=</span> <span class="n">category</span><span class="o">.</span><span class="n">setItem</span><span class="p">(</span><span class="s1">&#39;new_item&#39;</span><span class="p">)</span>
+<span class="n">new_item</span><span class="o">.</span><span class="n">setValue</span><span class="p">(</span><span class="s1">&#39;some value&#39;</span><span class="p">)</span>
+
+<span class="n">data_block</span><span class="o">.</span><span class="n">getCategory</span><span class="p">(</span><span class="s1">&#39;new_category&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;Category &#34;_new_category&#34; with items [&#39;new_item&#39;]&gt;
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># remove categories</span>
+<span class="n">data_block</span><span class="o">.</span><span class="n">removeChild</span><span class="p">(</span><span class="s1">&#39;_atom_site&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Warning: &#39;_atom_site&#39; removed from categories
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+True
+</pre></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="Structure-writing">
+<h2>Structure writing<a class="headerlink" href="#Structure-writing" title="Permalink to this headline">¶</a></h2>
+<p>Structure export can be done by using <a class="reference external" href="https://pdbeurope.github.io/pdbecif/documentation/mmcif.html#pdbecif.mmcif_io.CifFileWriter">CifFileWriter</a> object and underlying method <a class="reference external" href="https://pdbeurope.github.io/pdbecif/documentation/mmcif.html#pdbecif.mmcif_io.CifFileWriter.write">write()</a>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">pdbecif.mmcif_io</span> <span class="kn">import</span> <span class="n">CifFileWriter</span>
+
+<span class="n">writer</span> <span class="o">=</span> <span class="n">CifFileWriter</span><span class="p">(</span><span class="s1">&#39;dict_output.cif&#39;</span><span class="p">)</span>
+<span class="n">writer</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;pdbecif.mmcif_io.CifFileWriter at 0x7f87f91ad850&gt;
+</pre></div></div>
+</div>
+<p><a class="reference external" href="https://pdbeurope.github.io/pdbecif/documentation/mmcif.html#pdbecif.mmcif_io.CifFileWriter.write">write()</a> method takes all the data objects returned by the read() function we discussed.</p>
+<p>A dictionary</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">custom_dict</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;root&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;category1&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;subcatA&quot;</span><span class="p">:</span> <span class="s2">&quot;val1&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;subcatB&quot;</span><span class="p">:</span> <span class="s2">&quot;val2&quot;</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;category2&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;subcat1&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span>
+            <span class="s2">&quot;subcat2&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">custom_dict</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>that results in a properly formated and valid mmCIF file:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>data_root
+#
+_category1.subcatA       val1
+_category1.subcatB       val2
+
+#
+loop_
+_category2.subcat1
+_category2.subcat2
+. a
+1 b
+2 c
+#
+</pre></div>
+</div>
+<p>a <a class="reference external" href="https://pdbeurope.github.io/pdbecif/documentation/mmcif.html#pdbecif.mmcif.CIFWrapper">CIFWrapper</a></p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">writer</span> <span class="o">=</span> <span class="n">CifFileWriter</span><span class="p">(</span><span class="s1">&#39;wrapper_output.cif&#39;</span><span class="p">)</span>
+<span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cif_wrapper</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>or a <a class="reference external" href="https://pdbeurope.github.io/pdbecif/documentation/mmcif.html#pdbecif.mmcif.CifFile">CifFile()</a></p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">writer</span> <span class="o">=</span> <span class="n">CifFileWriter</span><span class="p">(</span><span class="s1">&#39;cif_file_output.cif&#39;</span><span class="p">)</span>
+<span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cif_file</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="pdbeccdutils.html" class="btn btn-neutral float-right" title="pdbeccdutils" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="webinar.html" class="btn btn-neutral float-left" title="PDBe tools in GitHub" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Protein Data Bank in Europe
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,651 @@
+{
+ "metadata": {
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.7.8-final"
+  },
+  "orig_nbformat": 2,
+  "kernelspec": {
+   "name": "Python 3.7.8 64-bit ('rdkit-env': conda)",
+   "display_name": "Python 3.7.8 64-bit ('rdkit-env': conda)",
+   "metadata": {
+    "interpreter": {
+     "hash": "ff61d13abe230febdcf9f05a768048a47be2ac8377dcb96e6daf2ab6fcfbf665"
+    }
+   }
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2,
+ "cells": [
+  {
+   "source": [
+    "# pdbecif\n",
+    "\n",
+    "This exercise demonstrates the use of the [PDBeCIF](https://github.com/PDBeurope/pdbecif). Lightweight pure python 2/3 mmCif/CIF/STAR parser. The mmCIF format replaced the older [PDB format](https://www.wwpdb.org/documentation/file-format-content/format33/v3.3.html) in 2014 as a master format of the wwPDB and is used for depositions of x-ray structures since 2020. The description of the mmCIF format is [available](http://mmcif.wwpdb.org/docs/tutorials/mechanics/pdbx-mmcif-syntax.html).\n",
+    "\n",
+    "\n",
+    "There are no external dependencies, but internally Global phasing tokenizer is used. The package allows I/O operations over mmCIF files distributed by wwPDB partners.\n",
+    "\n",
+    "You can install the package from PYPi or from the repository using one of the following commands:\n",
+    "\n",
+    "```python\n",
+    "pip install pdbecif\n",
+    "pip install git+https://github.com/PDBeurope/pdbecif.git@master#egg=pdbecif\n",
+    "```\n",
+    "\n",
+    "Full API documentation is [available](https://pdbeurope.github.io/pdbecif)."
+   ],
+   "cell_type": "markdown",
+   "metadata": {}
+  },
+  {
+   "source": [
+    "Before we start we need to download a structure of any PDB entry. We are going to use [1cbs](https://pdbe.org/1cbs) for this purpose."
+   ],
+   "cell_type": "markdown",
+   "metadata": {}
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import requests\n",
+    "from pprint import pprint # for later pretty printing only\n",
+    "\n",
+    "response = requests.get(f'http://www.ebi.ac.uk/pdbe/entry-files/download/1cbs_updated.cif')\n",
+    "cif_path = '1cbs.cif'\n",
+    "\n",
+    "with open(cif_path, 'wb') as fp:\n",
+    "    fp.write(response.content)"
+   ]
+  },
+  {
+   "source": [
+    "## Structure reading\n",
+    "There are three main data structures one can consume while reading mmCIF files using PDBeCIF package. In the following sections we are going to go through all of them and highlight different use cases.\n",
+    "\n",
+    "### Dictionary output\n",
+    "One of the outputs is a dictionary. You can get python dictionary by setting parameter `output='cif_dictionary'`.\n",
+    "\n",
+    "Use this option:\n",
+    "\n",
+    "* If you want to have a direct way of modifying data\n",
+    "* Fastest option\n"
+   ],
+   "cell_type": "markdown",
+   "metadata": {}
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "from pdbecif.mmcif_io import CifFileReader\n",
+    "\n",
+    "reader = CifFileReader()\n",
+    "\n",
+    "cif_dict = reader.read(cif_path, output='cif_dictionary')"
+   ]
+  },
+  {
+   "source": [
+    "The result is an mmCIF file structured in a plain python [dictionary](https://docs.python.org/3/tutorial/datastructures.html#dictionaries) in a tree like structure where the key at the first level is equal to the **data block id**. The value to this key is another dictionary with category names as keys. The schema looks like this:\n",
+    "\n",
+    "```json\n",
+    "{\n",
+    "  \"DATABLOCK_ID\": \n",
+    "    { \n",
+    "      \"CATEGORY_NAME\": \n",
+    "        { \n",
+    "          \"CATEGORY_ITEM\": \"VALUE\"\n",
+    "        }\n",
+    "    }\n",
+    "}\n",
+    "```\n",
+    "\n",
+    " See example for details:\n",
+    "\n",
+    "```json\n",
+    "{\"1CBS\": {\n",
+    "    \"_entry\": {\"id\": \"1CBS\"},\n",
+    "    \"_symmetry\": {\"Int_Tables_number\": \"19\",\n",
+    "                  \"cell_setting\": \"?\",\n",
+    "                  \"entry_id\": \"1CBS\",\n",
+    "                  \"pdbx_full_space_group_name_H-M\": \"?\",\n",
+    "                  \"space_group_name_H-M\": \"P 21 21 21\"}}}\n",
+    "```\n",
+    "\n",
+    "that corresponds to the following part of the mmCIF file:\n",
+    "\n",
+    "```text\n",
+    "data_1CBS\n",
+    "#\n",
+    "_entry.id 1CBS\n",
+    "#\n",
+    "_symmetry.entry_id 1CBS\n",
+    "_symmetry.space_group_name_H-M 'P 21 21 21'\n",
+    "_symmetry.pdbx_full_space_group_name_H-M ?\n",
+    "_symmetry.cell_setting ?\n",
+    "_symmetry.Int_Tables_number 19\n",
+    "#\n",
+    "```"
+   ],
+   "cell_type": "markdown",
+   "metadata": {}
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [
+    {
+     "output_type": "stream",
+     "name": "stdout",
+     "text": [
+      "Number of categories in the CIF file: 46\nLimited number of categories in the CIF file: 2\n"
+     ]
+    }
+   ],
+   "source": [
+    "# you can also limit data categories by listing the names you are interested in\n",
+    "short_dict = reader.read(cif_path, output='cif_dictionary', only=['_entry', '_symmetry'])\n",
+    "\n",
+    "print(f\"Number of categories in the CIF file: {len(cif_dict['1CBS'].keys())}\")\n",
+    "print(f\"Limited number of categories in the CIF file: {len(short_dict['1CBS'].keys())}\")\n"
+   ]
+  },
+  {
+   "source": [
+    "The other way is to provide a list of category names that should be **discarded** from the CIF file. This can be particularly useful when one does not want to deal with huge categories, e.g. coordinates (`_atom_site`)"
+   ],
+   "cell_type": "markdown",
+   "metadata": {}
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [
+    {
+     "output_type": "stream",
+     "name": "stdout",
+     "text": [
+      "_atom_site is present in cif_dict: True\n_atom_site is present in ignored_categories: False\n"
+     ]
+    }
+   ],
+   "source": [
+    "ignored_categories = reader.read(cif_path, output='cif_dictionary', ignore=['_atom_site'])\n",
+    "\n",
+    "print(f\"_atom_site is present in cif_dict: {bool('_atom_site' in cif_dict['1CBS'])}\")\n",
+    "print(f\"_atom_site is present in ignored_categories: {bool('_atom_site' in ignored_categories['1CBS'])}\")"
+   ]
+  },
+  {
+   "source": [
+    "### CIFWrapper output\n",
+    "\n",
+    "when you specify `output='cif_wrapper'`to the `read()` function, one retrieves a wrapper object that allows some extra functionality:\n",
+    "\n",
+    "* access data items and their values using python dot (.) notation\n",
+    "* searching in the data item values"
+   ],
+   "cell_type": "markdown",
+   "metadata": {}
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [
+    {
+     "output_type": "execute_result",
+     "data": {
+      "text/plain": [
+       "{'1CBS': <pdbecif.mmcif.CIFWrapper at 0x7f87f8ffbd90>}"
+      ]
+     },
+     "metadata": {},
+     "execution_count": 5
+    }
+   ],
+   "source": [
+    "cif_wrapper_result = reader.read(cif_path, output='cif_wrapper')\n",
+    "cif_wrapper_result"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {},
+   "outputs": [
+    {
+     "output_type": "stream",
+     "name": "stdout",
+     "text": [
+      "['CELLULAR RETINOIC ACID BINDING PROTEIN TYPE II', 'RETINOIC ACID', 'water']\n['CELLULAR RETINOIC ACID BINDING PROTEIN TYPE II', 'RETINOIC ACID', 'water']\n"
+     ]
+    }
+   ],
+   "source": [
+    "cif_wrapper = list(cif_wrapper_result.values())[0]\n",
+    "\n",
+    "# access data objects using dot notation\n",
+    "print(cif_wrapper._entity.pdbx_description)\n",
+    "\n",
+    "# or by indexing, the result is the same\n",
+    "print(cif_wrapper['_entity']['pdbx_description'])\n"
+   ]
+  },
+  {
+   "source": [
+    "[CIFWrapper](https://pdbeurope.github.io/pdbecif/documentation/mmcif.html#pdbecif.mmcif.CIFWrapper) object wraps up mmCIF categories and allows accessing them. A category object is represented by [CIFWrapperTable](https://pdbeurope.github.io/pdbecif/documentation/mmcif.html#pdbecif.mmcif.CIFWrapperTable) that exposes convenience functions for **searching** through the data. \n",
+    "\n",
+    "Let's have a look at the following example and extract all the chemical components of 'non-polymer' type:"
+   ],
+   "cell_type": "markdown",
+   "metadata": {}
+  },
+  {
+   "source": [
+    "components = cif_wrapper._chem_comp\n",
+    "non_polymer_components = components.search('type', 'non-polymer')\n",
+    "non_polymer_components"
+   ],
+   "cell_type": "code",
+   "metadata": {},
+   "execution_count": 7,
+   "outputs": [
+    {
+     "output_type": "execute_result",
+     "data": {
+      "text/plain": [
+       "{8: {'id': 'HOH',\n",
+       "  'type': 'non-polymer',\n",
+       "  'mon_nstd_flag': '.',\n",
+       "  'name': 'WATER',\n",
+       "  'pdbx_synonyms': '?',\n",
+       "  'formula': 'H2 O',\n",
+       "  'formula_weight': '18.015'},\n",
+       " 15: {'id': 'REA',\n",
+       "  'type': 'non-polymer',\n",
+       "  'mon_nstd_flag': '.',\n",
+       "  'name': 'RETINOIC ACID',\n",
+       "  'pdbx_synonyms': '?',\n",
+       "  'formula': 'C20 H28 O2',\n",
+       "  'formula_weight': '300.435'}}"
+      ]
+     },
+     "metadata": {},
+     "execution_count": 7
+    }
+   ]
+  },
+  {
+   "source": [
+    "Regular expressions are also supported."
+   ],
+   "cell_type": "markdown",
+   "metadata": {}
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [
+    {
+     "output_type": "execute_result",
+     "data": {
+      "text/plain": [
+       "{0: {'id': 'ALA',\n",
+       "  'type': 'L-peptide linking',\n",
+       "  'mon_nstd_flag': 'y',\n",
+       "  'name': 'ALANINE',\n",
+       "  'pdbx_synonyms': '?',\n",
+       "  'formula': 'C3 H7 N O2',\n",
+       "  'formula_weight': '89.093'},\n",
+       " 1: {'id': 'ARG',\n",
+       "  'type': 'L-peptide linking',\n",
+       "  'mon_nstd_flag': 'y',\n",
+       "  'name': 'ARGININE',\n",
+       "  'pdbx_synonyms': '?',\n",
+       "  'formula': 'C6 H15 N4 O2 1',\n",
+       "  'formula_weight': '175.209'},\n",
+       " 2: {'id': 'ASN',\n",
+       "  'type': 'L-peptide linking',\n",
+       "  'mon_nstd_flag': 'y',\n",
+       "  'name': 'ASPARAGINE',\n",
+       "  'pdbx_synonyms': '?',\n",
+       "  'formula': 'C4 H8 N2 O3',\n",
+       "  'formula_weight': '132.118'},\n",
+       " 3: {'id': 'ASP',\n",
+       "  'type': 'L-peptide linking',\n",
+       "  'mon_nstd_flag': 'y',\n",
+       "  'name': 'ASPARTIC ACID',\n",
+       "  'pdbx_synonyms': '?',\n",
+       "  'formula': 'C4 H7 N O4',\n",
+       "  'formula_weight': '133.103'}}"
+      ]
+     },
+     "metadata": {},
+     "execution_count": 8
+    }
+   ],
+   "source": [
+    "import re\n",
+    "\n",
+    "# all chemical components with ID starting with A\n",
+    "reg_exp = re.compile(r'^A')\n",
+    "components.search('id', reg_exp)"
+   ]
+  },
+  {
+   "source": [
+    "### CifFile output\n",
+    "\n",
+    "when specifying `output='cif_file'`to the `read()` function, one retrieves a [CifFile](https://pdbeurope.github.io/pdbecif/documentation/mmcif.html#pdbecif.mmcif.CifFile) object that allows some extra functionality. Use this option:\n",
+    "\n",
+    "* when you want to add or remove categories from your cif file using convenience functions as well as modifying existing data."
+   ],
+   "cell_type": "markdown",
+   "metadata": {}
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {},
+   "outputs": [
+    {
+     "output_type": "execute_result",
+     "data": {
+      "text/plain": [
+       "<CifFile \"1cbs.cif\">"
+      ]
+     },
+     "metadata": {},
+     "execution_count": 9
+    }
+   ],
+   "source": [
+    "cif_file = reader.read(cif_path, output='cif_file')\n",
+    "cif_file"
+   ]
+  },
+  {
+   "source": [
+    "There are convenience function to retrieve a list of data block ids as well as data blocks containing data. The following example demonstrates the hierarchy of the CifFile object:"
+   ],
+   "cell_type": "markdown",
+   "metadata": {}
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {},
+   "outputs": [
+    {
+     "output_type": "stream",
+     "name": "stdout",
+     "text": [
+      "Entity-like categories: ['entity', 'entity_poly', 'entity_poly_seq', 'entity_src_gen', 'pdbx_entity_nonpoly']\nThese are the item names for 'entity_poly' category ['entity_id', 'type', 'nstd_linkage', 'nstd_monomer', 'pdbx_seq_one_letter_code', 'pdbx_seq_one_letter_code_can', 'pdbx_strand_id', 'pdbx_target_identifier']\n"
+     ]
+    }
+   ],
+   "source": [
+    "# cif file is organized in data blocks. 1cbs.cif contains a single one.\n",
+    "block_id = cif_file.getDataBlockIds()[0]\n",
+    "data_block = cif_file.getDataBlock(block_id)\n",
+    "\n",
+    "# each data block contains a list of categories that include data items\n",
+    "all_category_names = data_block.getCategoryIds()\n",
+    "entity_like_categories = [x for x in all_category_names if 'entity' in x]\n",
+    "print(f'Entity-like categories: {entity_like_categories}')\n",
+    "\n",
+    "# extract entity_poly category\n",
+    "entity_poly = data_block.getCategory('entity_poly')\n",
+    "\n",
+    "# list all the data items\n",
+    "item_names = entity_poly.getItemNames()\n",
+    "print(f\"These are the item names for 'entity_poly' category {item_names}\")\n",
+    "\n",
+    "# extract PDB sequence stored in the data item: `pdbx_seq_one_letter_code_can`\n",
+    "item = entity_poly.getItem('pdbx_seq_one_letter_code_can')\n",
+    "\n",
+    "formated_val = item.getFormattedValue()\n",
+    "plain_val = item.getRawValue()\n"
+   ]
+  },
+  {
+   "source": [
+    "Compare values of the `pdbx_seq_one_letter_code_can` item:"
+   ],
+   "cell_type": "markdown",
+   "metadata": {}
+  },
+  {
+   "source": [
+    "print(formated_val)\n",
+    "print(plain_val)"
+   ],
+   "cell_type": "code",
+   "metadata": {},
+   "execution_count": 11,
+   "outputs": [
+    {
+     "output_type": "stream",
+     "name": "stdout",
+     "text": [
+      "\n;PNFSGNWKIIRSENFEELLKVLGVNVMLRKIAVAAASKPAVEIKQEGDTFYIKTSTTVRTTEINFKVGEEFEEQTVDGRP\nCKSLVKWESENKMVCEQKLLKGEGPKTSWTRELTNDGELILTMTADDVVCTRVYVRE\n;\n\nPNFSGNWKIIRSENFEELLKVLGVNVMLRKIAVAAASKPAVEIKQEGDTFYIKTSTTVRTTEINFKVGEEFEEQTVDGRP\nCKSLVKWESENKMVCEQKLLKGEGPKTSWTRELTNDGELILTMTADDVVCTRVYVRE\n"
+     ]
+    }
+   ]
+  },
+  {
+   "source": [
+    "These are different because [getFormattedValue()](https://pdbeurope.github.io/pdbecif/documentation/mmcif.html#pdbecif.mmcif.Item.getFormattedValue) retrieves the value exactly as it is formatted in the input mmCIF file, whereas (does not remove any leading or trailing whitespace characters or delimiters), this is the purpose of [getRawValue()](https://pdbeurope.github.io/pdbecif/documentation/mmcif.html#pdbecif.mmcif.Item.getRawValue) method. However,\n",
+    "the value is retrieved as a string including all characters. Note there are still **white space** characters in the data item value `\\n` in this case!"
+   ],
+   "cell_type": "markdown",
+   "metadata": {}
+  },
+  {
+   "source": [
+    "You can also create or remove categories as you wish"
+   ],
+   "cell_type": "markdown",
+   "metadata": {}
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "metadata": {},
+   "outputs": [
+    {
+     "output_type": "execute_result",
+     "data": {
+      "text/plain": [
+       "<Category \"_new_category\" with items ['new_item']>"
+      ]
+     },
+     "metadata": {},
+     "execution_count": 12
+    }
+   ],
+   "source": [
+    "# add category\n",
+    "category = data_block.setCategory(\"new_category\")\n",
+    "new_item = category.setItem('new_item')\n",
+    "new_item.setValue('some value')\n",
+    "\n",
+    "data_block.getCategory('new_category')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "metadata": {},
+   "outputs": [
+    {
+     "output_type": "stream",
+     "name": "stdout",
+     "text": [
+      "Warning: '_atom_site' removed from categories\n"
+     ]
+    },
+    {
+     "output_type": "execute_result",
+     "data": {
+      "text/plain": [
+       "True"
+      ]
+     },
+     "metadata": {},
+     "execution_count": 13
+    }
+   ],
+   "source": [
+    "# remove categories\n",
+    "data_block.removeChild('_atom_site')"
+   ]
+  },
+  {
+   "source": [
+    "## Structure writing\n",
+    "\n",
+    "Structure export can be done by using [CifFileWriter](https://pdbeurope.github.io/pdbecif/documentation/mmcif.html#pdbecif.mmcif_io.CifFileWriter) object and underlying method [write()](https://pdbeurope.github.io/pdbecif/documentation/mmcif.html#pdbecif.mmcif_io.CifFileWriter.write)."
+   ],
+   "cell_type": "markdown",
+   "metadata": {}
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "metadata": {},
+   "outputs": [
+    {
+     "output_type": "execute_result",
+     "data": {
+      "text/plain": [
+       "<pdbecif.mmcif_io.CifFileWriter at 0x7f87f91ad850>"
+      ]
+     },
+     "metadata": {},
+     "execution_count": 14
+    }
+   ],
+   "source": [
+    "from pdbecif.mmcif_io import CifFileWriter\n",
+    "\n",
+    "writer = CifFileWriter('dict_output.cif')\n",
+    "writer"
+   ]
+  },
+  {
+   "source": [
+    "[write()](https://pdbeurope.github.io/pdbecif/documentation/mmcif.html#pdbecif.mmcif_io.CifFileWriter.write) method takes all the data objects returned by the read() function we discussed."
+   ],
+   "cell_type": "markdown",
+   "metadata": {}
+  },
+  {
+   "source": [
+    "A dictionary"
+   ],
+   "cell_type": "markdown",
+   "metadata": {}
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "custom_dict = {\n",
+    "    \"root\": {\n",
+    "        \"category1\": {\n",
+    "            \"subcatA\": \"val1\",\n",
+    "            \"subcatB\": \"val2\"\n",
+    "        },\n",
+    "        \"category2\": {\n",
+    "            \"subcat1\": [0,1,2],\n",
+    "            \"subcat2\": [\"a\", \"b\", \"c\"]\n",
+    "        }\n",
+    "    }\n",
+    "}\n",
+    "writer.write(custom_dict)"
+   ]
+  },
+  {
+   "source": [
+    "that results in a properly formated and valid mmCIF file:\n",
+    "\n",
+    "```text\n",
+    "data_root\n",
+    "#\n",
+    "_category1.subcatA       val1\n",
+    "_category1.subcatB       val2\n",
+    "\n",
+    "#\n",
+    "loop_\n",
+    "_category2.subcat1       \n",
+    "_category2.subcat2       \n",
+    ". a\n",
+    "1 b\n",
+    "2 c\n",
+    "#\n",
+    "\n",
+    "```"
+   ],
+   "cell_type": "markdown",
+   "metadata": {}
+  },
+  {
+   "source": [
+    "a [CIFWrapper](https://pdbeurope.github.io/pdbecif/documentation/mmcif.html#pdbecif.mmcif.CIFWrapper)"
+   ],
+   "cell_type": "markdown",
+   "metadata": {}
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "writer = CifFileWriter('wrapper_output.cif')\n",
+    "writer.write(cif_wrapper)"
+   ]
+  },
+  {
+   "source": [
+    "or a [CifFile()](https://pdbeurope.github.io/pdbecif/documentation/mmcif.html#pdbecif.mmcif.CifFile)"
+   ],
+   "cell_type": "markdown",
+   "metadata": {}
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "writer = CifFileWriter('cif_file_output.cif')\n",
+    "writer.write(cif_file)"
+   ]
+  }
+ ]
+}

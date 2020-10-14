@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>PDBe tools in github &mdash; PDBe API webinar series 1.0 documentation</title>
+  <title>PDBe tools in GitHub &mdash; PDBe API webinar series 1.0 documentation</title>
   
 
   
@@ -43,7 +43,7 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Data visualisation at PDBe" href="../web6/webinar.html" />
+    <link rel="next" title="pdbecif" href="pdbecif.html" />
     <link rel="prev" title="Accessible residues for a PDB structure" href="../web4/usecases/accessible_residues.html" /> 
 </head>
 
@@ -140,7 +140,40 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">PDBe tools in github</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">PDBe tools in GitHub</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pdbecif.html">pdbecif</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pdbecif.html#Structure-reading">Structure reading</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdbecif.html#Dictionary-output">Dictionary output</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdbecif.html#CIFWrapper-output">CIFWrapper output</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdbecif.html#CifFile-output">CifFile output</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pdbecif.html#Structure-writing">Structure writing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pdbeccdutils.html">pdbeccdutils</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pdbeccdutils.html#Structure-reading">Structure reading</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pdbeccdutils.html#Component-object">Component object</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pdbeccdutils.html#Scaffolds">Scaffolds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdbeccdutils.html#Fragments">Fragments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdbeccdutils.html#Molecular-depictions">Molecular depictions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pdbeccdutils.html#Structure-writing">Structure writing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pdbeccdutils.html#Parity-method">Parity method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pdbeccdutils.html#Scripts">Scripts</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="arpeggio.html">arpeggio</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="arpeggio.html#Precomputed-data">Precomputed data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="arpeggio.html#Example">Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="arpeggio.html#arpeggio-script">arpeggio script</a></li>
+<li class="toctree-l3"><a class="reference internal" href="arpeggio.html#arpeggio-API">arpeggio API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="arpeggio.html#Excercise">Excercise</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../web6/webinar.html">Data visualisation at PDBe</a></li>
 </ul>
 
@@ -188,7 +221,7 @@
     
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>PDBe tools in github</li>
+      <li>PDBe tools in GitHub</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -232,7 +265,46 @@
 }
 </style>
 <div class="section" id="pdbe-tools-in-github">
-<h1>PDBe tools in github<a class="headerlink" href="#pdbe-tools-in-github" title="Permalink to this headline">¶</a></h1>
+<h1>PDBe tools in GitHub<a class="headerlink" href="#pdbe-tools-in-github" title="Permalink to this headline">¶</a></h1>
+<p>Slides are available from <a href="../../_static/downloads/webinar5/github_tools_2020.pdf">here</a>.</p>
+<p>The video is available from <a class="reference external" href="https://youtu.be/6xMLc7EwJ78">Youtube</a>.</p>
+<iframe width="736px" height="414px" src="https://www.youtube.com/embed/6xMLc7EwJ78" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe><hr class="docutils" />
+<p>Jupyter notebooks for packages that were discussed in this webinar can be found below. You can also access them using our <a class="reference external" href="https://github.com/PDBeurope">GitHub repository</a>.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pdbecif.html">pdbecif</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pdbecif.html#Structure-reading">Structure reading</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pdbecif.html#Dictionary-output">Dictionary output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pdbecif.html#CIFWrapper-output">CIFWrapper output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pdbecif.html#CifFile-output">CifFile output</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pdbecif.html#Structure-writing">Structure writing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pdbeccdutils.html">pdbeccdutils</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pdbeccdutils.html#Structure-reading">Structure reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pdbeccdutils.html#Component-object">Component object</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pdbeccdutils.html#Scaffolds">Scaffolds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pdbeccdutils.html#Fragments">Fragments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pdbeccdutils.html#Molecular-depictions">Molecular depictions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pdbeccdutils.html#Structure-writing">Structure writing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pdbeccdutils.html#Parity-method">Parity method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pdbeccdutils.html#Scripts">Scripts</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="arpeggio.html">arpeggio</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="arpeggio.html#Precomputed-data">Precomputed data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arpeggio.html#Example">Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arpeggio.html#arpeggio-script">arpeggio script</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arpeggio.html#arpeggio-API">arpeggio API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arpeggio.html#Excercise">Excercise</a></li>
+</ul>
+</li>
+</ul>
+</div>
 </div>
 
 
@@ -243,7 +315,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../web6/webinar.html" class="btn btn-neutral float-right" title="Data visualisation at PDBe" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="pdbecif.html" class="btn btn-neutral float-right" title="pdbecif" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../web4/usecases/accessible_residues.html" class="btn btn-neutral float-left" title="Accessible residues for a PDB structure" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
