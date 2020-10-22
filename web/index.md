@@ -60,8 +60,6 @@ This webinar will introduce the PDBe graph API, which is generated from the PDBe
 
 This webinar will show you how to access some of the software packages created at PDBe, used to generate the data displayed on our website. This will include a walkthrough of our github repositories, highlighting the types of packages available, how to access them and some examples of how they can be used.
 
-[Registration link](https://attendee.gototraining.com/r/8867967407049021185)
-
 [Materials](webinars/web5/webinar.md)
 
 ## Data visualisation at PDBe
@@ -69,8 +67,6 @@ This webinar will show you how to access some of the software packages created a
 **20th October 2020 15:30 (BST)**
 
 This webinar will introduce some of the data visualisations available from PDBe, how to add these to your own website and how to customise them for your own requirements. There will also be specific case studies that demonstrate how these visualisations can be used and implemented.
-
-[Registration link](https://attendee.gototraining.com/r/7769197949621776385)
 
 [Materials](webinars/web6/webinar.md)
 
