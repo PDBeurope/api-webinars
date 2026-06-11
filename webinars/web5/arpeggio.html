@@ -1,101 +1,58 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>arpeggio &mdash; PDBe API webinar series 1.0 documentation</title>
-  
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/thebelab.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css?v=2aa19091" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/styles.css" />
 
   
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/jupyter-sphinx.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/thebelab.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/css/styles.css" type="text/css" />
-
-  
-  
-  
-  
-
-  
-  <!--[if lt IE 9]>
-    <script src="../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
-        <script src="../../_static/thebelab-helper.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-    
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/thebelab-helper.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Data visualisation at PDBe" href="../web6/webinar.html" />
     <link rel="prev" title="pdbeccdutils" href="pdbeccdutils.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> PDBe API webinar series
           
-
-          
-            
-            <img src="../../_static/pdbelogo.png" class="logo" alt="Logo"/>
-          
+          <a href="../../index.html" class="icon icon-home">
+            PDBe API webinar series
+              <img src="../../_static/pdbelogo.png" class="logo" alt="Logo"/>
           </a>
-
-          
-            
-            
-              <div class="version">
-                1.0
-              </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../web1/webinar.html">Introduction to PDBe programmatic access</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../web2/webinar.html">Searching with the PDBe API</a><ul>
@@ -181,416 +138,105 @@
 </li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">PDBe API webinar series</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-          <li><a href="webinar.html">PDBe tools in GitHub</a> &raquo;</li>
-        
-      <li>arpeggio</li>
-    
-    
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="webinar.html">PDBe tools in GitHub</a></li>
+      <li class="breadcrumb-item active">arpeggio</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
             <a href="../../_sources/webinars/web5/arpeggio.ipynb.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  
-<style>
-/* CSS for nbsphinx extension */
-
-/* remove conflicting styling from Sphinx themes */
-div.nbinput.container div.prompt *,
-div.nboutput.container div.prompt *,
-div.nbinput.container div.input_area pre,
-div.nboutput.container div.output_area pre,
-div.nbinput.container div.input_area .highlight,
-div.nboutput.container div.output_area .highlight {
-    border: none;
-    padding: 0;
-    margin: 0;
-    box-shadow: none;
-}
-
-div.nbinput.container > div[class*=highlight],
-div.nboutput.container > div[class*=highlight] {
-    margin: 0;
-}
-
-div.nbinput.container div.prompt *,
-div.nboutput.container div.prompt * {
-    background: none;
-}
-
-div.nboutput.container div.output_area .highlight,
-div.nboutput.container div.output_area pre {
-    background: unset;
-}
-
-div.nboutput.container div.output_area div.highlight {
-    color: unset;  /* override Pygments text color */
-}
-
-/* avoid gaps between output lines */
-div.nboutput.container div[class*=highlight] pre {
-    line-height: normal;
-}
-
-/* input/output containers */
-div.nbinput.container,
-div.nboutput.container {
-    display: -webkit-flex;
-    display: flex;
-    align-items: flex-start;
-    margin: 0;
-    width: 100%;
-}
-@media (max-width: 540px) {
-    div.nbinput.container,
-    div.nboutput.container {
-        flex-direction: column;
-    }
-}
-
-/* input container */
-div.nbinput.container {
-    padding-top: 5px;
-}
-
-/* last container */
-div.nblast.container {
-    padding-bottom: 5px;
-}
-
-/* input prompt */
-div.nbinput.container div.prompt pre {
-    color: #307FC1;
-}
-
-/* output prompt */
-div.nboutput.container div.prompt pre {
-    color: #BF5B3D;
-}
-
-/* all prompts */
-div.nbinput.container div.prompt,
-div.nboutput.container div.prompt {
-    width: 4.5ex;
-    padding-top: 5px;
-    position: relative;
-    user-select: none;
-}
-
-div.nbinput.container div.prompt > div,
-div.nboutput.container div.prompt > div {
-    position: absolute;
-    right: 0;
-    margin-right: 0.3ex;
-}
-
-@media (max-width: 540px) {
-    div.nbinput.container div.prompt,
-    div.nboutput.container div.prompt {
-        width: unset;
-        text-align: left;
-        padding: 0.4em;
-    }
-    div.nboutput.container div.prompt.empty {
-        padding: 0;
-    }
-
-    div.nbinput.container div.prompt > div,
-    div.nboutput.container div.prompt > div {
-        position: unset;
-    }
-}
-
-/* disable scrollbars on prompts */
-div.nbinput.container div.prompt pre,
-div.nboutput.container div.prompt pre {
-    overflow: hidden;
-}
-
-/* input/output area */
-div.nbinput.container div.input_area,
-div.nboutput.container div.output_area {
-    -webkit-flex: 1;
-    flex: 1;
-    overflow: auto;
-}
-@media (max-width: 540px) {
-    div.nbinput.container div.input_area,
-    div.nboutput.container div.output_area {
-        width: 100%;
-    }
-}
-
-/* input area */
-div.nbinput.container div.input_area {
-    border: 1px solid #e0e0e0;
-    border-radius: 2px;
-    /*background: #f5f5f5;*/
-}
-
-/* override MathJax center alignment in output cells */
-div.nboutput.container div[class*=MathJax] {
-    text-align: left !important;
-}
-
-/* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput.container div.math p {
-    text-align: left;
-}
-
-/* standard error */
-div.nboutput.container div.output_area.stderr {
-    background: #fdd;
-}
-
-/* ANSI colors */
-.ansi-black-fg { color: #3E424D; }
-.ansi-black-bg { background-color: #3E424D; }
-.ansi-black-intense-fg { color: #282C36; }
-.ansi-black-intense-bg { background-color: #282C36; }
-.ansi-red-fg { color: #E75C58; }
-.ansi-red-bg { background-color: #E75C58; }
-.ansi-red-intense-fg { color: #B22B31; }
-.ansi-red-intense-bg { background-color: #B22B31; }
-.ansi-green-fg { color: #00A250; }
-.ansi-green-bg { background-color: #00A250; }
-.ansi-green-intense-fg { color: #007427; }
-.ansi-green-intense-bg { background-color: #007427; }
-.ansi-yellow-fg { color: #DDB62B; }
-.ansi-yellow-bg { background-color: #DDB62B; }
-.ansi-yellow-intense-fg { color: #B27D12; }
-.ansi-yellow-intense-bg { background-color: #B27D12; }
-.ansi-blue-fg { color: #208FFB; }
-.ansi-blue-bg { background-color: #208FFB; }
-.ansi-blue-intense-fg { color: #0065CA; }
-.ansi-blue-intense-bg { background-color: #0065CA; }
-.ansi-magenta-fg { color: #D160C4; }
-.ansi-magenta-bg { background-color: #D160C4; }
-.ansi-magenta-intense-fg { color: #A03196; }
-.ansi-magenta-intense-bg { background-color: #A03196; }
-.ansi-cyan-fg { color: #60C6C8; }
-.ansi-cyan-bg { background-color: #60C6C8; }
-.ansi-cyan-intense-fg { color: #258F8F; }
-.ansi-cyan-intense-bg { background-color: #258F8F; }
-.ansi-white-fg { color: #C5C1B4; }
-.ansi-white-bg { background-color: #C5C1B4; }
-.ansi-white-intense-fg { color: #A1A6B2; }
-.ansi-white-intense-bg { background-color: #A1A6B2; }
-
-.ansi-default-inverse-fg { color: #FFFFFF; }
-.ansi-default-inverse-bg { background-color: #000000; }
-
-.ansi-bold { font-weight: bold; }
-.ansi-underline { text-decoration: underline; }
-
-
-div.nbinput.container div.input_area div[class*=highlight] > pre,
-div.nboutput.container div.output_area div[class*=highlight] > pre,
-div.nboutput.container div.output_area div[class*=highlight].math,
-div.nboutput.container div.output_area.rendered_html,
-div.nboutput.container div.output_area > div.output_javascript,
-div.nboutput.container div.output_area:not(.rendered_html) > img{
-    padding: 5px;
-    margin: 0;
-}
-
-/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
-div.nbinput.container div.input_area > div[class^='highlight'],
-div.nboutput.container div.output_area > div[class^='highlight']{
-    overflow-y: hidden;
-}
-
-/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
-.prompt a.copybtn {
-    display: none;
-}
-
-/* Some additional styling taken form the Jupyter notebook CSS */
-div.rendered_html table {
-  border: none;
-  border-collapse: collapse;
-  border-spacing: 0;
-  color: black;
-  font-size: 12px;
-  table-layout: fixed;
-}
-div.rendered_html thead {
-  border-bottom: 1px solid black;
-  vertical-align: bottom;
-}
-div.rendered_html tr,
-div.rendered_html th,
-div.rendered_html td {
-  text-align: right;
-  vertical-align: middle;
-  padding: 0.5em 0.5em;
-  line-height: normal;
-  white-space: normal;
-  max-width: none;
-  border: none;
-}
-div.rendered_html th {
-  font-weight: bold;
-}
-div.rendered_html tbody tr:nth-child(odd) {
-  background: #f5f5f5;
-}
-div.rendered_html tbody tr:hover {
-  background: rgba(66, 165, 245, 0.2);
-}
-
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<div class="section" id="arpeggio">
-<h1>arpeggio<a class="headerlink" href="#arpeggio" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="arpeggio">
+<h1>arpeggio<a class="headerlink" href="#arpeggio" title="Link to this heading"></a></h1>
 <p>arpeggio calculates interatomic contacts based on the rules defined in <a class="reference external" href="http://marid.bioc.cam.ac.uk/credo">CREDO</a>.</p>
 <p>Install and activate conda environment with openbabel (&lt;3.0) dependency using <a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html">conda environment</a> such as:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda create conda -n arpeggio-env <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.7
-conda install -c openbabel openbabel
-conda activate arpeggio-env
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>conda<span class="w"> </span>-n<span class="w"> </span>arpeggio-env<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.7
+conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>openbabel<span class="w"> </span>openbabel
+conda<span class="w"> </span>activate<span class="w"> </span>arpeggio-env
 </pre></div>
 </div>
 <p>and install arpeggio package as follows:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install git+https://github.com/PDBeurope/arpeggio.git@master#egg<span class="o">=</span>arpeggio
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/PDBeurope/arpeggio.git@master#egg<span class="o">=</span>arpeggio
 </pre></div>
 </div>
-<p>Arpeggio output is very rich in terms of observed contacts. The static nature of protein structure models makes very challenging to correctly estimate whether or not e.g. a hydrogen bond is formed exactly between atom A and atom B and not between atom A and atom C that is 0.01Å farther. Hence arpeggio tries, in accordance with the CREDO nomenclature, to identify all the plausible contacts. The reasoning behing identification of arpeggio contacts, and their possible mutual (non)exclusivity is
+<p>Arpeggio output is very rich in terms of observed contacts. The static nature of protein structure models makes very challenging to correctly estimate whether or not e.g. a hydrogen bond is formed exactly between atom A and atom B and not between atom A and atom C that is 0.01Å farther. Hence arpeggio tries, in accordance with the CREDO nomenclature, to identify all the plausible contacts. The reasoning behing identification of arpeggio contacts, and their possible mutual (non)exclusivity is
 detaily described in the <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S0022283616305332?via%3Dihub#ec0005">SI</a> of <a class="reference external" href="https://doi.org/10.1016/j.jmb.2016.12.004">arpeggio paper</a>.</p>
 <p>Arpeggio relies on PDB structures with added hydrogens and works best with mmCIF files for inferring molecular interactions.</p>
-<div class="section" id="Precomputed-data">
-<h2>Precomputed data<a class="headerlink" href="#Precomputed-data" title="Permalink to this headline">¶</a></h2>
+<section id="Precomputed-data">
+<h2>Precomputed data<a class="headerlink" href="#Precomputed-data" title="Link to this heading"></a></h2>
 <p>In the release process of PDBe we are using possible quaternary structures generated by the <a class="reference external" href="https://www.ebi.ac.uk/pdbe/model-server/">ModelServer</a> and protonated using <a class="reference external" href="https://www.rbvi.ucsf.edu/chimerax/">ChimeraX</a> software. You can obtain these precomputed structures using the following link using plain PDB id substitution: <a class="reference external" href="https://www.ebi.ac.uk/pdbe/model-server/v1/1cbs/full?encoding=cif&amp;data_source=pdb-h">https://www.ebi.ac.uk/pdbe/model-server/v1/1cbs/full?encoding=cif&amp;data_source=pdb-h</a> (PDB id: 1cbs) in this case.</p>
 <p>You can also access precomputed interactions for vast majority of PDB entries using our <a class="reference external" href="http://pdbe.org/aggregated-api">aggregated API</a> using one of the following API calls: <a class="reference external" href="https://www.ebi.ac.uk/pdbe/graph-api/pdbe_doc/#api-PDB-GetBoundMolecules">GetBoundMolecules</a>; <a class="reference external" href="https://www.ebi.ac.uk/pdbe/graph-api/pdbe_doc/#api-PDB-GetBoundMoleculeInteractions">GetBoundMoleculeInteractions</a>;
 <a class="reference external" href="https://www.ebi.ac.uk/pdbe/graph-api/pdbe_doc/#api-PDB-GetBoundLigandInteractions">GetBoundLigandInteractions</a>.</p>
-<p>Please note that chain id information (field: <code class="docutils literal notranslate"><span class="pre">_atom.site.auth_asym_id</span></code>) is different for cryo em and x-ray structures in the files provided by the ModelServer. The reason being is that these are quaternary structures that are indicated to play <a class="reference external" href="https://proteopedia.org/wiki/index.php/Biological_Unit">possible biologicall role</a>. The chain id is in the form X_Y (e.g. A_1), where X stands for <code class="docutils literal notranslate"><span class="pre">_atom.site.auth_asym_id</span></code> of a PDB entry <a class="reference external" href="https://proteopedia.org/wiki/index.php/Asymmetric_unit">asymetric
+<p>Please note that chain id information (field: <code class="docutils literal notranslate"><span class="pre">_atom.site.auth_asym_id</span></code>) is different for cryo em and x-ray structures in the files provided by the ModelServer. The reason being is that these are quaternary structures that are indicated to play <a class="reference external" href="https://proteopedia.org/wiki/index.php/Biological_Unit">possible biologicall role</a>. The chain id is in the form X_Y (e.g. A_1), where X stands for <code class="docutils literal notranslate"><span class="pre">_atom.site.auth_asym_id</span></code> of a PDB entry <a class="reference external" href="https://proteopedia.org/wiki/index.php/Asymmetric_unit">asymetric
 unit</a> and Y is a <a class="reference external" href="http://mmcif.wwpdb.org/dictionaries/mmcif_pdbx_v50.dic/Items/_pdbx_struct_assembly_gen.oper_expression.html">symmetry operator id</a> that defines a collection of crystal symmetry operations applied on the original chain to generate position of the chain.</p>
-</div>
-<div class="section" id="Example">
-<h2>Example<a class="headerlink" href="#Example" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="Example">
+<h2>Example<a class="headerlink" href="#Example" title="Link to this heading"></a></h2>
 <p>Potassium channel found in the pdbe entry <a class="reference external" href="http://pdbe.org/1k4c">1k4c</a> contains just a single chain in the assymetric unit, however, the pore is formed by a <a class="reference external" href="https://www.ebi.ac.uk/pdbe/model-server/v1/1k4c/full?encoding=cif&amp;data_source=pdb-h">tetrameric quarternary structure</a>.</p>
-</div>
-<div class="section" id="arpeggio-script">
-<h2>arpeggio script<a class="headerlink" href="#arpeggio-script" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="arpeggio-script">
+<h2>arpeggio script<a class="headerlink" href="#arpeggio-script" title="Link to this heading"></a></h2>
 <p>arpeggio exposes a single script that you can use for inferring interatomic contacts. The only required parameters are protonated PDB entry and molecular selection.</p>
 <p>You can get the idea on how to use the script by running:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>arpeggio -h
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>arpeggio<span class="w"> </span>-h
 </pre></div>
 </div>
 <p>Nevertheless the basic usage is as follows:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>arpeggio -s /A/200/ -o arpeggio_result 1cbs.cif
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>arpeggio<span class="w"> </span>-s<span class="w"> </span>/A/200/<span class="w"> </span>-o<span class="w"> </span>arpeggio_result<span class="w"> </span>1cbs.cif
 
-INFO//14:59:04.545//Program begin.
-INFO//14:59:04.545//Selection perceived: <span class="o">[</span><span class="s1">&#39;/A/200/&#39;</span><span class="o">]</span>
-DEBUG//14:59:04.605//Loaded PDB structure <span class="o">(</span>BioPython<span class="o">)</span>
-DEBUG//14:59:04.667//Loaded MMCIF structure <span class="o">(</span>OpenBabel<span class="o">)</span>
-DEBUG//14:59:04.674//Mapped OB to BioPython atoms and vice-versa.
-DEBUG//14:59:04.674//Detected that the input structure contains hydrogens. Hydrogen addition will be skipped.
-DEBUG//14:59:04.787//Determined atom explicit and implicit valences, bond orders, atomic numbers, formal charge and number of bound hydrogens.
-DEBUG//14:59:04.810//Initialised SIFts.
-DEBUG//14:59:04.812//Determined polypeptide residues, chain breaks, termini
-DEBUG//14:59:04.858//Percieved and stored rings.
-DEBUG//14:59:04.869//Perceived and stored amide groups.
-DEBUG//14:59:04.882//Added hydrogens to BioPython atoms.
-DEBUG//14:59:04.887//Added VdW radii.
-DEBUG//14:59:04.892//Added covalent radii.
-DEBUG//14:59:04.910//Completed NeighborSearch.
-DEBUG//14:59:04.912//Assigned rings to residues.
-DEBUG//14:59:04.918//Made selection.
-DEBUG//14:59:05.112//Expanded to binding site.
-DEBUG//14:59:05.113//Flagged selection rings.
-DEBUG//14:59:05.114//Completed new NeighbourSearch.
-INFO//14:59:05.438//Program End. Maximum memory usage was <span class="m">77</span>.32 MB.
+INFO//14:59:04.545//Program<span class="w"> </span>begin.
+INFO//14:59:04.545//Selection<span class="w"> </span>perceived:<span class="w"> </span><span class="o">[</span><span class="s1">&#39;/A/200/&#39;</span><span class="o">]</span>
+DEBUG//14:59:04.605//Loaded<span class="w"> </span>PDB<span class="w"> </span>structure<span class="w"> </span><span class="o">(</span>BioPython<span class="o">)</span>
+DEBUG//14:59:04.667//Loaded<span class="w"> </span>MMCIF<span class="w"> </span>structure<span class="w"> </span><span class="o">(</span>OpenBabel<span class="o">)</span>
+DEBUG//14:59:04.674//Mapped<span class="w"> </span>OB<span class="w"> </span>to<span class="w"> </span>BioPython<span class="w"> </span>atoms<span class="w"> </span>and<span class="w"> </span>vice-versa.
+DEBUG//14:59:04.674//Detected<span class="w"> </span>that<span class="w"> </span>the<span class="w"> </span>input<span class="w"> </span>structure<span class="w"> </span>contains<span class="w"> </span>hydrogens.<span class="w"> </span>Hydrogen<span class="w"> </span>addition<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>skipped.
+DEBUG//14:59:04.787//Determined<span class="w"> </span>atom<span class="w"> </span>explicit<span class="w"> </span>and<span class="w"> </span>implicit<span class="w"> </span>valences,<span class="w"> </span>bond<span class="w"> </span>orders,<span class="w"> </span>atomic<span class="w"> </span>numbers,<span class="w"> </span>formal<span class="w"> </span>charge<span class="w"> </span>and<span class="w"> </span>number<span class="w"> </span>of<span class="w"> </span>bound<span class="w"> </span>hydrogens.
+DEBUG//14:59:04.810//Initialised<span class="w"> </span>SIFts.
+DEBUG//14:59:04.812//Determined<span class="w"> </span>polypeptide<span class="w"> </span>residues,<span class="w"> </span>chain<span class="w"> </span>breaks,<span class="w"> </span>termini
+DEBUG//14:59:04.858//Percieved<span class="w"> </span>and<span class="w"> </span>stored<span class="w"> </span>rings.
+DEBUG//14:59:04.869//Perceived<span class="w"> </span>and<span class="w"> </span>stored<span class="w"> </span>amide<span class="w"> </span>groups.
+DEBUG//14:59:04.882//Added<span class="w"> </span>hydrogens<span class="w"> </span>to<span class="w"> </span>BioPython<span class="w"> </span>atoms.
+DEBUG//14:59:04.887//Added<span class="w"> </span>VdW<span class="w"> </span>radii.
+DEBUG//14:59:04.892//Added<span class="w"> </span>covalent<span class="w"> </span>radii.
+DEBUG//14:59:04.910//Completed<span class="w"> </span>NeighborSearch.
+DEBUG//14:59:04.912//Assigned<span class="w"> </span>rings<span class="w"> </span>to<span class="w"> </span>residues.
+DEBUG//14:59:04.918//Made<span class="w"> </span>selection.
+DEBUG//14:59:05.112//Expanded<span class="w"> </span>to<span class="w"> </span>binding<span class="w"> </span>site.
+DEBUG//14:59:05.113//Flagged<span class="w"> </span>selection<span class="w"> </span>rings.
+DEBUG//14:59:05.114//Completed<span class="w"> </span>new<span class="w"> </span>NeighbourSearch.
+INFO//14:59:05.438//Program<span class="w"> </span>End.<span class="w"> </span>Maximum<span class="w"> </span>memory<span class="w"> </span>usage<span class="w"> </span>was<span class="w"> </span><span class="m">77</span>.32<span class="w"> </span>MB.
 </pre></div>
 </div>
 <p>This calculates all the interatomic contacts between retinoic acid (REA 200 A) in the PDB structure of 1cbs.</p>
-</div>
-<div class="section" id="arpeggio-API">
-<h2>arpeggio API<a class="headerlink" href="#arpeggio-API" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="arpeggio-API">
+<h2>arpeggio API<a class="headerlink" href="#arpeggio-API" title="Link to this heading"></a></h2>
 <p>You can achieve the very same behaviour by using arpeggio API.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> <span class="c1"># for example purposes only</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span> <span class="c1"># for example purposes only</span>
 
-<span class="k">def</span> <span class="nf">download_protonated_structure</span><span class="p">(</span><span class="n">pdb_id</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">download_protonated_structure</span><span class="p">(</span><span class="n">pdb_id</span><span class="p">):</span>
     <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;https://www.ebi.ac.uk/pdbe/model-server/v1/</span><span class="si">{</span><span class="n">pdb_id</span><span class="si">}</span><span class="s1">/full?encoding=cif&amp;data_source=pdb-h&#39;</span><span class="p">)</span>
     <span class="n">cif_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">pdb_id</span><span class="si">}</span><span class="s1">.cif&#39;</span>
 
@@ -601,8 +247,7 @@ INFO//14:59:05.438//Program End. Maximum memory usage was <span class="m">77</sp
 
 <span class="c1"># lets download a protonated quaternary structure first</span>
 <span class="n">download_protonated_structure</span><span class="p">(</span><span class="s1">&#39;1cbs&#39;</span><span class="p">)</span>
-
-</pre></div>
+<br/></pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -618,8 +263,7 @@ INFO//14:59:05.438//Program End. Maximum memory usage was <span class="m">77</sp
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">arpeggio.core</span> <span class="kn">import</span> <span class="n">InteractionComplex</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">arpeggio.core</span><span class="w"> </span><span class="kn">import</span> <span class="n">InteractionComplex</span>
 
 <span class="n">selection</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;/A_1/200/&#39;</span><span class="p">]</span>
 
@@ -634,16 +278,14 @@ INFO//14:59:05.438//Program End. Maximum memory usage was <span class="m">77</sp
                                 <span class="n">vdw_comp</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="c1"># &#39;compensation&#39; factor to address structural inconsistencies</span>
                                 <span class="n">include_sequence_adjacent</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">contacts</span> <span class="o">=</span> <span class="nb">complex</span><span class="o">.</span><span class="n">get_contacts</span><span class="p">()</span>
-
-</pre></div>
+<br/></pre></div>
 </div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">len</span><span class="p">(</span><span class="n">contacts</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">contacts</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -660,8 +302,7 @@ INFO//14:59:05.438//Program End. Maximum memory usage was <span class="m">77</sp
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">contacts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">contacts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -691,9 +332,7 @@ INFO//14:59:05.438//Program End. Maximum memory usage was <span class="m">77</sp
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-
-<span></span><span class="c1"># we can filter out all the contacts that are not just &#39;proximal&#39; only</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><br/><span></span><span class="c1"># we can filter out all the contacts that are not just &#39;proximal&#39; only</span>
 <span class="n">non_proximal</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">contacts</span> <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;contact&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="p">[</span><span class="s1">&#39;proximal&#39;</span><span class="p">]]</span>
 
 <span class="c1"># we can list all the possible hydrogen bonds that can be found in the binding site</span>
@@ -704,8 +343,7 @@ INFO//14:59:05.438//Program End. Maximum memory usage was <span class="m">77</sp
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">hbond_distances</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Hbond distances&#39;</span><span class="p">])</span>
 <span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
-
-</pre></div>
+<br/></pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -775,76 +413,50 @@ INFO//14:59:05.438//Program End. Maximum memory usage was <span class="m">77</sp
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">There</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">lot</span> <span class="n">one</span> <span class="n">can</span> <span class="n">do</span> <span class="ow">in</span> <span class="n">terms</span> <span class="n">of</span> <span class="n">statistics</span> <span class="k">for</span> <span class="n">molecular</span> <span class="n">interactions</span> <span class="n">both</span> <span class="n">ligand</span><span class="o">-</span><span class="n">wise</span> <span class="ow">and</span> <span class="n">PDB</span><span class="o">-</span><span class="n">wise</span><span class="o">.</span> <span class="n">I</span> <span class="n">encourage</span> <span class="n">you</span> <span class="n">to</span> <span class="k">try</span> <span class="n">answering</span> <span class="n">following</span> <span class="n">questions</span><span class="p">:</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">There</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">lot</span> <span class="n">one</span> <span class="n">can</span> <span class="n">do</span> <span class="ow">in</span> <span class="n">terms</span> <span class="n">of</span> <span class="n">statistics</span> <span class="k">for</span> <span class="n">molecular</span> <span class="n">interactions</span> <span class="n">both</span> <span class="n">ligand</span><span class="o">-</span><span class="n">wise</span> <span class="ow">and</span> <span class="n">PDB</span><span class="o">-</span><span class="n">wise</span><span class="o">.</span> <span class="n">I</span> <span class="n">encourage</span> <span class="n">you</span> <span class="n">to</span> <span class="k">try</span> <span class="n">answering</span> <span class="n">following</span> <span class="n">questions</span><span class="p">:</span>
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="Excercise">
-<h2>Excercise<a class="headerlink" href="#Excercise" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="Excercise">
+<h2>Excercise<a class="headerlink" href="#Excercise" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>How many residues are forming this binding site?</p></li>
 <li><p>What are all the interaction types that can be found in this active site?</p></li>
 <li><p>Are there any atomic clashes?</p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../web6/webinar.html" class="btn btn-neutral float-right" title="Data visualisation at PDBe" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="pdbeccdutils.html" class="btn btn-neutral float-left" title="pdbeccdutils" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="pdbeccdutils.html" class="btn btn-neutral float-left" title="pdbeccdutils" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../web6/webinar.html" class="btn btn-neutral float-right" title="Data visualisation at PDBe" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        
-        &copy; Copyright 2020, Protein Data Bank in Europe
-
-    </p>
+    <p>&#169; Copyright 2020, Protein Data Bank in Europe.</p>
   </div>
-    
-    
-    
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

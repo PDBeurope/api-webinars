@@ -1,101 +1,58 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PDB search &mdash; PDBe API webinar series 1.0 documentation</title>
-  
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/thebelab.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css?v=2aa19091" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/styles.css" />
 
   
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/jupyter-sphinx.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/thebelab.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/css/styles.css" type="text/css" />
-
-  
-  
-  
-  
-
-  
-  <!--[if lt IE 9]>
-    <script src="../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
-        <script src="../../_static/thebelab-helper.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-    
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/thebelab-helper.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="PDB sequence search" href="7_PDB_sequence_search.html" />
     <link rel="prev" title="Searching with the PDBe API" href="webinar.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> PDBe API webinar series
           
-
-          
-            
-            <img src="../../_static/pdbelogo.png" class="logo" alt="Logo"/>
-          
+          <a href="../../index.html" class="icon icon-home">
+            PDBe API webinar series
+              <img src="../../_static/pdbelogo.png" class="logo" alt="Logo"/>
           </a>
-
-          
-            
-            
-              <div class="version">
-                1.0
-              </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../web1/webinar.html">Introduction to PDBe programmatic access</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="webinar.html">Searching with the PDBe API</a><ul class="current">
@@ -181,343 +138,33 @@
 </li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">PDBe API webinar series</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-          <li><a href="webinar.html">Searching with the PDBe API</a> &raquo;</li>
-        
-      <li>PDB search</li>
-    
-    
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="webinar.html">Searching with the PDBe API</a></li>
+      <li class="breadcrumb-item active">PDB search</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
             <a href="../../_sources/webinars/web2/6_PDB_search.ipynb.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  
-<style>
-/* CSS for nbsphinx extension */
-
-/* remove conflicting styling from Sphinx themes */
-div.nbinput.container div.prompt *,
-div.nboutput.container div.prompt *,
-div.nbinput.container div.input_area pre,
-div.nboutput.container div.output_area pre,
-div.nbinput.container div.input_area .highlight,
-div.nboutput.container div.output_area .highlight {
-    border: none;
-    padding: 0;
-    margin: 0;
-    box-shadow: none;
-}
-
-div.nbinput.container > div[class*=highlight],
-div.nboutput.container > div[class*=highlight] {
-    margin: 0;
-}
-
-div.nbinput.container div.prompt *,
-div.nboutput.container div.prompt * {
-    background: none;
-}
-
-div.nboutput.container div.output_area .highlight,
-div.nboutput.container div.output_area pre {
-    background: unset;
-}
-
-div.nboutput.container div.output_area div.highlight {
-    color: unset;  /* override Pygments text color */
-}
-
-/* avoid gaps between output lines */
-div.nboutput.container div[class*=highlight] pre {
-    line-height: normal;
-}
-
-/* input/output containers */
-div.nbinput.container,
-div.nboutput.container {
-    display: -webkit-flex;
-    display: flex;
-    align-items: flex-start;
-    margin: 0;
-    width: 100%;
-}
-@media (max-width: 540px) {
-    div.nbinput.container,
-    div.nboutput.container {
-        flex-direction: column;
-    }
-}
-
-/* input container */
-div.nbinput.container {
-    padding-top: 5px;
-}
-
-/* last container */
-div.nblast.container {
-    padding-bottom: 5px;
-}
-
-/* input prompt */
-div.nbinput.container div.prompt pre {
-    color: #307FC1;
-}
-
-/* output prompt */
-div.nboutput.container div.prompt pre {
-    color: #BF5B3D;
-}
-
-/* all prompts */
-div.nbinput.container div.prompt,
-div.nboutput.container div.prompt {
-    width: 4.5ex;
-    padding-top: 5px;
-    position: relative;
-    user-select: none;
-}
-
-div.nbinput.container div.prompt > div,
-div.nboutput.container div.prompt > div {
-    position: absolute;
-    right: 0;
-    margin-right: 0.3ex;
-}
-
-@media (max-width: 540px) {
-    div.nbinput.container div.prompt,
-    div.nboutput.container div.prompt {
-        width: unset;
-        text-align: left;
-        padding: 0.4em;
-    }
-    div.nboutput.container div.prompt.empty {
-        padding: 0;
-    }
-
-    div.nbinput.container div.prompt > div,
-    div.nboutput.container div.prompt > div {
-        position: unset;
-    }
-}
-
-/* disable scrollbars on prompts */
-div.nbinput.container div.prompt pre,
-div.nboutput.container div.prompt pre {
-    overflow: hidden;
-}
-
-/* input/output area */
-div.nbinput.container div.input_area,
-div.nboutput.container div.output_area {
-    -webkit-flex: 1;
-    flex: 1;
-    overflow: auto;
-}
-@media (max-width: 540px) {
-    div.nbinput.container div.input_area,
-    div.nboutput.container div.output_area {
-        width: 100%;
-    }
-}
-
-/* input area */
-div.nbinput.container div.input_area {
-    border: 1px solid #e0e0e0;
-    border-radius: 2px;
-    /*background: #f5f5f5;*/
-}
-
-/* override MathJax center alignment in output cells */
-div.nboutput.container div[class*=MathJax] {
-    text-align: left !important;
-}
-
-/* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput.container div.math p {
-    text-align: left;
-}
-
-/* standard error */
-div.nboutput.container div.output_area.stderr {
-    background: #fdd;
-}
-
-/* ANSI colors */
-.ansi-black-fg { color: #3E424D; }
-.ansi-black-bg { background-color: #3E424D; }
-.ansi-black-intense-fg { color: #282C36; }
-.ansi-black-intense-bg { background-color: #282C36; }
-.ansi-red-fg { color: #E75C58; }
-.ansi-red-bg { background-color: #E75C58; }
-.ansi-red-intense-fg { color: #B22B31; }
-.ansi-red-intense-bg { background-color: #B22B31; }
-.ansi-green-fg { color: #00A250; }
-.ansi-green-bg { background-color: #00A250; }
-.ansi-green-intense-fg { color: #007427; }
-.ansi-green-intense-bg { background-color: #007427; }
-.ansi-yellow-fg { color: #DDB62B; }
-.ansi-yellow-bg { background-color: #DDB62B; }
-.ansi-yellow-intense-fg { color: #B27D12; }
-.ansi-yellow-intense-bg { background-color: #B27D12; }
-.ansi-blue-fg { color: #208FFB; }
-.ansi-blue-bg { background-color: #208FFB; }
-.ansi-blue-intense-fg { color: #0065CA; }
-.ansi-blue-intense-bg { background-color: #0065CA; }
-.ansi-magenta-fg { color: #D160C4; }
-.ansi-magenta-bg { background-color: #D160C4; }
-.ansi-magenta-intense-fg { color: #A03196; }
-.ansi-magenta-intense-bg { background-color: #A03196; }
-.ansi-cyan-fg { color: #60C6C8; }
-.ansi-cyan-bg { background-color: #60C6C8; }
-.ansi-cyan-intense-fg { color: #258F8F; }
-.ansi-cyan-intense-bg { background-color: #258F8F; }
-.ansi-white-fg { color: #C5C1B4; }
-.ansi-white-bg { background-color: #C5C1B4; }
-.ansi-white-intense-fg { color: #A1A6B2; }
-.ansi-white-intense-bg { background-color: #A1A6B2; }
-
-.ansi-default-inverse-fg { color: #FFFFFF; }
-.ansi-default-inverse-bg { background-color: #000000; }
-
-.ansi-bold { font-weight: bold; }
-.ansi-underline { text-decoration: underline; }
-
-
-div.nbinput.container div.input_area div[class*=highlight] > pre,
-div.nboutput.container div.output_area div[class*=highlight] > pre,
-div.nboutput.container div.output_area div[class*=highlight].math,
-div.nboutput.container div.output_area.rendered_html,
-div.nboutput.container div.output_area > div.output_javascript,
-div.nboutput.container div.output_area:not(.rendered_html) > img{
-    padding: 5px;
-    margin: 0;
-}
-
-/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
-div.nbinput.container div.input_area > div[class^='highlight'],
-div.nboutput.container div.output_area > div[class^='highlight']{
-    overflow-y: hidden;
-}
-
-/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
-.prompt a.copybtn {
-    display: none;
-}
-
-/* Some additional styling taken form the Jupyter notebook CSS */
-div.rendered_html table {
-  border: none;
-  border-collapse: collapse;
-  border-spacing: 0;
-  color: black;
-  font-size: 12px;
-  table-layout: fixed;
-}
-div.rendered_html thead {
-  border-bottom: 1px solid black;
-  vertical-align: bottom;
-}
-div.rendered_html tr,
-div.rendered_html th,
-div.rendered_html td {
-  text-align: right;
-  vertical-align: middle;
-  padding: 0.5em 0.5em;
-  line-height: normal;
-  white-space: normal;
-  max-width: none;
-  border: none;
-}
-div.rendered_html th {
-  font-weight: bold;
-}
-div.rendered_html tbody tr:nth-child(odd) {
-  background: #f5f5f5;
-}
-div.rendered_html tbody tr:hover {
-  background: rgba(66, 165, 245, 0.2);
-}
-
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<div class="section" id="PDB-search">
-<h1>PDB search<a class="headerlink" href="#PDB-search" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="PDB-search">
+<h1>PDB search<a class="headerlink" href="#PDB-search" title="Link to this heading"></a></h1>
 <p>This interactive Python notebook will guide you through various ways of programmatically accessing Protein Data Bank in Europe (PDBe) data using REST API</p>
 <p>The REST API is a programmatic way to obtain information from the PDB and EMDB. You can access details about:</p>
 <ul class="simple">
@@ -531,22 +178,21 @@ div.rendered_html tbody tr:hover {
 <li><p>assemblies and more… For more information, visit <a class="reference external" href="https://www.ebi.ac.uk/pdbe/pdbe-rest-api">https://www.ebi.ac.uk/pdbe/pdbe-rest-api</a></p></li>
 </ul>
 <p>This notebook is a part of the training material series, and focuses on getting information from the PDBe search API. Retrieve this material and many more from <a class="reference external" href="https://github.com/PDBeurope/pdbe-api-training">GitHub</a></p>
-<div class="section" id="1)-Making-imports-and-setting-variables">
-<h2>1) Making imports and setting variables<a class="headerlink" href="#1)-Making-imports-and-setting-variables" title="Permalink to this headline">¶</a></h2>
+<section id="1)-Making-imports-and-setting-variables">
+<h2>1) Making imports and setting variables<a class="headerlink" href="#1)-Making-imports-and-setting-variables" title="Link to this heading"></a></h2>
 <p>First, we import some packages that we will use, and set some variables.</p>
 <p>Note: Full list of valid URLs is available from <a class="reference external" href="https://www.ebi.ac.uk/pdbe/api/doc/">https://www.ebi.ac.uk/pdbe/api/doc/</a></p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[162]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">requests</span> <span class="c1"># used for getting data from a URL</span>
-<span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span> <span class="c1"># pretty print</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> <span class="c1"># used for turning results into mini databases</span>
-<span class="kn">from</span> <span class="nn">solrq</span> <span class="kn">import</span> <span class="n">Q</span> <span class="c1"># used to turn result queries into the right format</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span> <span class="c1"># used for getting data from a URL</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pprint</span><span class="w"> </span><span class="kn">import</span> <span class="n">pprint</span> <span class="c1"># pretty print</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span> <span class="c1"># used for turning results into mini databases</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">solrq</span><span class="w"> </span><span class="kn">import</span> <span class="n">Q</span> <span class="c1"># used to turn result queries into the right format</span>
 
-<span class="kn">import</span> <span class="nn">cufflinks</span> <span class="k">as</span> <span class="nn">cf</span>
-<span class="kn">import</span> <span class="nn">plotly.offline</span> <span class="k">as</span> <span class="nn">py</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">cufflinks</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">cf</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotly.offline</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">py</span>
 
 <span class="n">cf</span><span class="o">.</span><span class="n">go_offline</span><span class="p">()</span> <span class="c1"># required to use plotly offline (no account required).</span>
 <span class="n">py</span><span class="o">.</span><span class="n">init_notebook_mode</span><span class="p">()</span> <span class="c1"># graphs charts inline (IPython).</span>
@@ -653,17 +299,16 @@ var n,a=t("./lib/build-log"),i=t("./lib/epsilon"),o=t("./lib/intersecter"),s=t("
         }
         </script></div>
 </div>
-</div>
-<div class="section" id="2)-a-function-to-get-data-from-the-search-API">
-<h2>2) a function to get data from the search API<a class="headerlink" href="#2)-a-function-to-get-data-from-the-search-API" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="2)-a-function-to-get-data-from-the-search-API">
+<h2>2) a function to get data from the search API<a class="headerlink" href="#2)-a-function-to-get-data-from-the-search-API" title="Link to this heading"></a></h2>
 <p>Let’s start with defining a function that can be used to GET data from the PDBe search API.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[163]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">make_request</span><span class="p">(</span><span class="n">search_dict</span><span class="p">,</span> <span class="n">number_of_rows</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">make_request</span><span class="p">(</span><span class="n">search_dict</span><span class="p">,</span> <span class="n">number_of_rows</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    makes a get request to the PDBe API</span>
 <span class="sd">    :param dict search_dict: the terms used to search</span>
 <span class="sd">    :param number_of_rows: number or rows to return - limited to 10</span>
@@ -684,16 +329,15 @@ var n,a=t("./lib/build-log"),i=t("./lib/epsilon"),o=t("./lib/intersecter"),s=t("
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="3)-formatting-the-search-terms">
-<h2>3) formatting the search terms<a class="headerlink" href="#3)-formatting-the-search-terms" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="3)-formatting-the-search-terms">
+<h2>3) formatting the search terms<a class="headerlink" href="#3)-formatting-the-search-terms" title="Link to this heading"></a></h2>
 <p>This will allow us to use human readable search terms and this function will make a URL that the search API can handle.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[164]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">format_search_terms</span><span class="p">(</span><span class="n">search_terms</span><span class="p">,</span> <span class="n">filter_terms</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">format_search_terms</span><span class="p">(</span><span class="n">search_terms</span><span class="p">,</span> <span class="n">filter_terms</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="n">ret</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;q&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">search_terms</span><span class="p">)}</span>
     <span class="k">if</span> <span class="n">filter_terms</span><span class="p">:</span>
         <span class="n">fl</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">filter_terms</span><span class="p">))</span>
@@ -702,16 +346,15 @@ var n,a=t("./lib/build-log"),i=t("./lib/epsilon"),o=t("./lib/intersecter"),s=t("
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="4)-Getting-useful-data-out-of-the-search">
-<h2>4) Getting useful data out of the search<a class="headerlink" href="#4)-Getting-useful-data-out-of-the-search" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="4)-Getting-useful-data-out-of-the-search">
+<h2>4) Getting useful data out of the search<a class="headerlink" href="#4)-Getting-useful-data-out-of-the-search" title="Link to this heading"></a></h2>
 <p>This function will run the search and will return a list of the results</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[165]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">run_search</span><span class="p">(</span><span class="n">search_terms</span><span class="p">,</span> <span class="n">filter_terms</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">number_of_rows</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">run_search</span><span class="p">(</span><span class="n">search_terms</span><span class="p">,</span> <span class="n">filter_terms</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">number_of_rows</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
     <span class="n">search_term</span> <span class="o">=</span> <span class="n">format_search_terms</span><span class="p">(</span><span class="n">search_terms</span><span class="p">,</span> <span class="n">filter_terms</span><span class="p">)</span>
 
     <span class="n">response</span> <span class="o">=</span> <span class="n">make_request</span><span class="p">(</span><span class="n">search_term</span><span class="p">,</span> <span class="n">number_of_rows</span><span class="p">)</span>
@@ -721,28 +364,26 @@ var n,a=t("./lib/build-log"),i=t("./lib/epsilon"),o=t("./lib/intersecter"),s=t("
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="5)-running-a-search">
-<h2>5) running a search<a class="headerlink" href="#5)-running-a-search" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="5)-running-a-search">
+<h2>5) running a search<a class="headerlink" href="#5)-running-a-search" title="Link to this heading"></a></h2>
 <p>Now we are ready to actually run a search against the PDB API for entries containing human Dihydrofolate reductase in the PDB. This will return a list of results - only 10 to start with.</p>
 <p>A list of search terms is available at: <a class="reference external" href="https://www.ebi.ac.uk/pdbe/api/doc/search.html">https://www.ebi.ac.uk/pdbe/api/doc/search.html</a></p>
 <p>This will return details of human Dihydrofolate reductase’s in the PDB</p>
 <p>We are going to use the Python package “solrq” to make sure we get the search in the right format.</p>
-<p>Q(molecule_name=“Dihydrofolate reductase”)</p>
-<p>Here we are searching for molecules named Dihydrofolate reductase. If we search for two terms i.e. molecule_name and organism_scientific_name then we will get molecules that match both search terms.</p>
+<p>Q(molecule_name=”Dihydrofolate reductase”)</p>
+<p>Here we are searching for molecules named Dihydrofolate reductase. If we search for two terms i.e. molecule_name and organism_scientific_name then we will get molecules that match both search terms.</p>
 <p>We will return the number of results for two searches.</p>
 <p>The first one will hit the limit of 100. There are more than 100 Dihydrofolate reductase structures. We have to add the argument “number_of_rows” to a higher number, say 1000, to find all the examples.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[166]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;1st search&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;1st search&#39;</span><span class="p">)</span>
 <span class="n">search_terms</span> <span class="o">=</span> <span class="n">Q</span><span class="p">(</span><span class="n">molecule_name</span><span class="o">=</span><span class="s2">&quot;Dihydrofolate reductase&quot;</span><span class="p">)</span>
 
 <span class="n">first_results</span> <span class="o">=</span> <span class="n">run_search</span><span class="p">(</span><span class="n">search_terms</span><span class="p">)</span>
-
-</pre></div>
+<br/></pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -758,13 +399,11 @@ Number of results: 100
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[167]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;1st search - more rows&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;1st search - more rows&#39;</span><span class="p">)</span>
 <span class="n">search_terms</span> <span class="o">=</span> <span class="n">Q</span><span class="p">(</span><span class="n">molecule_name</span><span class="o">=</span><span class="s2">&quot;Dihydrofolate reductase&quot;</span><span class="p">)</span>
 
 <span class="n">first_results_more_rows</span> <span class="o">=</span> <span class="n">run_search</span><span class="p">(</span><span class="n">search_terms</span><span class="p">,</span> <span class="n">number_of_rows</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
-
-</pre></div>
+<br/></pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -781,8 +420,7 @@ Number of results: 405
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[168]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;2nd search&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;2nd search&#39;</span><span class="p">)</span>
 <span class="n">search_terms</span> <span class="o">=</span> <span class="n">Q</span><span class="p">(</span><span class="n">molecule_name</span><span class="o">=</span><span class="s2">&quot;Dihydrofolate reductase&quot;</span><span class="p">,</span><span class="n">organism_name</span><span class="o">=</span><span class="s2">&quot;Human&quot;</span><span class="p">)</span>
 <span class="n">second_results</span> <span class="o">=</span> <span class="n">run_search</span><span class="p">(</span><span class="n">search_terms</span><span class="p">)</span>
 </pre></div>
@@ -799,15 +437,14 @@ Number of results: 79
 </div>
 <p>How did we know which search terms to use?</p>
 <p>We will then look at the last result. We will print the data we have for the first result.</p>
-<p>This will be the first item of the list “second_results” i.e. second_results[0]</p>
+<p>This will be the first item of the list “second_results” i.e. second_results[0]</p>
 <p>We are using “pprint” (pretty print) rather than “print” to make the result easier to read.</p>
 <p>All of the “keys” on the left side of the results can be used as a search term.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[169]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">pprint</span><span class="p">(</span><span class="n">second_results</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pprint</span><span class="p">(</span><span class="n">second_results</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1155,8 +792,7 @@ L&amp;#39;,
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[170]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;There are </span><span class="si">{}</span><span class="s1"> available search terms&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">second_results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())))</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;There are </span><span class="si">{}</span><span class="s1"> available search terms&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">second_results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">second_results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
 <span class="n">keys_without_q</span> <span class="o">=</span> <span class="p">[</span><span class="n">q</span> <span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="n">second_results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;q_&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;t_&#39;</span><span class="p">)))]</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">keys_without_q</span><span class="p">))</span>
@@ -1179,8 +815,7 @@ dict_keys([&amp;#39;abstracttext_unassigned&amp;#39;, &amp;#39;t_abstracttext_un
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[171]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">second_results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;pdb_id&#39;</span><span class="p">))</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">second_results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;pdb_id&#39;</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">second_results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;experimental_method&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -1199,8 +834,7 @@ dict_keys([&amp;#39;abstracttext_unassigned&amp;#39;, &amp;#39;t_abstracttext_un
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[172]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;3rd search&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;3rd search&#39;</span><span class="p">)</span>
 <span class="n">search_terms</span> <span class="o">=</span> <span class="n">Q</span><span class="p">(</span><span class="n">molecule_name</span><span class="o">=</span><span class="s2">&quot;Dihydrofolate reductase&quot;</span><span class="p">,</span><span class="n">organism_name</span><span class="o">=</span><span class="s2">&quot;Human&quot;</span><span class="p">)</span>
 <span class="n">filter_terms</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;pdb_id&#39;</span><span class="p">,</span> <span class="s1">&#39;experimental_method&#39;</span><span class="p">]</span>
 <span class="n">third_results</span> <span class="o">=</span> <span class="n">run_search</span><span class="p">(</span><span class="n">search_terms</span><span class="p">,</span> <span class="n">filter_terms</span><span class="p">)</span>
@@ -1296,18 +930,17 @@ Number of results: 79
  {&amp;#39;experimental_method&amp;#39;: [&amp;#39;X-ray diffraction&amp;#39;], &amp;#39;pdb_id&amp;#39;: &amp;#39;6a7c&amp;#39;}]
 </pre></div></div>
 </div>
-</div>
-<div class="section" id="6)-Analysing-and-plotting-the-results">
-<h2>6) Analysing and plotting the results<a class="headerlink" href="#6)-Analysing-and-plotting-the-results" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="6)-Analysing-and-plotting-the-results">
+<h2>6) Analysing and plotting the results<a class="headerlink" href="#6)-Analysing-and-plotting-the-results" title="Link to this heading"></a></h2>
 <p>We are going to use a Python package called Pandas to help us sort and visualise the results</p>
 <p>First we have to do a bit of housekeeping, some of the results are lists (a PDB entry can have more than one experimental method or organism for example) so we need to change them into strings so we can use them in a graph</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[173]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">change_lists_to_strings</span><span class="p">(</span><span class="n">results</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">change_lists_to_strings</span><span class="p">(</span><span class="n">results</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    input - list of results from search</span>
 <span class="sd">    output - list of results with lists changed into strings</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -1327,8 +960,7 @@ Number of results: 79
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[174]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">change_lists_to_strings</span><span class="p">(</span><span class="n">third_results</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">change_lists_to_strings</span><span class="p">(</span><span class="n">third_results</span><span class="p">)</span>
 <span class="n">pprint</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1426,8 +1058,7 @@ Number of results: 79
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[175]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">pandas_dataset</span><span class="p">(</span><span class="n">list_of_results</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">pandas_dataset</span><span class="p">(</span><span class="n">list_of_results</span><span class="p">):</span>
     <span class="n">results</span> <span class="o">=</span> <span class="n">change_lists_to_strings</span><span class="p">(</span><span class="n">list_of_results</span><span class="p">)</span> <span class="c1"># we have added our function to change lists to strings</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
 
@@ -1464,8 +1095,7 @@ Number of results: 79
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[176]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;experimental_method&#39;</span><span class="p">)[</span><span class="s1">&#39;pdb_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;experimental_method&#39;</span><span class="p">)[</span><span class="s1">&#39;pdb_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">ds</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1486,8 +1116,7 @@ Name: pdb_id, dtype: int64
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[177]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">dt</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dt</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
 <span class="n">dt</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
@@ -1508,8 +1137,7 @@ Name: pdb_id, dtype: int64
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[178]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">ds</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1527,8 +1155,7 @@ Name: pdb_id, dtype: int64
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[179]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">ds</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1546,8 +1173,7 @@ Name: pdb_id, dtype: int64
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[180]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">ds</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1587,13 +1213,12 @@ if (outputEl) {{
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[181]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">pandas_count</span><span class="p">(</span><span class="n">list_of_results</span><span class="p">,</span> <span class="n">column_to_group_by</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">pandas_count</span><span class="p">(</span><span class="n">list_of_results</span><span class="p">,</span> <span class="n">column_to_group_by</span><span class="p">):</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">pandas_dataset</span><span class="p">(</span><span class="n">list_of_results</span><span class="p">)</span>
     <span class="n">ds</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">column_to_group_by</span><span class="p">)[</span><span class="s1">&#39;pdb_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">ds</span>
 
-<span class="k">def</span> <span class="nf">pandas_min_max</span><span class="p">(</span><span class="n">list_of_results</span><span class="p">,</span> <span class="n">column_to_group_by</span><span class="p">,</span> <span class="n">get_min</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">pandas_min_max</span><span class="p">(</span><span class="n">list_of_results</span><span class="p">,</span> <span class="n">column_to_group_by</span><span class="p">,</span> <span class="n">get_min</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">pandas_dataset</span><span class="p">(</span><span class="n">list_of_results</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">get_min</span><span class="p">:</span>
         <span class="n">ds</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">column_to_group_by</span><span class="p">)[</span><span class="s1">&#39;pdb_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
@@ -1601,11 +1226,10 @@ if (outputEl) {{
         <span class="n">ds</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">column_to_group_by</span><span class="p">)[</span><span class="s1">&#39;pdb_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">ds</span>
 
-<span class="k">def</span> <span class="nf">pandas_plot</span><span class="p">(</span><span class="n">list_of_results</span><span class="p">,</span> <span class="n">column_to_group_by</span><span class="p">,</span> <span class="n">graph_type</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">pandas_plot</span><span class="p">(</span><span class="n">list_of_results</span><span class="p">,</span> <span class="n">column_to_group_by</span><span class="p">,</span> <span class="n">graph_type</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">):</span>
     <span class="n">ds</span> <span class="o">=</span> <span class="n">pandas_count</span><span class="p">(</span><span class="n">list_of_results</span><span class="o">=</span><span class="n">list_of_results</span><span class="p">,</span> <span class="n">column_to_group_by</span><span class="o">=</span><span class="n">column_to_group_by</span><span class="p">)</span>
     <span class="n">ds</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="n">graph_type</span><span class="p">)</span>
-
-</pre></div>
+<br/></pre></div>
 </div>
 </div>
 <p>One for counting the results</p>
@@ -1613,8 +1237,7 @@ if (outputEl) {{
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[182]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">pandas_count</span><span class="p">(</span><span class="n">list_of_results</span><span class="o">=</span><span class="n">results</span><span class="p">,</span> <span class="n">column_to_group_by</span><span class="o">=</span><span class="s1">&#39;experimental_method&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pandas_count</span><span class="p">(</span><span class="n">list_of_results</span><span class="o">=</span><span class="n">results</span><span class="p">,</span> <span class="n">column_to_group_by</span><span class="o">=</span><span class="s1">&#39;experimental_method&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1635,8 +1258,7 @@ Name: pdb_id, dtype: int64
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[183]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;updated search&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;updated search&#39;</span><span class="p">)</span>
 <span class="n">search_terms</span> <span class="o">=</span> <span class="n">Q</span><span class="p">(</span><span class="n">molecule_name</span><span class="o">=</span><span class="s2">&quot;Dihydrofolate reductase&quot;</span><span class="p">,</span><span class="n">organism_name</span><span class="o">=</span><span class="s2">&quot;Human&quot;</span><span class="p">)</span>
 <span class="n">filter_terms</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;pdb_id&#39;</span><span class="p">,</span> <span class="s1">&#39;resolution&#39;</span><span class="p">]</span>
 <span class="n">new_results</span> <span class="o">=</span> <span class="n">run_search</span><span class="p">(</span><span class="n">search_terms</span><span class="p">,</span> <span class="n">filter_terms</span><span class="p">)</span>
@@ -1705,8 +1327,7 @@ Name: pdb_id, dtype: object
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[184]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">pandas_plot</span><span class="p">(</span><span class="n">list_of_results</span><span class="o">=</span><span class="n">results</span><span class="p">,</span> <span class="n">column_to_group_by</span><span class="o">=</span><span class="s1">&#39;experimental_method&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pandas_plot</span><span class="p">(</span><span class="n">list_of_results</span><span class="o">=</span><span class="n">results</span><span class="p">,</span> <span class="n">column_to_group_by</span><span class="o">=</span><span class="s1">&#39;experimental_method&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1746,11 +1367,9 @@ if (outputEl) {{
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[185]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">search_terms</span> <span class="o">=</span> <span class="n">Q</span><span class="p">(</span><span class="n">molecule_name</span><span class="o">=</span><span class="s2">&quot;Dihydrofolate reductase&quot;</span><span class="p">,</span><span class="n">organism_name</span><span class="o">=</span><span class="s2">&quot;Human&quot;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">search_terms</span> <span class="o">=</span> <span class="n">Q</span><span class="p">(</span><span class="n">molecule_name</span><span class="o">=</span><span class="s2">&quot;Dihydrofolate reductase&quot;</span><span class="p">,</span><span class="n">organism_name</span><span class="o">=</span><span class="s2">&quot;Human&quot;</span><span class="p">)</span>
 <span class="n">results</span> <span class="o">=</span> <span class="n">run_search</span><span class="p">(</span><span class="n">search_terms</span><span class="p">,</span> <span class="n">number_of_rows</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
-
-</pre></div>
+<br/></pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1766,8 +1385,7 @@ Number of results: 79
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[186]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">pandas_count</span><span class="p">(</span><span class="n">list_of_results</span><span class="o">=</span><span class="n">results</span><span class="p">,</span> <span class="n">column_to_group_by</span><span class="o">=</span><span class="s1">&#39;experimental_method&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pandas_count</span><span class="p">(</span><span class="n">list_of_results</span><span class="o">=</span><span class="n">results</span><span class="p">,</span> <span class="n">column_to_group_by</span><span class="o">=</span><span class="s1">&#39;experimental_method&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1788,8 +1406,7 @@ Name: pdb_id, dtype: int64
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[187]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">pandas_count</span><span class="p">(</span><span class="n">list_of_results</span><span class="o">=</span><span class="n">results</span><span class="p">,</span> <span class="n">column_to_group_by</span><span class="o">=</span><span class="s1">&#39;release_year&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pandas_count</span><span class="p">(</span><span class="n">list_of_results</span><span class="o">=</span><span class="n">results</span><span class="p">,</span> <span class="n">column_to_group_by</span><span class="o">=</span><span class="s1">&#39;release_year&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1827,8 +1444,7 @@ Name: pdb_id, dtype: int64
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[188]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">pandas_plot</span><span class="p">(</span><span class="n">list_of_results</span><span class="o">=</span><span class="n">results</span><span class="p">,</span> <span class="n">column_to_group_by</span><span class="o">=</span><span class="s1">&#39;release_year&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pandas_plot</span><span class="p">(</span><span class="n">list_of_results</span><span class="o">=</span><span class="n">results</span><span class="p">,</span> <span class="n">column_to_group_by</span><span class="o">=</span><span class="s1">&#39;release_year&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1868,8 +1484,7 @@ if (outputEl) {{
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[189]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">pandas_plot</span><span class="p">(</span><span class="n">list_of_results</span><span class="o">=</span><span class="n">results</span><span class="p">,</span> <span class="n">column_to_group_by</span><span class="o">=</span><span class="s1">&#39;release_year&#39;</span><span class="p">,</span> <span class="n">graph_type</span><span class="o">=</span><span class="s1">&#39;line&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pandas_plot</span><span class="p">(</span><span class="n">list_of_results</span><span class="o">=</span><span class="n">results</span><span class="p">,</span> <span class="n">column_to_group_by</span><span class="o">=</span><span class="s1">&#39;release_year&#39;</span><span class="p">,</span> <span class="n">graph_type</span><span class="o">=</span><span class="s1">&#39;line&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1905,9 +1520,9 @@ if (outputEl) {{
                         })                };                });            </script>        </div></div>
 </div>
 <p>Try changing the term you want to search for and see if you get interesting results.</p>
-</div>
-<div class="section" id="7)-searching-for-two-terms-at-once">
-<h2>7) searching for two terms at once<a class="headerlink" href="#7)-searching-for-two-terms-at-once" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="7)-searching-for-two-terms-at-once">
+<h2>7) searching for two terms at once<a class="headerlink" href="#7)-searching-for-two-terms-at-once" title="Link to this heading"></a></h2>
 <p>It would be interesting to see how many PDB entries were solved by each experimental method per year.</p>
 <p>we can use the tag “release_year” to get the year of release of each entry</p>
 <p>We have to define a new function to group entries by two terms.</p>
@@ -1916,8 +1531,7 @@ if (outputEl) {{
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[190]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">search_terms</span> <span class="o">=</span> <span class="n">Q</span><span class="p">(</span><span class="n">all_enzyme_names</span><span class="o">=</span><span class="s2">&quot;Lysozyme&quot;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">search_terms</span> <span class="o">=</span> <span class="n">Q</span><span class="p">(</span><span class="n">all_enzyme_names</span><span class="o">=</span><span class="s2">&quot;Lysozyme&quot;</span><span class="p">)</span>
 <span class="n">filter_results</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;beam_source_name&#39;</span><span class="p">,</span><span class="s1">&#39;release_year&#39;</span><span class="p">,</span> <span class="s1">&#39;pdb_id&#39;</span><span class="p">]</span>
 <span class="n">results</span> <span class="o">=</span> <span class="n">run_search</span><span class="p">(</span><span class="n">search_terms</span><span class="p">,</span> <span class="n">filter_results</span><span class="p">,</span> <span class="n">number_of_rows</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
 </pre></div>
@@ -1936,15 +1550,14 @@ Number of results: 1975
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[191]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">pandas_plot_multi_groupby</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">first_column_to_group_by</span><span class="p">,</span> <span class="n">second_column_to_group_by</span><span class="p">,</span> <span class="n">y_axis</span><span class="o">=</span><span class="s1">&#39;pdb_id&#39;</span><span class="p">,</span> <span class="n">graph_type</span><span class="o">=</span><span class="s1">&#39;line&#39;</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">pandas_plot_multi_groupby</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">first_column_to_group_by</span><span class="p">,</span> <span class="n">second_column_to_group_by</span><span class="p">,</span> <span class="n">y_axis</span><span class="o">=</span><span class="s1">&#39;pdb_id&#39;</span><span class="p">,</span> <span class="n">graph_type</span><span class="o">=</span><span class="s1">&#39;line&#39;</span><span class="p">):</span>
 
     <span class="n">df</span> <span class="o">=</span> <span class="n">pandas_dataset</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
     <span class="n">new_df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="n">first_column_to_group_by</span><span class="p">,</span> <span class="n">second_column_to_group_by</span><span class="p">])</span>
     <span class="n">ds</span> <span class="o">=</span> <span class="n">new_df</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">first_column_to_group_by</span><span class="p">)</span>
     <span class="n">ds</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">first_column_to_group_by</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y_axis</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="n">graph_type</span><span class="p">)</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
 
-<span class="k">def</span> <span class="nf">pandas_plot_multi_groupby_min</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">first_column_to_group_by</span><span class="p">,</span> <span class="n">second_column_to_group_by</span><span class="p">,</span> <span class="n">graph_type</span><span class="o">=</span><span class="s1">&#39;line&#39;</span><span class="p">,</span> <span class="n">use_min</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">use_max</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">pandas_plot_multi_groupby_min</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">first_column_to_group_by</span><span class="p">,</span> <span class="n">second_column_to_group_by</span><span class="p">,</span> <span class="n">graph_type</span><span class="o">=</span><span class="s1">&#39;line&#39;</span><span class="p">,</span> <span class="n">use_min</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">use_max</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 
     <span class="n">df</span> <span class="o">=</span> <span class="n">pandas_dataset</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
     <span class="n">new_df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="n">first_column_to_group_by</span><span class="p">])[</span><span class="n">second_column_to_group_by</span><span class="p">]</span>
@@ -1958,7 +1571,7 @@ Number of results: 1975
         <span class="k">return</span> <span class="kc">None</span>
     <span class="n">ds</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">first_column_to_group_by</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">second_column_to_group_by</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="n">graph_type</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">pandas_box_plot</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">first_column_to_group_by</span><span class="p">,</span> <span class="n">second_column_to_group_by</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">pandas_box_plot</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">first_column_to_group_by</span><span class="p">,</span> <span class="n">second_column_to_group_by</span><span class="p">):</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">pandas_dataset</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
     <span class="n">df</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="n">second_column_to_group_by</span><span class="p">,</span><span class="n">by</span><span class="o">=</span><span class="n">first_column_to_group_by</span><span class="p">)</span>
 </pre></div>
@@ -1968,8 +1581,7 @@ Number of results: 1975
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[192]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">pandas_plot_multi_groupby</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="s1">&#39;release_year&#39;</span><span class="p">,</span> <span class="s1">&#39;beam_source_name&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pandas_plot_multi_groupby</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="s1">&#39;release_year&#39;</span><span class="p">,</span> <span class="s1">&#39;beam_source_name&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1977,13 +1589,14 @@ Number of results: 1975
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/webinars_web2_6_PDB_search_61_0.svg" src="../../_images/webinars_web2_6_PDB_search_61_0.svg" /></div>
+<img alt="../../_images/webinars_web2_6_PDB_search_61_0.svg" src="../../_images/webinars_web2_6_PDB_search_61_0.svg" />
+</div>
 </div>
 <p>This shows us that rotating anodes were used as the major source of radiation until around 2004 when Synchrotron’s overtook as the major source of radiation.</p>
 <p>Try editing the queries to plot interesting trends within the PDB</p>
-</div>
-<div class="section" id="Questions-to-answer">
-<h2>Questions to answer<a class="headerlink" href="#Questions-to-answer" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="Questions-to-answer">
+<h2>Questions to answer<a class="headerlink" href="#Questions-to-answer" title="Link to this heading"></a></h2>
 <ol class="arabic simple">
 <li><p>Electron Microscopy is going through a revolution. Is this leading to a growth in Electron Microscopy PDB entries?</p></li>
 </ol>
@@ -1991,8 +1604,7 @@ Number of results: 1975
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[193]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">search_terms</span> <span class="o">=</span> <span class="n">Q</span><span class="p">(</span><span class="n">experimental_method</span><span class="o">=</span><span class="s1">&#39;X-ray diffraction&#39;</span><span class="p">,</span><span class="n">release_year</span><span class="o">=</span><span class="s1">&#39;2018&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">search_terms</span> <span class="o">=</span> <span class="n">Q</span><span class="p">(</span><span class="n">experimental_method</span><span class="o">=</span><span class="s1">&#39;X-ray diffraction&#39;</span><span class="p">,</span><span class="n">release_year</span><span class="o">=</span><span class="s1">&#39;2018&#39;</span><span class="p">)</span>
 <span class="n">filter_results</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;structure_determination_method&#39;</span><span class="p">,</span><span class="s1">&#39;release_year&#39;</span><span class="p">,</span> <span class="s1">&#39;pdb_id&#39;</span><span class="p">]</span>
 <span class="n">results</span> <span class="o">=</span> <span class="n">run_search</span><span class="p">(</span><span class="n">search_terms</span><span class="p">,</span> <span class="n">filter_results</span><span class="p">,</span> <span class="n">number_of_rows</span><span class="o">=</span><span class="mi">1000000</span><span class="p">)</span>
 <span class="n">pandas_plot</span><span class="p">(</span><span class="n">list_of_results</span><span class="o">=</span><span class="n">results</span><span class="p">,</span> <span class="n">column_to_group_by</span><span class="o">=</span><span class="s1">&#39;structure_determination_method&#39;</span><span class="p">)</span>
@@ -2045,13 +1657,11 @@ if (outputEl) {{
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[194]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">search_terms</span> <span class="o">=</span> <span class="n">Q</span><span class="p">(</span><span class="n">experimental_method</span><span class="o">=</span><span class="s1">&#39;Electron Microscopy&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">search_terms</span> <span class="o">=</span> <span class="n">Q</span><span class="p">(</span><span class="n">experimental_method</span><span class="o">=</span><span class="s1">&#39;Electron Microscopy&#39;</span><span class="p">)</span>
 <span class="n">filter_results</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;experimental_method&#39;</span><span class="p">,</span><span class="s1">&#39;release_year&#39;</span><span class="p">,</span> <span class="s1">&#39;pdb_id&#39;</span><span class="p">]</span>
 <span class="n">results</span> <span class="o">=</span> <span class="n">run_search</span><span class="p">(</span><span class="n">search_terms</span><span class="p">,</span> <span class="n">filter_results</span><span class="p">,</span> <span class="n">number_of_rows</span><span class="o">=</span><span class="mi">1000000</span><span class="p">)</span>
 <span class="n">pandas_plot_multi_groupby</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="s1">&#39;release_year&#39;</span><span class="p">,</span> <span class="s1">&#39;experimental_method&#39;</span><span class="p">)</span>
-
-</pre></div>
+<br/></pre></div>
 </div>
 </div>
 <div class="nboutput docutils container">
@@ -2066,7 +1676,8 @@ Number of results: 61831
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/webinars_web2_6_PDB_search_67_1.svg" src="../../_images/webinars_web2_6_PDB_search_67_1.svg" /></div>
+<img alt="../../_images/webinars_web2_6_PDB_search_67_1.svg" src="../../_images/webinars_web2_6_PDB_search_67_1.svg" />
+</div>
 </div>
 <ol class="arabic simple" start="3">
 <li><p>Electron Microscopy resolution has been said to be improving. Is this true? hint - the search term and filter can be different. pandas_plot_multi_groupby_min with use_min would be useful to plot this or maybe a box plot?</p></li>
@@ -2075,14 +1686,12 @@ Number of results: 61831
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[195]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">search_terms</span> <span class="o">=</span> <span class="n">Q</span><span class="p">(</span><span class="n">experimental_method</span><span class="o">=</span><span class="s1">&#39;Electron Microscopy&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">search_terms</span> <span class="o">=</span> <span class="n">Q</span><span class="p">(</span><span class="n">experimental_method</span><span class="o">=</span><span class="s1">&#39;Electron Microscopy&#39;</span><span class="p">)</span>
 <span class="n">filter_results</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;overall_quality&#39;</span><span class="p">,</span><span class="s1">&#39;release_year&#39;</span><span class="p">,</span> <span class="s1">&#39;pdb_id&#39;</span><span class="p">]</span>
 <span class="n">results</span> <span class="o">=</span> <span class="n">run_search</span><span class="p">(</span><span class="n">search_terms</span><span class="p">,</span> <span class="n">filter_results</span><span class="p">,</span> <span class="n">number_of_rows</span><span class="o">=</span><span class="mi">1000000</span><span class="p">)</span>
 <span class="n">pandas_plot_multi_groupby_min</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="s1">&#39;release_year&#39;</span><span class="p">,</span> <span class="s1">&#39;overall_quality&#39;</span><span class="p">,</span> <span class="n">use_min</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">pandas_box_plot</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="s1">&#39;release_year&#39;</span><span class="p">,</span> <span class="s1">&#39;overall_quality&#39;</span><span class="p">)</span>
-
-</pre></div>
+<br/></pre></div>
 </div>
 </div>
 <div class="nboutput docutils container">
@@ -2097,13 +1706,15 @@ Number of results: 61831
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/webinars_web2_6_PDB_search_69_1.svg" src="../../_images/webinars_web2_6_PDB_search_69_1.svg" /></div>
+<img alt="../../_images/webinars_web2_6_PDB_search_69_1.svg" src="../../_images/webinars_web2_6_PDB_search_69_1.svg" />
+</div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/webinars_web2_6_PDB_search_69_2.svg" src="../../_images/webinars_web2_6_PDB_search_69_2.svg" /></div>
+<img alt="../../_images/webinars_web2_6_PDB_search_69_2.svg" src="../../_images/webinars_web2_6_PDB_search_69_2.svg" />
+</div>
 </div>
 <ol class="arabic simple" start="4">
 <li><p>It has been said that all the simple structures have been done and that only complicated structures are left. One metric for “complicated” could be size of the assembly - assembly_mol_wt would be useful here.</p></li>
@@ -2112,13 +1723,11 @@ Number of results: 61831
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[196]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">search_terms</span> <span class="o">=</span> <span class="n">Q</span><span class="p">(</span><span class="n">experimental_method</span><span class="o">=</span><span class="s1">&#39;Electron Microscopy&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">search_terms</span> <span class="o">=</span> <span class="n">Q</span><span class="p">(</span><span class="n">experimental_method</span><span class="o">=</span><span class="s1">&#39;Electron Microscopy&#39;</span><span class="p">)</span>
 <span class="n">filter_results</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;assembly_mol_wt&#39;</span><span class="p">,</span><span class="s1">&#39;release_year&#39;</span><span class="p">,</span> <span class="s1">&#39;pdb_id&#39;</span><span class="p">]</span>
 <span class="n">results</span> <span class="o">=</span> <span class="n">run_search</span><span class="p">(</span><span class="n">search_terms</span><span class="p">,</span> <span class="n">filter_results</span><span class="p">,</span> <span class="n">number_of_rows</span><span class="o">=</span><span class="mi">1000000</span><span class="p">)</span>
 <span class="n">pandas_box_plot</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="s1">&#39;release_year&#39;</span><span class="p">,</span> <span class="s1">&#39;assembly_mol_wt&#39;</span><span class="p">)</span>
-
-</pre></div>
+<br/></pre></div>
 </div>
 </div>
 <div class="nboutput docutils container">
@@ -2133,65 +1742,41 @@ Number of results: 61831
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/webinars_web2_6_PDB_search_71_1.svg" src="../../_images/webinars_web2_6_PDB_search_71_1.svg" /></div>
+<img alt="../../_images/webinars_web2_6_PDB_search_71_1.svg" src="../../_images/webinars_web2_6_PDB_search_71_1.svg" />
 </div>
 </div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="7_PDB_sequence_search.html" class="btn btn-neutral float-right" title="PDB sequence search" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="webinar.html" class="btn btn-neutral float-left" title="Searching with the PDBe API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="webinar.html" class="btn btn-neutral float-left" title="Searching with the PDBe API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="7_PDB_sequence_search.html" class="btn btn-neutral float-right" title="PDB sequence search" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        
-        &copy; Copyright 2020, Protein Data Bank in Europe
-
-    </p>
+    <p>&#169; Copyright 2020, Protein Data Bank in Europe.</p>
   </div>
-    
-    
-    
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

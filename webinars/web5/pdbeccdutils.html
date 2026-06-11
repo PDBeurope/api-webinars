@@ -1,101 +1,58 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>pdbeccdutils &mdash; PDBe API webinar series 1.0 documentation</title>
-  
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/thebelab.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css?v=2aa19091" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/styles.css" />
 
   
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/jupyter-sphinx.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/thebelab.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/css/styles.css" type="text/css" />
-
-  
-  
-  
-  
-
-  
-  <!--[if lt IE 9]>
-    <script src="../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
-        <script src="../../_static/thebelab-helper.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-    
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/thebelab-helper.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="arpeggio" href="arpeggio.html" />
     <link rel="prev" title="pdbecif" href="pdbecif.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> PDBe API webinar series
           
-
-          
-            
-            <img src="../../_static/pdbelogo.png" class="logo" alt="Logo"/>
-          
+          <a href="../../index.html" class="icon icon-home">
+            PDBe API webinar series
+              <img src="../../_static/pdbelogo.png" class="logo" alt="Logo"/>
           </a>
-
-          
-            
-            
-              <div class="version">
-                1.0
-              </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../web1/webinar.html">Introduction to PDBe programmatic access</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../web2/webinar.html">Searching with the PDBe API</a><ul>
@@ -181,357 +138,47 @@
 </li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">PDBe API webinar series</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-          <li><a href="webinar.html">PDBe tools in GitHub</a> &raquo;</li>
-        
-      <li>pdbeccdutils</li>
-    
-    
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="webinar.html">PDBe tools in GitHub</a></li>
+      <li class="breadcrumb-item active">pdbeccdutils</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
             <a href="../../_sources/webinars/web5/pdbeccdutils.ipynb.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  
-<style>
-/* CSS for nbsphinx extension */
-
-/* remove conflicting styling from Sphinx themes */
-div.nbinput.container div.prompt *,
-div.nboutput.container div.prompt *,
-div.nbinput.container div.input_area pre,
-div.nboutput.container div.output_area pre,
-div.nbinput.container div.input_area .highlight,
-div.nboutput.container div.output_area .highlight {
-    border: none;
-    padding: 0;
-    margin: 0;
-    box-shadow: none;
-}
-
-div.nbinput.container > div[class*=highlight],
-div.nboutput.container > div[class*=highlight] {
-    margin: 0;
-}
-
-div.nbinput.container div.prompt *,
-div.nboutput.container div.prompt * {
-    background: none;
-}
-
-div.nboutput.container div.output_area .highlight,
-div.nboutput.container div.output_area pre {
-    background: unset;
-}
-
-div.nboutput.container div.output_area div.highlight {
-    color: unset;  /* override Pygments text color */
-}
-
-/* avoid gaps between output lines */
-div.nboutput.container div[class*=highlight] pre {
-    line-height: normal;
-}
-
-/* input/output containers */
-div.nbinput.container,
-div.nboutput.container {
-    display: -webkit-flex;
-    display: flex;
-    align-items: flex-start;
-    margin: 0;
-    width: 100%;
-}
-@media (max-width: 540px) {
-    div.nbinput.container,
-    div.nboutput.container {
-        flex-direction: column;
-    }
-}
-
-/* input container */
-div.nbinput.container {
-    padding-top: 5px;
-}
-
-/* last container */
-div.nblast.container {
-    padding-bottom: 5px;
-}
-
-/* input prompt */
-div.nbinput.container div.prompt pre {
-    color: #307FC1;
-}
-
-/* output prompt */
-div.nboutput.container div.prompt pre {
-    color: #BF5B3D;
-}
-
-/* all prompts */
-div.nbinput.container div.prompt,
-div.nboutput.container div.prompt {
-    width: 4.5ex;
-    padding-top: 5px;
-    position: relative;
-    user-select: none;
-}
-
-div.nbinput.container div.prompt > div,
-div.nboutput.container div.prompt > div {
-    position: absolute;
-    right: 0;
-    margin-right: 0.3ex;
-}
-
-@media (max-width: 540px) {
-    div.nbinput.container div.prompt,
-    div.nboutput.container div.prompt {
-        width: unset;
-        text-align: left;
-        padding: 0.4em;
-    }
-    div.nboutput.container div.prompt.empty {
-        padding: 0;
-    }
-
-    div.nbinput.container div.prompt > div,
-    div.nboutput.container div.prompt > div {
-        position: unset;
-    }
-}
-
-/* disable scrollbars on prompts */
-div.nbinput.container div.prompt pre,
-div.nboutput.container div.prompt pre {
-    overflow: hidden;
-}
-
-/* input/output area */
-div.nbinput.container div.input_area,
-div.nboutput.container div.output_area {
-    -webkit-flex: 1;
-    flex: 1;
-    overflow: auto;
-}
-@media (max-width: 540px) {
-    div.nbinput.container div.input_area,
-    div.nboutput.container div.output_area {
-        width: 100%;
-    }
-}
-
-/* input area */
-div.nbinput.container div.input_area {
-    border: 1px solid #e0e0e0;
-    border-radius: 2px;
-    /*background: #f5f5f5;*/
-}
-
-/* override MathJax center alignment in output cells */
-div.nboutput.container div[class*=MathJax] {
-    text-align: left !important;
-}
-
-/* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput.container div.math p {
-    text-align: left;
-}
-
-/* standard error */
-div.nboutput.container div.output_area.stderr {
-    background: #fdd;
-}
-
-/* ANSI colors */
-.ansi-black-fg { color: #3E424D; }
-.ansi-black-bg { background-color: #3E424D; }
-.ansi-black-intense-fg { color: #282C36; }
-.ansi-black-intense-bg { background-color: #282C36; }
-.ansi-red-fg { color: #E75C58; }
-.ansi-red-bg { background-color: #E75C58; }
-.ansi-red-intense-fg { color: #B22B31; }
-.ansi-red-intense-bg { background-color: #B22B31; }
-.ansi-green-fg { color: #00A250; }
-.ansi-green-bg { background-color: #00A250; }
-.ansi-green-intense-fg { color: #007427; }
-.ansi-green-intense-bg { background-color: #007427; }
-.ansi-yellow-fg { color: #DDB62B; }
-.ansi-yellow-bg { background-color: #DDB62B; }
-.ansi-yellow-intense-fg { color: #B27D12; }
-.ansi-yellow-intense-bg { background-color: #B27D12; }
-.ansi-blue-fg { color: #208FFB; }
-.ansi-blue-bg { background-color: #208FFB; }
-.ansi-blue-intense-fg { color: #0065CA; }
-.ansi-blue-intense-bg { background-color: #0065CA; }
-.ansi-magenta-fg { color: #D160C4; }
-.ansi-magenta-bg { background-color: #D160C4; }
-.ansi-magenta-intense-fg { color: #A03196; }
-.ansi-magenta-intense-bg { background-color: #A03196; }
-.ansi-cyan-fg { color: #60C6C8; }
-.ansi-cyan-bg { background-color: #60C6C8; }
-.ansi-cyan-intense-fg { color: #258F8F; }
-.ansi-cyan-intense-bg { background-color: #258F8F; }
-.ansi-white-fg { color: #C5C1B4; }
-.ansi-white-bg { background-color: #C5C1B4; }
-.ansi-white-intense-fg { color: #A1A6B2; }
-.ansi-white-intense-bg { background-color: #A1A6B2; }
-
-.ansi-default-inverse-fg { color: #FFFFFF; }
-.ansi-default-inverse-bg { background-color: #000000; }
-
-.ansi-bold { font-weight: bold; }
-.ansi-underline { text-decoration: underline; }
-
-
-div.nbinput.container div.input_area div[class*=highlight] > pre,
-div.nboutput.container div.output_area div[class*=highlight] > pre,
-div.nboutput.container div.output_area div[class*=highlight].math,
-div.nboutput.container div.output_area.rendered_html,
-div.nboutput.container div.output_area > div.output_javascript,
-div.nboutput.container div.output_area:not(.rendered_html) > img{
-    padding: 5px;
-    margin: 0;
-}
-
-/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
-div.nbinput.container div.input_area > div[class^='highlight'],
-div.nboutput.container div.output_area > div[class^='highlight']{
-    overflow-y: hidden;
-}
-
-/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
-.prompt a.copybtn {
-    display: none;
-}
-
-/* Some additional styling taken form the Jupyter notebook CSS */
-div.rendered_html table {
-  border: none;
-  border-collapse: collapse;
-  border-spacing: 0;
-  color: black;
-  font-size: 12px;
-  table-layout: fixed;
-}
-div.rendered_html thead {
-  border-bottom: 1px solid black;
-  vertical-align: bottom;
-}
-div.rendered_html tr,
-div.rendered_html th,
-div.rendered_html td {
-  text-align: right;
-  vertical-align: middle;
-  padding: 0.5em 0.5em;
-  line-height: normal;
-  white-space: normal;
-  max-width: none;
-  border: none;
-}
-div.rendered_html th {
-  font-weight: bold;
-}
-div.rendered_html tbody tr:nth-child(odd) {
-  background: #f5f5f5;
-}
-div.rendered_html tbody tr:hover {
-  background: rgba(66, 165, 245, 0.2);
-}
-
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<div class="section" id="pdbeccdutils">
-<h1>pdbeccdutils<a class="headerlink" href="#pdbeccdutils" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="pdbeccdutils">
+<h1>pdbeccdutils<a class="headerlink" href="#pdbeccdutils" title="Link to this heading"></a></h1>
 <p>This exercise demonstrates the use of the <a class="reference external" href="https://github.com/PDBeurope/ccdutils">pdbeccdutils</a> - a set of python tools for working with small molecule components in the Protein Data Bank archive.</p>
-<p>You can use two main resources as input data for the package. <a class="reference external" href="http://www.wwpdb.org/data/ccd">wwPDB CCD</a> contains models of all the ligands e.g. drug molecules, cofactors etc. commonly found in the PDB archive, whereas <a class="reference external" href="http://www.wwpdb.org/data/bird">wwPDB BIRD</a> is composed of biologically interesting polymeric molecules such as peptides or oligosaccharides.</p>
+<p>You can use two main resources as input data for the package. <a class="reference external" href="http://www.wwpdb.org/data/ccd">wwPDB CCD</a> contains models of all the ligands e.g. drug molecules, cofactors etc. commonly found in the PDB archive, whereas <a class="reference external" href="http://www.wwpdb.org/data/bird">wwPDB BIRD</a> is composed of biologically interesting polymeric molecules such as peptides or oligosaccharides.</p>
 <p>CCD components can be downloaded as a bundle either from <a class="reference external" href="ftp://ftp.wwpdb.org/pub/pdb/data/monomers/components.cif.gz">wwPDB FTP area</a>, or from <a class="reference external" href="http://ftp.ebi.ac.uk/pub/databases/msd/pdbechem_v2/components.cif">PDBe FTP area</a>. The components from the PDBe area are enriched with information about common fragments found in the molecules, their molecular scaffolds as well as links to popular small molecule chemistry databases. You can also use PDBeChem to download individual components from
 the following link using proper CCD id substitution: <a class="reference external" href="ftp://ftp.ebi.ac.uk/pub/databases/msd/pdbechem_v2/H/HEM/HEM.cif">ftp://ftp.ebi.ac.uk/pub/databases/msd/pdbechem_v2/H/HEM/HEM.cif</a>.</p>
 <p>‘BIRD’ molecules can be downloaded in the *.tar.gz format from the following location: <a class="reference external" href="ftp://ftp.wwpdb.org/pub/pdb/data/bird/prd/prdcc-split.tar.gz">ftp://ftp.wwpdb.org/pub/pdb/data/bird/prd/prdcc-split.tar.gz</a></p>
 <p>pdbeccdutils relies on <a class="reference external" href="https://www.rdkit.org/">RDKit</a> for the most of its functionality and as such it is best to be used along with <a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html">conda environment</a></p>
 <p>Install and activate conda environment with rdkit using the following command:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda create -c conda-forge -n rdkit-env rdkit <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.7
-conda activate rdkit-env
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>-n<span class="w"> </span>rdkit-env<span class="w"> </span>rdkit<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.7
+conda<span class="w"> </span>activate<span class="w"> </span>rdkit-env
 </pre></div>
 </div>
 <p>You can then install the pdbeccdutils either from <a class="reference external" href="https://pypi.org/project/pdbeccdutils/">PYPi</a> or directly from the <a class="reference external" href="https://github.com/PDBeurope/ccdutils">repository</a> using one of the following commands:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install pdbeccdutils
-pip install git+https://github.com/PDBeurope/ccdutils.git@master#egg<span class="o">=</span>pdbeccdutils
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>pdbeccdutils
+pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/PDBeurope/ccdutils.git@master#egg<span class="o">=</span>pdbeccdutils
 </pre></div>
 </div>
 <p>The pdbeccdutils API contains a number of different modules stored in namespaces with respect to their functionality. All off the modules along with useful tips are documented in the <a class="reference external" href="https://pdbeurope.github.io/ccdutils/">documentation</a>. In this exercise we will go through some of the use cases.</p>
@@ -558,10 +205,9 @@ pip install git+https://github.com/PDBeurope/ccdutils.git@master#egg<span class=
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">requests</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 
-<span class="k">def</span> <span class="nf">download_component</span><span class="p">(</span><span class="n">ccd_id</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">download_component</span><span class="p">(</span><span class="n">ccd_id</span><span class="p">):</span>
     <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;http://ftp.ebi.ac.uk/pub/databases/msd/pdbechem_v2/</span><span class="si">{</span><span class="n">ccd_id</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">ccd_id</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">ccd_id</span><span class="si">}</span><span class="s1">.cif&#39;</span><span class="p">)</span>
     <span class="n">cif_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">ccd_id</span><span class="si">}</span><span class="s1">.cif&#39;</span>
 
@@ -574,15 +220,14 @@ pip install git+https://github.com/PDBeurope/ccdutils.git@master#egg<span class=
 </pre></div>
 </div>
 </div>
-<div class="section" id="Structure-reading">
-<h2>Structure reading<a class="headerlink" href="#Structure-reading" title="Permalink to this headline">¶</a></h2>
+<section id="Structure-reading">
+<h2>Structure reading<a class="headerlink" href="#Structure-reading" title="Link to this heading"></a></h2>
 <p>Structure reading can be done using <code class="docutils literal notranslate"><span class="pre">ccd_reader.py</span></code> module located in the <code class="docutils literal notranslate"><span class="pre">pdbeccdutils.core</span></code> module. By default, the molecules comes <a class="reference external" href="https://www.rdkit.org/docs/RDKit_Book.html#molecular-sanitization">sanitized</a> using RDKit sanitization procedure and our internal process. However, this option can be turned off by specifying optional parameter <code class="docutils literal notranslate"><span class="pre">sanitize=False</span></code> to the function.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">pdbeccdutils.core</span> <span class="kn">import</span> <span class="n">ccd_reader</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pdbeccdutils.core</span><span class="w"> </span><span class="kn">import</span> <span class="n">ccd_reader</span>
 
 <span class="n">ccd_reader_result</span> <span class="o">=</span> <span class="n">ccd_reader</span><span class="o">.</span><span class="n">read_pdb_cif_file</span><span class="p">(</span><span class="n">hem_path</span><span class="p">)</span>
 <span class="n">ccd_reader_result</span>
@@ -603,8 +248,7 @@ CCDReaderResult(warnings=[], errors=[], component=&lt;pdbeccdutils.core.componen
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">components_result</span> <span class="o">=</span> <span class="n">ccd_reader</span><span class="o">.</span><span class="n">read_pdb_components_file</span><span class="p">(</span><span class="s1">&#39;HEM.cif&#39;</span><span class="p">,</span> <span class="n">sanitize</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">components_result</span> <span class="o">=</span> <span class="n">ccd_reader</span><span class="o">.</span><span class="n">read_pdb_components_file</span><span class="p">(</span><span class="s1">&#39;HEM.cif&#39;</span><span class="p">,</span> <span class="n">sanitize</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">components_result</span>
 </pre></div>
 </div>
@@ -618,16 +262,15 @@ CCDReaderResult(warnings=[], errors=[], component=&lt;pdbeccdutils.core.componen
 {&#39;HEM&#39;: CCDReaderResult(warnings=[], errors=[], component=&lt;pdbeccdutils.core.component.Component object at 0x7f86f6804050&gt;)}
 </pre></div></div>
 </div>
-</div>
-<div class="section" id="Component-object">
-<h2>Component object<a class="headerlink" href="#Component-object" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="Component-object">
+<h2>Component object<a class="headerlink" href="#Component-object" title="Link to this heading"></a></h2>
 <p>The component object contains a list of usefull properties retrieved directly from the CCD file as well as shorthand functions to the RDKit functionality in the following excercise we will go through some of them.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">component</span> <span class="o">=</span> <span class="n">ccd_reader_result</span><span class="o">.</span><span class="n">component</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">component</span> <span class="o">=</span> <span class="n">ccd_reader_result</span><span class="o">.</span><span class="n">component</span>
 <span class="n">component</span>
 </pre></div>
 </div>
@@ -645,10 +288,8 @@ CCDReaderResult(warnings=[], errors=[], component=&lt;pdbeccdutils.core.componen
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">component</span><span class="o">.</span><span class="n">formula</span>
-
-</pre></div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">component</span><span class="o">.</span><span class="n">formula</span>
+<br/></pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -664,8 +305,7 @@ CCDReaderResult(warnings=[], errors=[], component=&lt;pdbeccdutils.core.componen
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">component</span><span class="o">.</span><span class="n">inchikey</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">component</span><span class="o">.</span><span class="n">inchikey</span>
 </pre></div>
 </div>
 </div>
@@ -678,15 +318,14 @@ CCDReaderResult(warnings=[], errors=[], component=&lt;pdbeccdutils.core.componen
 &#39;KABFMIBPWCXCRK-RGGAHWMASA-L&#39;
 </pre></div></div>
 </div>
-<div class="section" id="Scaffolds">
-<h3>Scaffolds<a class="headerlink" href="#Scaffolds" title="Permalink to this headline">¶</a></h3>
+<section id="Scaffolds">
+<h3>Scaffolds<a class="headerlink" href="#Scaffolds" title="Link to this heading"></a></h3>
 <p>One of the shorthand function allows you to calculate molecular scaffolds using <a class="reference external" href="https://pdbeurope.github.io/ccdutils/pdbeccdutils.core.html#pdbeccdutils.core.component.Component.get_scaffolds">get_scaffolds()</a> method. You can choose a number of different scaffolds to compute, if you don’t provide any parameter <a class="reference external" href="https://www.rdkit.org/docs/source/rdkit.Chem.Scaffolds.MurckoScaffold.html">Murcko scaffold</a> is computed by default.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># at first scaffolds property is empty</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># at first scaffolds property is empty</span>
 <span class="n">component</span><span class="o">.</span><span class="n">scaffolds</span>
 <span class="p">[]</span>
 
@@ -708,8 +347,7 @@ CCDReaderResult(warnings=[], errors=[], component=&lt;pdbeccdutils.core.componen
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">scaffold_details</span> <span class="o">=</span> <span class="n">component</span><span class="o">.</span><span class="n">scaffolds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scaffold_details</span> <span class="o">=</span> <span class="n">component</span><span class="o">.</span><span class="n">scaffolds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">scaffold_details</span>
 </pre></div>
 </div>
@@ -727,8 +365,7 @@ SubstructureMapping(name=&#39;MurckoScaffold&#39;, smiles=&#39;C1=CC2=[N+]3C1=Cc
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># list of lists of atom names with atoms that are part of the scaffold.</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># list of lists of atom names with atoms that are part of the scaffold.</span>
 <span class="n">scaffold_details</span><span class="o">.</span><span class="n">mappings</span>
 </pre></div>
 </div>
@@ -766,25 +403,23 @@ SubstructureMapping(name=&#39;MurckoScaffold&#39;, smiles=&#39;C1=CC2=[N+]3C1=Cc
   &#39;FE&#39;]]
 </pre></div></div>
 </div>
-</div>
-<div class="section" id="Fragments">
-<h3>Fragments<a class="headerlink" href="#Fragments" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="Fragments">
+<h3>Fragments<a class="headerlink" href="#Fragments" title="Link to this heading"></a></h3>
 <p>pdbeccdutils package contains also a shorthand functions to enable searching through fragment libraries. By default the code is supplied with a hand-curated library that is internally used by the PDBe as well as collaborating resources ENAMINE and DSI. You can read more about the molecular fragments the built-in library contains in the <a class="reference external" href="https://pdbeurope.github.io/ccdutils/guide/fragments.html">documentation</a> as well as about an input file format in case you want to supply your own fragment
 library.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">pdbeccdutils.core.fragment_library</span> <span class="kn">import</span> <span class="n">FragmentLibrary</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pdbeccdutils.core.fragment_library</span><span class="w"> </span><span class="kn">import</span> <span class="n">FragmentLibrary</span>
 
 <span class="c1"># if you dont provide any parameter to the FragmentLibrary constructor</span>
 <span class="c1"># supplied fragment library is used</span>
 <span class="n">library</span> <span class="o">=</span> <span class="n">FragmentLibrary</span><span class="p">()</span>
 <span class="n">fragments</span> <span class="o">=</span> <span class="n">component</span><span class="o">.</span><span class="n">library_search</span><span class="p">(</span><span class="n">library</span><span class="p">)</span>
 <span class="nb">len</span><span class="p">(</span><span class="n">fragments</span><span class="p">)</span>
-
-</pre></div>
+<br/></pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -800,8 +435,7 @@ library.</p>
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">fragments</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fragments</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -818,8 +452,7 @@ SubstructureMapping(name=&#39;pyrrole&#39;, smiles=&#39;c1cc[nH]c1&#39;, source=
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">component</span><span class="o">.</span><span class="n">fragments</span><span class="p">:</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">component</span><span class="o">.</span><span class="n">fragments</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">mappings</span><span class="p">)</span><span class="si">}</span><span class="s1"> instance(s) of the fragment </span><span class="si">{</span><span class="n">f</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1"> found. SMILES:</span><span class="si">{</span><span class="n">f</span><span class="o">.</span><span class="n">smiles</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -833,18 +466,17 @@ SubstructureMapping(name=&#39;pyrrole&#39;, smiles=&#39;c1cc[nH]c1&#39;, source=
 2 instance(s) of the fragment pyrrole found. SMILES:c1cc[nH]c1
 </pre></div></div>
 </div>
-</div>
-<div class="section" id="Molecular-depictions">
-<h3>Molecular depictions<a class="headerlink" href="#Molecular-depictions" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="Molecular-depictions">
+<h3>Molecular depictions<a class="headerlink" href="#Molecular-depictions" title="Link to this heading"></a></h3>
 <p>component object exposes method <a class="reference external" href="https://pdbeurope.github.io/ccdutils/pdbeccdutils.core.html#pdbeccdutils.core.component.Component.compute_2d">compute_2d()</a> that takes <a class="reference external" href="https://pdbeurope.github.io/ccdutils/pdbeccdutils.core.html#pdbeccdutils.core.depictions.DepictionManager">DepictionManager</a> object as an argument. This enables you to take advantage of depiction templates supplied with the package. Alternativelly, you can provide paths to your own depiction templates and templates from
 PubChem. You build a library of pubchem templates using the following <a class="reference external" href="https://pdbeurope.github.io/ccdutils/pdbeccdutils.scripts.html#module-pdbeccdutils.scripts.setup_pubchem_library_cli">script</a>.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">rdkit.Chem.Draw</span> <span class="kn">import</span> <span class="n">IPythonConsole</span> <span class="c1"># this import allows you to display images directly in the jupyter notebook</span>
-<span class="kn">from</span> <span class="nn">IPython.core.display</span> <span class="kn">import</span> <span class="n">SVG</span> <span class="c1"># allows to display SVG images</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">rdkit.Chem.Draw</span><span class="w"> </span><span class="kn">import</span> <span class="n">IPythonConsole</span> <span class="c1"># this import allows you to display images directly in the jupyter notebook</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.core.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">SVG</span> <span class="c1"># allows to display SVG images</span>
 </pre></div>
 </div>
 </div>
@@ -852,8 +484,7 @@ PubChem. You build a library of pubchem templates using the following <a class="
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">pdbeccdutils.core.depictions</span> <span class="kn">import</span> <span class="n">DepictionManager</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pdbeccdutils.core.depictions</span><span class="w"> </span><span class="kn">import</span> <span class="n">DepictionManager</span>
 
 <span class="c1"># create an instance of the depiction manager</span>
 <span class="n">d</span> <span class="o">=</span> <span class="n">DepictionManager</span><span class="p">()</span>
@@ -876,8 +507,7 @@ DepictionResult(source=&lt;DepictionSource.Template: 2&gt;, template_name=&#39;h
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># depiction score</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># depiction score</span>
 <span class="n">result_2d</span><span class="o">.</span><span class="n">score</span>
 </pre></div>
 </div>
@@ -895,8 +525,7 @@ DepictionResult(source=&lt;DepictionSource.Template: 2&gt;, template_name=&#39;h
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># and the depiction itself</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># and the depiction itself</span>
 <span class="n">result_2d</span><span class="o">.</span><span class="n">mol</span>
 </pre></div>
 </div>
@@ -914,15 +543,13 @@ DepictionResult(source=&lt;DepictionSource.Template: 2&gt;, template_name=&#39;h
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">ado_path</span> <span class="o">=</span> <span class="n">download_component</span><span class="p">(</span><span class="s1">&#39;ADO&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ado_path</span> <span class="o">=</span> <span class="n">download_component</span><span class="p">(</span><span class="s1">&#39;ADO&#39;</span><span class="p">)</span>
 <span class="n">ado</span> <span class="o">=</span> <span class="n">ccd_reader</span><span class="o">.</span><span class="n">read_pdb_cif_file</span><span class="p">(</span><span class="n">ado_path</span><span class="p">)</span><span class="o">.</span><span class="n">component</span>
 <span class="n">ado_depiction_result</span> <span class="o">=</span> <span class="n">ado</span><span class="o">.</span><span class="n">compute_2d</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Depiction score is: </span><span class="si">{</span><span class="n">ado_depiction_result</span><span class="o">.</span><span class="n">score</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="n">ado_depiction_result</span><span class="o">.</span><span class="n">mol</span>
-
-</pre></div>
+<br/></pre></div>
 </div>
 </div>
 <div class="nboutput docutils container">
@@ -945,8 +572,7 @@ Depiction score is: 1.0
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># we can also use convenient functions to store the depiction as an svg image:</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># we can also use convenient functions to store the depiction as an svg image:</span>
 <span class="n">component</span><span class="o">.</span><span class="n">export_2d_svg</span><span class="p">(</span><span class="s1">&#39;HEM.svg&#39;</span><span class="p">)</span>
 
 <span class="c1"># including atom names</span>
@@ -960,15 +586,15 @@ Depiction score is: 1.0
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/webinars_web5_pdbeccdutils_31_0.svg" src="../../_images/webinars_web5_pdbeccdutils_31_0.svg" /></div>
+<img alt="../../_images/webinars_web5_pdbeccdutils_31_0.svg" src="../../_images/webinars_web5_pdbeccdutils_31_0.svg" />
+</div>
 </div>
 <p>We can also export the svg image and highlight atoms and bonds. Let’s highlight the molecular scaffold we calculated earlier.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># retrieve list of atom names that are part of the scaffold</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># retrieve list of atom names that are part of the scaffold</span>
 <span class="c1"># and color them in green. RGB: (0.2, 0.5, 0.2).</span>
 <span class="c1"># Scale 0-1 is used instead of the common 0-255</span>
 <span class="n">scaffold</span> <span class="o">=</span> <span class="n">component</span><span class="o">.</span><span class="n">scaffolds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -998,15 +624,15 @@ Depiction score is: 1.0
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/webinars_web5_pdbeccdutils_33_0.svg" src="../../_images/webinars_web5_pdbeccdutils_33_0.svg" /></div>
+<img alt="../../_images/webinars_web5_pdbeccdutils_33_0.svg" src="../../_images/webinars_web5_pdbeccdutils_33_0.svg" />
+</div>
 </div>
 <p>The exactly same operations can be done by using input data from wwPDB BIRD dictionary. For the following example we are going to use <a class="reference external" href="https://en.wikipedia.org/wiki/Vancomycin">Vancomycin</a>, an antibiotic used for bacterial infection treatment. Just download <code class="docutils literal notranslate"><span class="pre">PRDCC_000204</span></code> wwPDB BIRD entry from the <a class="reference external" href="ftp://ftp.wwpdb.org/pub/pdb/data/bird/prd/">FTP directory</a>.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">c</span> <span class="o">=</span> <span class="n">ccd_reader</span><span class="o">.</span><span class="n">read_pdb_cif_file</span><span class="p">(</span><span class="s1">&#39;PRDCC_000204.cif&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">component</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">ccd_reader</span><span class="o">.</span><span class="n">read_pdb_cif_file</span><span class="p">(</span><span class="s1">&#39;PRDCC_000204.cif&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">component</span>
 <span class="n">c</span><span class="o">.</span><span class="n">compute_2d</span><span class="p">(</span><span class="n">d</span><span class="p">)</span><span class="o">.</span><span class="n">mol</span>
 </pre></div>
 </div>
@@ -1019,18 +645,17 @@ Depiction score is: 1.0
 <img alt="../../_images/webinars_web5_pdbeccdutils_35_0.png" src="../../_images/webinars_web5_pdbeccdutils_35_0.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="Structure-writing">
-<h2>Structure writing<a class="headerlink" href="#Structure-writing" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="Structure-writing">
+<h2>Structure writing<a class="headerlink" href="#Structure-writing" title="Link to this heading"></a></h2>
 <p>Structure writing can be done using <code class="docutils literal notranslate"><span class="pre">ccd_writer.py</span></code> module located in the <code class="docutils literal notranslate"><span class="pre">pdbeccdutils.core</span></code> module. This module exposes <a class="reference external" href="https://pdbeurope.github.io/ccdutils/pdbeccdutils.core.html#pdbeccdutils.core.ccd_writer.write_molecule">write_molecule()</a> method that enables writing out conformers of chemical components in a number of different formats. See example below:</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">pdbeccdutils.core</span> <span class="kn">import</span> <span class="n">ccd_writer</span>
-<span class="kn">from</span> <span class="nn">pdbeccdutils.core.models</span> <span class="kn">import</span> <span class="n">ConformerType</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pdbeccdutils.core</span><span class="w"> </span><span class="kn">import</span> <span class="n">ccd_writer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pdbeccdutils.core.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">ConformerType</span>
 
 <span class="c1"># write out ideal conformer in the PDB format</span>
 <span class="n">ccd_writer</span><span class="o">.</span><span class="n">write_molecule</span><span class="p">(</span><span class="s1">&#39;HEM_ideal.pdb&#39;</span><span class="p">,</span> <span class="n">component</span><span class="p">,</span> <span class="n">conf_type</span><span class="o">=</span><span class="n">ConformerType</span><span class="o">.</span><span class="n">Ideal</span><span class="p">)</span>
@@ -1044,17 +669,16 @@ Depiction score is: 1.0
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="Parity-method">
-<h2>Parity method<a class="headerlink" href="#Parity-method" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="Parity-method">
+<h2>Parity method<a class="headerlink" href="#Parity-method" title="Link to this heading"></a></h2>
 <p>There is a number of chemical similarity methods that can estimate a degree of similarity between the two molecules. pdbeccdutils implements one of such methods that takes advantage of maximum common sub-structures. This method is called PARITY and was developed by Jon Tyzack while working at EBI. You can read the description of the method in the <a class="reference external" href="https://doi.org/10.1016/j.str.2018.02.009">published paper</a>.</p>
 <p>In the following example we are going to examine molecular similarity of two heme variants <a class="reference external" href="http://pdbe.org/chem/HEA">HEME A</a> and <a class="reference external" href="http://pdbe.org/chem/DHE">HEME D</a></p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># download the structures first</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># download the structures first</span>
 <span class="n">hem_a_path</span> <span class="o">=</span> <span class="n">download_component</span><span class="p">(</span><span class="s1">&#39;HEA&#39;</span><span class="p">)</span>
 <span class="n">hem_d_path</span> <span class="o">=</span> <span class="n">download_component</span><span class="p">(</span><span class="s1">&#39;DHE&#39;</span><span class="p">)</span>
 </pre></div>
@@ -1064,16 +688,14 @@ Depiction score is: 1.0
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">pdbeccdutils.computations.parity_method</span> <span class="kn">import</span> <span class="n">compare_molecules</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pdbeccdutils.computations.parity_method</span><span class="w"> </span><span class="kn">import</span> <span class="n">compare_molecules</span>
 
 <span class="n">hem_a</span> <span class="o">=</span> <span class="n">ccd_reader</span><span class="o">.</span><span class="n">read_pdb_cif_file</span><span class="p">(</span><span class="n">hem_a_path</span><span class="p">)</span><span class="o">.</span><span class="n">component</span>
 <span class="n">hem_d</span> <span class="o">=</span> <span class="n">ccd_reader</span><span class="o">.</span><span class="n">read_pdb_cif_file</span><span class="p">(</span><span class="n">hem_d_path</span><span class="p">)</span><span class="o">.</span><span class="n">component</span>
 
 <span class="n">result</span> <span class="o">=</span> <span class="n">compare_molecules</span><span class="p">(</span><span class="n">hem_a</span><span class="o">.</span><span class="n">mol_no_h</span><span class="p">,</span> <span class="n">hem_d</span><span class="o">.</span><span class="n">mol_no_h</span><span class="p">)</span>
 <span class="n">result</span>
-
-</pre></div>
+<br/></pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1090,8 +712,7 @@ ParityResult(mapping={0: 0, 5: 5, 6: 6, 1: 1, 35: 42, 31: 38, 32: 39, 4: 4, 27: 
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Similarity between heme A and heme D is: </span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">similarity_score</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Similarity between heme A and heme D is: </span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">similarity_score</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1103,67 +724,42 @@ ParityResult(mapping={0: 0, 5: 5, 6: 6, 1: 1, 35: 42, 31: 38, 32: 39, 4: 4, 27: 
 Similarity between heme A and heme D is: 0.603.
 </pre></div></div>
 </div>
-</div>
-<div class="section" id="Scripts">
-<h2>Scripts<a class="headerlink" href="#Scripts" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="Scripts">
+<h2>Scripts<a class="headerlink" href="#Scripts" title="Link to this heading"></a></h2>
 <p>pdbeccdutils package implements also <a class="reference external" href="https://pdbeurope.github.io/ccdutils/guide/pipelines.html">scripts</a> that we internally use for chemistry related processes in the PDBe. Directly from the package you can try out the PDBeChem that generates content of the <a class="reference external" href="http://ftp.ebi.ac.uk/pub/databases/msd/pdbechem_v2">FTP area</a> and provides all the data that are consumed by the <a class="reference external" href="http://pdbe.org/chem">service</a>.</p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="arpeggio.html" class="btn btn-neutral float-right" title="arpeggio" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="pdbecif.html" class="btn btn-neutral float-left" title="pdbecif" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="pdbecif.html" class="btn btn-neutral float-left" title="pdbecif" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="arpeggio.html" class="btn btn-neutral float-right" title="arpeggio" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        
-        &copy; Copyright 2020, Protein Data Bank in Europe
-
-    </p>
+    <p>&#169; Copyright 2020, Protein Data Bank in Europe.</p>
   </div>
-    
-    
-    
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>
