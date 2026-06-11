@@ -9,9 +9,14 @@ on:
       branches: 
         - master
 
+permissions:
+  contents: read
+
 jobs:
     documentation:
         name: Generate documentation
+        permissions:
+            contents: write
         runs-on: ubuntu-latest
     
         steps:
